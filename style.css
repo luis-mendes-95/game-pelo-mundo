@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #3737A2, #0066CC);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cenario{
+    width:100%;
+}
+
+@media(max-width:468px){
+
+    .cenario{
+        width:100%;
+        transform: scale(2);
+    }
+
+}
+
+@media(min-width:468px){
+
+    .cenario{
+        width:100%;
+        transform: scale(1.8);
+    }
+
+}
+
+@media(min-width:768px){
+
+    .cenario{
+        width:100%;
+        transform: scale(1.5);
+    }
+
+}
+
+@media(min-width:1200px){
+
+    .cenario{
+        width:100%;
+        transform: scale(1);
+    }
+
+}
+
+
