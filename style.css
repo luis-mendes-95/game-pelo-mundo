@@ -1,59 +1,110 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    background: linear-gradient(to bottom, #3737A2, #0066CC);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #3737a2, #0066cc);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.cenario{
-    width:100%;
+@media (min-width: 468px){
+    .cenario {
+        width: 100%;
+      }
+      
+      .pelo {
+        position: absolute;
+        left: 5%;
+        top: 12%;
+      }
+      
+      .mundo {
+        position: absolute;
+        left: 3%;
+        top: 50%;
+      }
+      
+      .balao {
+        position: absolute;
+        left: 48%;
+        top: 0;
+        transform: scale(0.9);
+      }
+      
+      .botao_iniciar {
+        position: absolute;
+        left: 55%;
+        top: 75%;
+      }
 }
 
-@media(max-width:468px){
-
-    .cenario{
-        width:100%;
-        transform: scale(2);
-    }
-
-}
-
-@media(min-width:468px){
-
-    .cenario{
-        width:100%;
-        transform: scale(1.8);
-    }
-
-}
-
-@media(min-width:768px){
-
-    .cenario{
-        width:100%;
-        transform: scale(1.5);
-    }
-
-}
-
-@media(min-width:1200px){
-
-    .cenario{
-        width:100%;
+@media (min-width: 768px){
+    .cenario {
+        width: 100%;
+      }
+      
+      .pelo {
+        position: absolute;
+        left: 15%;
+        top: 12%;
+      }
+      
+      .mundo {
+        position: absolute;
+        left: 9%;
+        top: 50%;
+      }
+      
+      .balao {
+        position: absolute;
+        left: 55%;
+        top: 0;
         transform: scale(1);
-    }
-
+      }
+      
+      .botao_iniciar {
+        position: absolute;
+        left: 65%;
+        top: 75%;
+      }
 }
 
-
+@media (min-width: 1080px){
+    .cenario {
+        width: 100%;
+      }
+      
+      .pelo {
+        position: absolute;
+        left: 21%;
+        top: 12%;
+      }
+      
+      .mundo {
+        position: absolute;
+        left: 15%;
+        top: 50%;
+      }
+      
+      .balao {
+        position: absolute;
+        left: 55%;
+        top: 20%;
+        transform: scale(1);
+      }
+      
+      .botao_iniciar {
+        position: absolute;
+        left: 75%;
+        top: 75%;
+      }
+}
