@@ -1,0 +1,357 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom, #3737a2, #0066cc);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 250px){
+
+  .cenario {
+      width: 100%;
+    }
+    
+    .pelo {
+      position: absolute;
+      left: -25%;
+      top: 22%;
+      transform: scale(0.5);
+      animation: slideInFromLeft 2s forwards;
+    }
+    
+    .mundo {
+      position: absolute;
+      left: -35%;
+      top: 50%;
+      transform: scale(0.5);
+      animation: slideInFromBottom 2s forwards;
+    }
+    
+    .balao {
+      position: absolute;
+      left: 0;
+      top: 10%;
+      animation: slideInFromRight 2s forwards;
+      transform: scale(0.4);
+    }
+    
+    .botao_iniciar {
+      padding: 4px;
+      border-radius: 8px;
+      position: absolute;
+      left: 15%;
+      top: 75%;
+      transform: scale(0.7);
+      animation: slideInFromBottom 5s forwards;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .botao_iniciar:hover{
+      background-color: rgb(255, 255, 255);
+      transition: 0.3s;
+    }
+
+    @keyframes slideInFromLeft {
+      0% {
+        transform: translateX(-200%);
+      }
+      100% {
+        transform: translateX(0); 
+        transform: scale(0.5);
+      }
+    }
+
+    @keyframes slideInFromRight {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0);
+        transform: scale(0.4);
+      }
+    }
+
+    @keyframes slideInFromBottom {
+      0% {
+        transform: translateY(200%);
+
+      }
+      100% {
+        transform: translateY(0);
+        transform: scale(0.5); 
+      }
+    }
+
+}
+
+@media (min-width: 320px){
+  .cenario {
+      width: 100%;
+    }
+    
+    .pelo {
+      position: absolute;
+      left: -15%;
+      top: 22%;
+      transform: scale(0.5);
+    }
+    
+    .mundo {
+      position: absolute;
+      left: -15%;
+      top: 50%;
+      transform: scale(0.5);
+    }
+    
+    .balao {
+      position: absolute;
+      left: 15%;
+      top: 10%;
+      transform: scale(0.5);
+    }
+    
+    .botao_iniciar {
+      position: absolute;
+      left: 20%;
+      top: 75%;
+      transform: scale(0.7);
+    }
+
+    @keyframes slideInFromLeft {
+      0% {
+        transform: translateX(-200%);
+      }
+      100% {
+        transform: translateX(0); 
+        transform: scale(0.5);
+      }
+    }
+
+    @keyframes slideInFromRight {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(0);
+        transform: scale(0.5);
+      }
+    }
+
+    @keyframes slideInFromBottom {
+      0% {
+        transform: translateY(200%);
+
+      }
+      100% {
+        transform: translateY(0);
+        transform: scale(0.5); 
+      }
+    }
+}
+
+@media (min-width: 468px){
+    .cenario {
+        width: 100%;
+      }
+      
+      .pelo {
+        position: absolute;
+        left: 5%;
+        top: 12%;
+        transform: scale(0.7);
+      }
+      
+      .mundo {
+        position: absolute;
+        left: 3%;
+        top: 50%;
+        transform: scale(0.7);
+      }
+      
+      .balao {
+        position: absolute;
+        left: 30%;
+        top: 0;
+        transform: scale(0.7);
+      }
+      
+      .botao_iniciar {
+        position: absolute;
+        left: 55%;
+        top: 75%;
+        transform: scale(0.7);
+      }
+
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-200%);
+        }
+        100% {
+          transform: translateX(0); 
+          transform: scale(0.7);
+        }
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0);
+          transform: scale(0.7);
+        }
+      }
+
+      @keyframes slideInFromBottom {
+        0% {
+          transform: translateY(200%);
+  
+        }
+        100% {
+          transform: translateY(0);
+          transform: scale(0.7); 
+        }
+      }
+}
+
+@media (min-width: 768px){
+    .cenario {
+        width: 100%;
+
+      }
+      
+      .pelo {
+        position: absolute;
+        left: 15%;
+        top: 12%;
+        transform: scale(1);
+      }
+      
+      .mundo {
+        position: absolute;
+        left: 9%;
+        top: 50%;
+        transform: scale(1);
+      }
+      
+      .balao {
+        position: absolute;
+        left: 55%;
+        top: 0;
+        transform: scale(1);
+      }
+      
+      .botao_iniciar {
+        position: absolute;
+        left: 65%;
+        top: 75%;
+        transform: scale(1);
+      }
+
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-200%);
+        }
+        100% {
+          transform: translateX(0); 
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0);
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideInFromBottom {
+        0% {
+          transform: translateY(200%);
+  
+        }
+        100% {
+          transform: translateY(0);
+          transform: scale(1); 
+        }
+      }
+}
+
+@media (min-width: 1080px){
+    .cenario {
+        width: 100%;
+      }
+      
+      .pelo {
+        position: absolute;
+        left: 21%;
+        top: 12%;
+      }
+      
+      .mundo {
+        position: absolute;
+        left: 15%;
+        top: 50%;
+      }
+      
+      .balao {
+        position: absolute;
+        left: 55%;
+        top: 20%;
+        transform: scale(1);
+      }
+      
+      .botao_iniciar {
+        position: absolute;
+        left: 75%;
+        top: 75%;
+      }
+
+      @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-200%);
+        }
+        100% {
+          transform: translateX(0); 
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideInFromRight {
+        0% {
+          transform: translateX(200%);
+        }
+        100% {
+          transform: translateX(0);
+          transform: scale(1);
+        }
+      }
+
+      @keyframes slideInFromBottom {
+        0% {
+          transform: translateY(200%);
+  
+        }
+        100% {
+          transform: translateY(0);
+          transform: scale(1); 
+        }
+      }
+
+}
+
