@@ -16,6 +16,74 @@ body {
   align-items: center;
 }
 
+@media (min-width: 250px){
+  .cenario {
+      width: 100%;
+    }
+    
+    .pelo {
+      position: absolute;
+      left: -25%;
+      top: 22%;
+      transform: scale(0.5);
+    }
+    
+    .mundo {
+      position: absolute;
+      left: -35%;
+      top: 50%;
+      transform: scale(0.5);
+    }
+    
+    .balao {
+      position: absolute;
+      left: 0;
+      top: 10%;
+      transform: scale(0.4);
+    }
+    
+    .botao_iniciar {
+      position: absolute;
+      left: 15%;
+      top: 75%;
+      transform: scale(0.7);
+    }
+}
+
+@media (min-width: 320px){
+  .cenario {
+      width: 100%;
+    }
+    
+    .pelo {
+      position: absolute;
+      left: -15%;
+      top: 22%;
+      transform: scale(0.5);
+    }
+    
+    .mundo {
+      position: absolute;
+      left: -15%;
+      top: 50%;
+      transform: scale(0.5);
+    }
+    
+    .balao {
+      position: absolute;
+      left: 15%;
+      top: 10%;
+      transform: scale(0.5);
+    }
+    
+    .botao_iniciar {
+      position: absolute;
+      left: 20%;
+      top: 75%;
+      transform: scale(0.7);
+    }
+}
+
 @media (min-width: 468px){
     .cenario {
         width: 100%;
@@ -25,43 +93,49 @@ body {
         position: absolute;
         left: 5%;
         top: 12%;
+        transform: scale(0.7);
       }
       
       .mundo {
         position: absolute;
         left: 3%;
         top: 50%;
+        transform: scale(0.7);
       }
       
       .balao {
         position: absolute;
-        left: 48%;
+        left: 30%;
         top: 0;
-        transform: scale(0.9);
+        transform: scale(0.7);
       }
       
       .botao_iniciar {
         position: absolute;
         left: 55%;
         top: 75%;
+        transform: scale(0.7);
       }
 }
 
 @media (min-width: 768px){
     .cenario {
         width: 100%;
+
       }
       
       .pelo {
         position: absolute;
         left: 15%;
         top: 12%;
+        transform: scale(1);
       }
       
       .mundo {
         position: absolute;
         left: 9%;
         top: 50%;
+        transform: scale(1);
       }
       
       .balao {
@@ -75,6 +149,7 @@ body {
         position: absolute;
         left: 65%;
         top: 75%;
+        transform: scale(1);
       }
 }
 
