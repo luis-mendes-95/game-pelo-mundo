@@ -6,7 +6,7 @@
 
 body {
   height: 100vh;
-  background: linear-gradient(to bottom, #3737a2, #0066cc);
+  background: linear-gradient(to bottom, #3EB1FF, #ffffff);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
@@ -50,6 +50,38 @@ body {
     animation-duration: 15s;
     animation-timing-function: cubic-bezier(1, 1, 1, 1);
     animation-iteration-count: infinite; 
+  }
+
+  .lucas{
+    position: absolute;
+    bottom: 0;
+    right: 15%;
+  }
+
+  .botao_continuar{
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    transition: 0.3s;
+  }
+
+  .botao_voltar{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    transition: 0.3s;
+  }
+
+  .botao_continuar:hover, .botao_voltar:hover{
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: 0.3s;
+  }
+
+  .balao_fala{
+    position: absolute;
+    left: 20%;
+    top: 30%;
   }
   
 }
