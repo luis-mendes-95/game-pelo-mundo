@@ -6,7 +6,7 @@ let baloon_number_talk = 1
 
 const previous_baloon_talk = () => {
     if (baloon_number_talk <= 1) {
-        return
+        window.location.href = "/";
     }
 
     if (baloon_number_talk >= 2) {
