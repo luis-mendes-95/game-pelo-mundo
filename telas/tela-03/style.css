@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #3737a2, #0066cc);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (min-width: 250px) {
+    .cenario {
+      width: 100%;
+    }
+
+    .mensagem{
+        position: absolute;
+        top: 5%;
+        left: 5%;
+    }
+
+    .botao_voltar_troca{
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transition: 0.3s;
+    } 
+    
+    .botao_avancar_troca{
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transition: 0.3s;
+    } 
+    
+    .botao_voltar{
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+        transition: 0.3s;
+    }
+
+    .avatar {
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transition: 0.3s;
+        z-index: 2;
+    }
+
+    .contorno_avatar{
+      position: absolute;
+      bottom: 18%;
+      left: 49.2%;
+      transition: 0.3s;
+      z-index: 1;
+    }
+
+    .avatar:hover {
+      cursor: pointer;
+  }
+
+    .botao_avancar_troca:hover, .botao_voltar:hover, .botao_voltar_troca:hover{
+        cursor: pointer;
+        transform: scale(1.2);
+        transition: 0.3s;
+    }
+  }
+  
+  @media (min-width: 320px) {
+    .cenario {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 468px) {
+    .cenario {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .cenario {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 1080px) {
+    .cenario {
+      width: 100%;
+    }
+  }
