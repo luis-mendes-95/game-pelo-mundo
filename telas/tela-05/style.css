@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #3eb1ff, #ffffff);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  @media (min-width: 250px) {
+      .cenario {
+          width: 100%;
+        }
+
+        .botao_continuar {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            transition: 0.3s;
+          }
+        
+          .botao_voltar {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            transition: 0.3s;
+          }
+        
+          .botao_continuar:hover,
+          .botao_voltar:hover {
+            cursor: pointer;
+            transform: scale(1.3);
+            transition: 0.3s;
+          }
+
+          .setas_informacoes{
+            position: absolute;
+            top: 10%;
+            left: 20%;
+          }
+  }
+  
+  @media (min-width: 320px) {
+      .cenario {
+          width: 100%;
+        }
+      
+  }
+  
+  @media (min-width: 440px) {
+      .cenario {
+          width: 100%;
+        }
+  }
+  
+  @media (min-width: 468px) {
+      .cenario {
+          width: 100%;
+        }
+
+  }
+  
+  @media (min-width: 570px) {
+      .cenario {
+          width: 100%;
+        }
+  }
+  
+  @media (min-width: 768px) {
+    .cenario {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 840px) {
+    .cenario {
+      width: 100%;
+    }  
+  }
+  
+  @media (min-width: 1080px) {
+    .cenario {
+      width: 100%;
+    }
+  
+    
+  }
+  
+  @media (min-width: 1200px) {
+    .cenario {
+      width: 100%;
+    }
+  
+  @media (min-width: 1300px) {
+    .cenario {
+      width: 100%;
+    }
+  
+  }
+
+}
