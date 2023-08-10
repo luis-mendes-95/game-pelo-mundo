@@ -16,7 +16,7 @@ const previous_baloon_talk = () => {
 
 const next_baloon_talk = () => {
     if (baloon_number_talk >= 4) {
-        return
+        window.location.href = "../tela-03/";
     }
 
     if (baloon_number_talk < 4) {
