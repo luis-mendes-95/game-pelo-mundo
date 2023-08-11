@@ -2,7 +2,7 @@ const container = document.querySelector('.container');
 let x = 0;
 let y = 0;
 const step = 2.5; //2.5 é o padrão
-let zoom = 500; //500 é o padrão
+let zoom = 800; //800 é o padrão
 const keys = {};
 
 window.onload = function() {
