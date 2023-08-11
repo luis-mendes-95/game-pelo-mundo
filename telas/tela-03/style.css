@@ -1,100 +1,107 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    height: 100vh;
-    background: linear-gradient(to bottom, #3737a2, #0066cc);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  @media (min-width: 250px) {
-    .cenario {
-      width: 100%;
-    }
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #0099FF;
+  overflow: hidden;
+}
 
-    .mensagem{
-        position: absolute;
-        top: 5%;
-        left: 5%;
-    }
+.container {
+  background-image: url('./assets/cenario.png'); 
+  background-size: cover; 
+  background-position: center; 
+  width: 100vw;
+  position: relative;
+}
 
-    .botao_voltar_troca{
-        position: absolute;
-        top: 50%;
-        left: 5%;
-        transition: 0.3s;
-    } 
-    
-    .botao_avancar_troca{
-        position: absolute;
-        top: 50%;
-        right: 5%;
-        transition: 0.3s;
-    } 
-    
-    .botao_voltar{
-        position: absolute;
-        bottom: 2%;
-        left: 2%;
-        transition: 0.3s;
-    }
+.container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; 
+}
 
-    .avatar {
-        position: absolute;
-        bottom: 20%;
-        left: 50%;
-        transition: 0.3s;
-        z-index: 2;
-    }
+.container .content {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 
-    .contorno_avatar{
-      position: absolute;
-      bottom: 18%;
-      left: 49.2%;
-      transition: 0.3s;
-      z-index: 1;
-    }
+.mensagem {
+  position: absolute; /* Mude para posição absoluta */
+  width: 25%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 5%;
+  top: 10%;
+  animation: slideInFromLeft 1s ease-in-out;
+}
 
-    .avatar:hover {
-      cursor: pointer;
-  }
+.botao_voltar {
+  position: absolute; /* Mude para posição absoluta */
+  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 5%;
+  bottom: 10%;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .botao_avancar_troca:hover, .botao_voltar:hover, .botao_voltar_troca:hover{
-        cursor: pointer;
-        transform: scale(1.2);
-        transition: 0.3s;
-    }
-  }
-  
-  @media (min-width: 320px) {
-    .cenario {
-      width: 100%;
-    }
-  }
-  
-  @media (min-width: 468px) {
-    .cenario {
-      width: 100%;
-    }
-  }
-  
-  @media (min-width: 768px) {
-    .cenario {
-      width: 100%;
-    }
-  }
-  
-  @media (min-width: 1080px) {
-    .cenario {
-      width: 100%;
-    }
-  }
+.botao_voltar:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.avatar {
+  position: absolute; /* Mude para posição absoluta */
+  height: 55%;
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 46%;
+  top: 20%;
+  transition: 0.3s;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.contorno_avatar{
+  position: absolute; /* Mude para posição absoluta */
+  height: 57%;
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 45.5%;
+  top: 19%;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.botao_avancar_troca {
+  position: absolute; /* Mude para posição absoluta */
+  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  right: 5%;
+  top: 35%;
+  transition: 0.3s;
+}
+
+.botao_voltar_troca {
+  position: absolute; /* Mude para posição absoluta */
+  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 5%;
+  top: 35%;
+  padding: 1%;
+  transition: 0.3s;
+}
+
+.botao_voltar_troca:hover, .botao_avancar_troca:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+

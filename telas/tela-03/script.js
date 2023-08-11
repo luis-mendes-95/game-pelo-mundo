@@ -1,4 +1,4 @@
-const body = document.querySelector("body")
+const content = document.querySelector(".content")
 const avatar = document.querySelector(".avatar");
 const contorno_avatar = document.querySelector(".contorno_avatar")
 const botao_voltar_troca = document.querySelector(".botao_voltar_troca");
@@ -12,13 +12,13 @@ const changeAvatar = () => {
     if (avatar_number === 1) {
         avatar.src = "./assets/avatares/negra.png";
         localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/negra.png")
-        body.removeChild(botao_voltar_troca)
+        content.removeChild(botao_voltar_troca)
     }
 
     if (avatar_number === 2) {
         avatar.src = "./assets/avatares/negro.png";
         localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/negro.png")
-        body.appendChild(botao_voltar_troca)
+        content.appendChild(botao_voltar_troca)
     }
 
     if (avatar_number === 3) {
@@ -34,13 +34,13 @@ const changeAvatar = () => {
     if (avatar_number === 5) {
         avatar.src = "./assets/avatares/japonesa.png";
         localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/japonesa.png")
-        body.appendChild(botao_avancar_troca)
+        content.appendChild(botao_avancar_troca)
     }
 
     if (avatar_number === 6) {
         avatar.src = "./assets/avatares/japones.png";
         localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/japones.png")
-        body.removeChild(botao_avancar_troca)
+        content.removeChild(botao_avancar_troca)
     }
 
 };
