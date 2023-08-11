@@ -112,14 +112,6 @@ body {
   z-index: 2;
 }
 
-.botao_iniciar:hover{
-  background-color: white;
-  border-radius: 8%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-
 .nuvem_01{
   position: absolute; /* Mude para posição absoluta */
   width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
