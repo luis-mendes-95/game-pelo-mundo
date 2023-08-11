@@ -1,4 +1,4 @@
-const body = document.querySelector("body")
+const content = document.querySelector(".content")
 const button_next = document.querySelector(".botao_continuar")
 const button_previous = document.querySelector(".botao_voltar")
 
@@ -30,7 +30,7 @@ baloon_talk.src = "./assets/baloes_fala/balao_fala_01.png"
 
 baloon_talk.classList.add("balao_fala")
 
-body.appendChild(baloon_talk)
+content.appendChild(baloon_talk)
 
 const change_baloon_talk = () => {
 
