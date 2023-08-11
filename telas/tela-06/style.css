@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #6EBFAD; /*#6EBFAD;*/
+  overflow: hidden;
+}
+
+.container {
+  background-image: url('./assets/mapa_mundi/mapa_mundi.png'); 
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat; /* Evita repetição do plano de fundo */
+  width: 100vw;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; 
+}
+
+.container .content {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.luneta {
+  position: absolute;
+  width: 8%;
+  object-fit: contain; 
+  right: 42%;
+  bottom: 8%;
+}
+
+.bussola {
+  position: absolute;
+  width: 8%;
+  object-fit: contain; 
+  right: 30%;
+  bottom: 8%;
+}
+
+.dicas {
+  position: absolute;
+  width: 10%;
+  object-fit: contain; 
+  right: 17%;
+  bottom: 10%;
+}
+
+.diario {
+  position: absolute;
+  width: 9%;
+  object-fit: contain; 
+  right: 5%;
+  bottom: 8%;
+}
+
+
+
