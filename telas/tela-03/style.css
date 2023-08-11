@@ -49,7 +49,7 @@ body {
   width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
   object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
   left: 5%;
-  bottom: 5%;
+  bottom: 10%;
   cursor: pointer;
   transition: 0.3s;
 }
