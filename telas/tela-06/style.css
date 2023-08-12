@@ -42,6 +42,18 @@ body {
   object-fit: contain; 
   right: 42%;
   bottom: 8%;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.luneta_brilho {
+  position: absolute;
+  width: 12%;
+  object-fit: contain; 
+  right: 40%;
+  bottom: 5%;
+  transition: 0.3s;
+  z-index: 1;
 }
 
 .bussola {
@@ -50,6 +62,18 @@ body {
   object-fit: contain; 
   right: 30%;
   bottom: 8%;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.bussola_brilho {
+  position: absolute;
+  width: 11%;
+  object-fit: contain; 
+  right: 28.5%;
+  bottom: 5.5%;
+  transition: 0.3s;
+  z-index: 1;
 }
 
 .dicas {
@@ -58,6 +82,18 @@ body {
   object-fit: contain; 
   right: 17%;
   bottom: 10%;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.dicas_brilho {
+  position: absolute;
+  width: 13%;
+  object-fit: contain; 
+  right: 15.5%;
+  bottom: 8%;
+  transition: 0.3s;
+  z-index: 1;
 }
 
 .diario {
@@ -66,6 +102,24 @@ body {
   object-fit: contain; 
   right: 5%;
   bottom: 8%;
+  transition: 0.3s;
+  z-index: 2;
+}
+
+.diario_brilho {
+  position: absolute;
+  width: 12%;
+  object-fit: contain; 
+  right: 3.5%;
+  bottom: 5.5%;
+  transition: 0.3s;
+  z-index: 1;
+}
+
+.luneta:hover, .bussola:hover, .dicas:hover, .diario:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 

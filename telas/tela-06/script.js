@@ -1,8 +1,35 @@
+const luneta = document.querySelector(".luneta")
+const luneta_brilho = document.createElement("img");
+const bussola = document.querySelector(".bussola")
+const bussola_brilho = document.createElement("img");
+const dicas = document.querySelector(".dicas")
+const dicas_brilho = document.createElement("img");
+const diario = document.querySelector(".diario");
+const diario_brilho = document.createElement("img");
 const container = document.querySelector('.container');
+const content = document.querySelector('.content');
+
+let luneta_clicked = false
+let bussola_clicked = false
+let dicas_clicked = false
+let diario_clicked = false
+
+luneta_brilho.classList.add("luneta_brilho")
+bussola_brilho.classList.add("bussola_brilho")
+dicas_brilho.classList.add("dicas_brilho")
+diario_brilho.classList.add("diario_brilho")
+
+luneta_brilho.src = ""
+bussola_brilho.src = ""
+dicas_brilho.src = ""
+diario_brilho.src = ""
+
+content.append(luneta_brilho, bussola_brilho, dicas_brilho, diario_brilho);
+
 let x = 0;
 let y = 0;
 const step = 2.5; //2.5 é o padrão
-let zoom = 800; //800 é o padrão
+let zoom = 100; //800 é o padrão
 const keys = {};
 
 window.onload = function() {
@@ -33,19 +60,66 @@ setInterval(function() {
   if (keys['ArrowDown']) {
     y = Math.max(y - step, -container.offsetHeight * (zoom / 100 - 1));
   }
-  if (keys['+']) {
-    zoom += 10;
-    x = Math.max(x, -container.offsetWidth * (zoom / 100 - 1));
-    y = Math.max(y, -container.offsetHeight * (zoom / 100 - 1));
-    keys['+'] = false;
-  }
-  if (keys['-']) {
-    zoom -= 10;
-    x = Math.min(x, 0);
-    y = Math.min(y, 0);
-    keys['-'] = false;
-  }
-  
+ 
    container.style.backgroundPosition = `${x}px ${y}px`;
 },10);
 
+luneta.addEventListener("click", () => {
+
+  if (luneta_clicked === false) {
+    luneta_brilho.src = "./assets/01_luneta/luneta_contorno.png";
+    luneta_clicked = true;
+    console.log(luneta_clicked)
+  } else if (luneta_clicked === true) {
+    luneta_brilho.src = "";
+    luneta_clicked = false;
+    console.log(luneta_clicked)
+  }
+
+
+})
+
+bussola.addEventListener("click", () => {
+
+  if (bussola_clicked === false) {
+    bussola_brilho.src = "./assets/02_bussola/bussola_contorno.png";
+    bussola_clicked = true;
+    console.log(bussola_clicked)
+  } else if (bussola_clicked === true) {
+    bussola_brilho.src = "";
+    bussola_clicked = false;
+    console.log(bussola_clicked)
+  }
+
+
+})
+
+dicas.addEventListener("click", () => {
+
+  if (dicas_clicked === false) {
+    dicas_brilho.src = "./assets/03_dicas/dicas_contorno.png";
+    dicas_clicked = true;
+    console.log(dicas_clicked)
+  } else if (dicas_clicked === true) {
+    dicas_brilho.src = "";
+    dicas_clicked = false;
+    console.log(dicas_clicked)
+  }
+
+
+})
+
+diario.addEventListener("click", () => {
+
+  if (diario_clicked === false) {
+    diario_brilho.src = "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png";
+    diario_clicked = true;
+    console.log(diario_clicked)
+  } else if (diario_clicked === true) {
+    diario_brilho.src = "";
+    diario_clicked = false;
+    console.log(diario_clicked)
+  }
+
+
+})
