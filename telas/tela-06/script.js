@@ -29,7 +29,7 @@ content.append(luneta_brilho, bussola_brilho, dicas_brilho, diario_brilho);
 let x = 0;
 let y = 0;
 const step = 2.5; //2.5 é o padrão
-let zoom = 100; //800 é o padrão
+let zoom = 800; //800 é o padrão
 const keys = {};
 
 window.onload = function() {
@@ -65,26 +65,55 @@ setInterval(function() {
 },10);
 
 luneta.addEventListener("click", () => {
-
   if (luneta_clicked === false) {
     luneta_brilho.src = "./assets/01_luneta/luneta_contorno.png";
+    bussola_brilho.src = "";
+    dicas_brilho.src = "";
+    diario_brilho.src = "";
     luneta_clicked = true;
-    console.log(luneta_clicked)
+    bussola_clicked = false;
+    dicas_clicked = false;
+    diario_clicked = false;
+
+    // Decrease the zoom while maintaining the center focus
+    const previousZoom = zoom;
+    zoom -= 50; // Adjust this value as needed
+    const zoomFactor = zoom / previousZoom;
+    x = (x + container.offsetWidth / 2) * zoomFactor - container.offsetWidth / 2;
+    y = (y + container.offsetHeight / 2) * zoomFactor - container.offsetHeight / 2;
+    container.style.backgroundSize = `${zoom}%`;
+    container.style.backgroundPosition = `${x}px ${y}px`;
   } else if (luneta_clicked === true) {
     luneta_brilho.src = "";
     luneta_clicked = false;
-    console.log(luneta_clicked)
+
+    // Reset the zoom while maintaining the center focus
+    const previousZoom = zoom;
+    zoom = 800; // Reset to the initial value
+    const zoomFactor = zoom / previousZoom;
+    x = (x + container.offsetWidth / 2) * zoomFactor - container.offsetWidth / 2;
+    y = (y + container.offsetHeight / 2) * zoomFactor - container.offsetHeight / 2;
+    container.style.backgroundSize = `${zoom}%`;
+    container.style.backgroundPosition = `${x}px ${y}px`;
   }
+});
 
 
-})
 
 bussola.addEventListener("click", () => {
 
   if (bussola_clicked === false) {
     bussola_brilho.src = "./assets/02_bussola/bussola_contorno.png";
     bussola_clicked = true;
-    console.log(bussola_clicked)
+
+    luneta_brilho.src = ""
+    dicas_brilho.src = ""
+    diario_brilho.src = ""
+    luneta_clicked = false;
+    dicas_clicked = false;
+    diario_clicked = false;
+
+
   } else if (bussola_clicked === true) {
     bussola_brilho.src = "";
     bussola_clicked = false;
@@ -99,7 +128,14 @@ dicas.addEventListener("click", () => {
   if (dicas_clicked === false) {
     dicas_brilho.src = "./assets/03_dicas/dicas_contorno.png";
     dicas_clicked = true;
-    console.log(dicas_clicked)
+
+    luneta_brilho.src = ""
+    bussola_brilho.src = ""
+    diario_brilho.src = ""
+    luneta_clicked = false;
+    bussola_clicked = false;
+    diario_clicked = false;
+
   } else if (dicas_clicked === true) {
     dicas_brilho.src = "";
     dicas_clicked = false;
@@ -114,7 +150,14 @@ diario.addEventListener("click", () => {
   if (diario_clicked === false) {
     diario_brilho.src = "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png";
     diario_clicked = true;
-    console.log(diario_clicked)
+
+    luneta_brilho.src = ""
+    bussola_brilho.src = ""
+    dicas_brilho.src = ""
+    luneta_clicked = false;
+    bussola_clicked = false;
+    dicas_clicked = false;
+
   } else if (diario_clicked === true) {
     diario_brilho.src = "";
     diario_clicked = false;
