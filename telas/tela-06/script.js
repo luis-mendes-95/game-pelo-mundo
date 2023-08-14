@@ -48,21 +48,23 @@ document.addEventListener('keyup', function(event) {
 });
 
 setInterval(function() {
-  if (keys['ArrowLeft']) {
-    x = Math.min(x + step, 0);
+  if (!luneta_clicked) { // Verifica se a luneta não está clicada antes de atualizar a posição do plano de fundo com as setas
+    if (keys['ArrowLeft']) {
+      x = Math.min(x + step, 0);
+    }
+    if (keys['ArrowRight']) {
+      x = Math.max(x - step, -container.offsetWidth * (zoom / 100 - 1));
+    }
+    if (keys['ArrowUp']) {
+      y = Math.min(y + step, 0);
+    }
+    if (keys['ArrowDown']) {
+      y = Math.max(y - step, -container.offsetHeight * (zoom / 100 - 1));
+    }
+   
+    container.style.backgroundPosition = `${x}px ${y}px`;
   }
-  if (keys['ArrowRight']) {
-    x = Math.max(x - step, -container.offsetWidth * (zoom / 100 - 1));
-  }
-  if (keys['ArrowUp']) {
-    y = Math.min(y + step, 0);
-  }
-  if (keys['ArrowDown']) {
-    y = Math.max(y - step, -container.offsetHeight * (zoom / 100 - 1));
-  }
- 
-   container.style.backgroundPosition = `${x}px ${y}px`;
-},10);
+}, 10);
 
 luneta.addEventListener("click", () => {
   if (luneta_clicked === false) {
@@ -77,7 +79,7 @@ luneta.addEventListener("click", () => {
 
     // Decrease the zoom while maintaining the center focus
     const previousZoom = zoom;
-    zoom -= 50; // Adjust this value as needed
+    zoom -= 300; // Adjust this value as needed
     const zoomFactor = zoom / previousZoom;
     x = (x + container.offsetWidth / 2) * zoomFactor - container.offsetWidth / 2;
     y = (y + container.offsetHeight / 2) * zoomFactor - container.offsetHeight / 2;
