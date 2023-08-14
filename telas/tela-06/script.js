@@ -1,73 +1,92 @@
-const luneta = document.querySelector(".luneta")
+const luneta = document.querySelector(".luneta");
 const luneta_brilho = document.createElement("img");
-const bussola = document.querySelector(".bussola")
+const bussola = document.querySelector(".bussola");
 const bussola_brilho = document.createElement("img");
-const dicas = document.querySelector(".dicas")
+const dicas = document.querySelector(".dicas");
 const dicas_brilho = document.createElement("img");
 const diario = document.querySelector(".diario");
 const diario_brilho = document.createElement("img");
 const container = document.querySelector('.container');
 const content = document.querySelector('.content');
+const mapa_mundi = document.querySelector(".mapa_mundi");
 
-let luneta_clicked = false
-let bussola_clicked = false
-let dicas_clicked = false
-let diario_clicked = false
+let luneta_clicked = false;
+let bussola_clicked = false;
+let dicas_clicked = false;
+let diario_clicked = false;
 
-luneta_brilho.classList.add("luneta_brilho")
-bussola_brilho.classList.add("bussola_brilho")
-dicas_brilho.classList.add("dicas_brilho")
-diario_brilho.classList.add("diario_brilho")
+luneta_brilho.classList.add("luneta_brilho");
+bussola_brilho.classList.add("bussola_brilho");
+dicas_brilho.classList.add("dicas_brilho");
+diario_brilho.classList.add("diario_brilho");
 
-luneta_brilho.src = ""
-bussola_brilho.src = ""
-dicas_brilho.src = ""
-diario_brilho.src = ""
+luneta_brilho.src = "";
+bussola_brilho.src = "";
+dicas_brilho.src = "";
+diario_brilho.src = "";
 
 content.append(luneta_brilho, bussola_brilho, dicas_brilho, diario_brilho);
 
-let x = 0;
-let y = 0;
-const step = 2.5; //2.5 é o padrão
-let zoom = 800; //800 é o padrão
-const keys = {};
+const pressedKeys = {};
 
-window.onload = function() {
-  x = -container.offsetWidth * (zoom / 100 - 1) / 2;
-  y = -container.offsetHeight * (zoom / 100 - 1) / 2;
-  container.style.backgroundSize = `${zoom}%`;
-  container.style.backgroundPosition = `${x}px ${y}px`;
-};
+document.addEventListener("keydown", handleArrowKeyDown);
+document.addEventListener("keyup", handleArrowKeyUp);
 
-document.addEventListener('keydown', function(event) {
-  keys[event.key] = true;
-});
+const moveAmount = 4; // Adjust the moveAmount for faster movement
 
-document.addEventListener('keyup', function(event) {
-  keys[event.key] = false;
-});
+let animationFrameId = null;
 
-setInterval(function() {
-  if (!luneta_clicked) { // Verifica se a luneta não está clicada antes de atualizar a posição do plano de fundo com as setas
-    if (keys['ArrowLeft']) {
-      x = Math.min(x + step, 0);
-    }
-    if (keys['ArrowRight']) {
-      x = Math.max(x - step, -container.offsetWidth * (zoom / 100 - 1));
-    }
-    if (keys['ArrowUp']) {
-      y = Math.min(y + step, 0);
-    }
-    if (keys['ArrowDown']) {
-      y = Math.max(y - step, -container.offsetHeight * (zoom / 100 - 1));
-    }
-   
-    container.style.backgroundPosition = `${x}px ${y}px`;
+function handleMovement() {
+  if (animationFrameId) {
+    cancelAnimationFrame(animationFrameId);
   }
-}, 10);
+
+  animationFrameId = requestAnimationFrame(() => {
+    // Get the current transform values
+    const transform = window.getComputedStyle(mapa_mundi).getPropertyValue("transform");
+    const matrix = new DOMMatrix(transform);
+
+    // Calculate the movement amounts based on pressed keys
+    const moveX = (pressedKeys["ArrowRight"] ? -moveAmount : 0) + (pressedKeys["ArrowLeft"] ? moveAmount : 0);
+    const moveY = (pressedKeys["ArrowDown"] ? -moveAmount : 0) + (pressedKeys["ArrowUp"] ? moveAmount : 0);
+
+    // Calculate the new positions after movement
+    const newX = matrix.m41 + moveX;
+    const newY = matrix.m42 + moveY;
+
+    // Limit the movement based on the boundaries of mapa_mundi
+    const maxTranslateX = (mapa_mundi.clientWidth * matrix.a - container.clientWidth) / 2;
+    const maxTranslateY = (mapa_mundi.clientHeight * matrix.a - container.clientHeight) / 2;
+
+    matrix.m41 = Math.min(Math.max(-maxTranslateX, newX), maxTranslateX);
+    matrix.m42 = Math.min(Math.max(-maxTranslateY, newY), maxTranslateY);
+
+    mapa_mundi.style.transform = matrix.toString();
+
+    // Continue the animation loop
+    animationFrameId = requestAnimationFrame(handleMovement);
+  });
+}
+
+function handleArrowKeyDown(event) {
+  const arrowKey = event.key;
+
+  pressedKeys[arrowKey] = true;
+
+  handleMovement();
+}
+
+function handleArrowKeyUp(event) {
+  const arrowKey = event.key;
+
+  pressedKeys[arrowKey] = false;
+
+  handleMovement();
+}
 
 luneta.addEventListener("click", () => {
   if (luneta_clicked === false) {
+
     luneta_brilho.src = "./assets/01_luneta/luneta_contorno.png";
     bussola_brilho.src = "";
     dicas_brilho.src = "";
@@ -77,30 +96,11 @@ luneta.addEventListener("click", () => {
     dicas_clicked = false;
     diario_clicked = false;
 
-    // Decrease the zoom while maintaining the center focus
-    const previousZoom = zoom;
-    zoom -= 300; // Adjust this value as needed
-    const zoomFactor = zoom / previousZoom;
-    x = (x + container.offsetWidth / 2) * zoomFactor - container.offsetWidth / 2;
-    y = (y + container.offsetHeight / 2) * zoomFactor - container.offsetHeight / 2;
-    container.style.backgroundSize = `${zoom}%`;
-    container.style.backgroundPosition = `${x}px ${y}px`;
   } else if (luneta_clicked === true) {
     luneta_brilho.src = "";
     luneta_clicked = false;
-
-    // Reset the zoom while maintaining the center focus
-    const previousZoom = zoom;
-    zoom = 800; // Reset to the initial value
-    const zoomFactor = zoom / previousZoom;
-    x = (x + container.offsetWidth / 2) * zoomFactor - container.offsetWidth / 2;
-    y = (y + container.offsetHeight / 2) * zoomFactor - container.offsetHeight / 2;
-    container.style.backgroundSize = `${zoom}%`;
-    container.style.backgroundPosition = `${x}px ${y}px`;
   }
 });
-
-
 
 bussola.addEventListener("click", () => {
 

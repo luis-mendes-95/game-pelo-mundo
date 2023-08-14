@@ -14,12 +14,19 @@ body {
 }
 
 .container {
+  width: 100vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.mapa_mundi{
   background-image: url('./assets/mapa_mundi/mapa_mundi.png'); 
   background-size: cover; 
   background-position: center;
   background-repeat: no-repeat; /* Evita repetição do plano de fundo */
   width: 100vw;
-  position: relative;
+  height: 100%;
+  transform: scale(5); 
 }
 
 .container::before {
@@ -122,5 +129,17 @@ body {
   cursor: pointer;
 }
 
+.estatua_liberdade{
+  position: relative;
+  top: 17.9%;
+  left: 20.3%;
+  height: 9.4%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.estatua_liberdade:hover{
+  transition: 0.3s;
+}
 
 
