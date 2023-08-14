@@ -26,6 +26,7 @@ body {
   background-repeat: no-repeat; /* Evita repetição do plano de fundo */
   width: 100vw;
   height: 100%;
+  /* transform: scale(1);  */
   transform: scale(5); 
 }
 
@@ -130,7 +131,7 @@ body {
 }
 
 .estatua_liberdade{
-  position: relative;
+  position: absolute;
   top: 17.9%;
   left: 20.3%;
   height: 9.4%;
@@ -138,8 +139,137 @@ body {
   cursor: pointer;
 }
 
-.estatua_liberdade:hover{
+.torre_pisa{
+  position: absolute;
+  top: 20.3%;
+  left: 46.5%;
+  height: 6.6%;
   transition: 0.3s;
+  cursor: pointer;
 }
+
+.torre_eiffel{
+  position: absolute;
+  top: 14.1%;
+  left: 42.4%;
+  height: 8.5%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.big_ben{
+  position: absolute;
+  top: 9.5%;
+  left: 38.8%;
+  height: 7.9%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.big_ben_bus{
+  position: absolute;
+  top: 16.7%;
+  left: 38.8%;
+  height: 1.9%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.monte_fuji{
+  position: absolute;
+  top: 36%;
+  left: 86%;
+  height: 4.5%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.taj_mahal{
+  position: absolute;
+  top: 31.4%;
+  left: 65.1%;
+  height: 7.1%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.taj_mahal_torres{
+  position: absolute;
+  top: 35%;
+  left: 65.5%;
+  height: 8%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.piramides_gize{
+  position: absolute;
+  top: 39.4%;
+  left: 47.5%;
+  height: 5.2%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.opera_sidney{
+  position: absolute;
+  top: 69%;
+  left: 83.2%;
+  height: 4.7%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.piramide_teotihuacan{
+  position: absolute;
+  top: 37%;
+  left: 13.2%;
+  height: 3.7%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.piramide_teotihuacan_moita_terra{
+  position: absolute;
+  top: 39%;
+  left: 13.2%;
+  height: 4.7%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.machu_pichu_terras{
+  position: absolute;
+  top: 61.2%;
+  left: 24.45%;
+  height: 6.3%;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.machu_pichu{
+  position: absolute;
+  top: 56.3%;
+  left: 22.35%;
+  height: 7.4%;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.machu_pichu_moitas{
+  position: absolute;
+  top: 62%;
+  left: 22.35%;
+  height: 3.4%;
+  transition: 0.3s;
+  cursor: pointer;
+  z-index: 3;
+}
+
+
+
+
 
 

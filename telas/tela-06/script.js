@@ -32,7 +32,7 @@ const pressedKeys = {};
 document.addEventListener("keydown", handleArrowKeyDown);
 document.addEventListener("keyup", handleArrowKeyUp);
 
-const moveAmount = 4; // Adjust the moveAmount for faster movement
+const moveAmount = 14; //
 
 let animationFrameId = null;
 
