@@ -473,6 +473,16 @@ body {
   right: 50%;
   bottom: 50.5%;
   transition: 0.3s;
+  animation: moveUpDown 3s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-30px); /* Ajuste a distância da animação conforme necessário */
+  }
 }
 
 

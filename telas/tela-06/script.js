@@ -146,6 +146,8 @@ function handleMovement() {
       matrix.m42 = Math.min(Math.max(-maxTranslateY, newY), maxTranslateY);
   
       mapa_mundi.style.transform = matrix.toString();
+
+      atualizarDirecaoBussola();
   
       // Continue the animation loop
       animationFrameId = requestAnimationFrame(handleMovement);
@@ -226,6 +228,7 @@ luneta.addEventListener("click", () => {
 
 bussola.addEventListener("click", () => {
 
+if(luneta_clicked === false) {
   if (bussola_clicked === false) {
     bussola_brilho.src = "./assets/02_bussola/bussola_contorno.png";
     bussola_clicked = true;
@@ -250,6 +253,7 @@ bussola.addEventListener("click", () => {
     bussola_ponteiro.src = ""
     bussola_circulo.src = ""
   }
+}
 
 
 })
@@ -483,3 +487,24 @@ opera_sidney.addEventListener("mouseleave", () => {
 
   opera_sidney_contorno.src = ""
 })
+
+// Elementos da bússola
+const bussolaPonteiro = document.querySelector('.bussola_ponteiro');
+
+function atualizarDirecaoBussola() {
+  const mapaRetangulo = mapa_mundi.getBoundingClientRect();
+  const centroX = mapaRetangulo.left + mapaRetangulo.width / 2;
+  const centroY = mapaRetangulo.top + mapaRetangulo.height / 2;
+
+  const balaoRetangulo = balao.getBoundingClientRect(); // Adicionei esta linha
+  const balaoX = balaoRetangulo.left + balaoRetangulo.width / 2;
+  const balaoY = balaoRetangulo.top + balaoRetangulo.height / 2;
+
+  const deltaX = balaoX - centroX;
+  const deltaY = balaoY - centroY;
+
+  const radianos = Math.atan2(deltaY, deltaX);
+  const graus = (radianos * 180) / Math.PI;
+
+  bussolaPonteiro.style.transform = `rotate(${graus + 90}deg)`; // Ajuste de +90 graus
+}
