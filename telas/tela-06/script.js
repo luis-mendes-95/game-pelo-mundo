@@ -1,3 +1,4 @@
+const balao = document.querySelector(".balao");
 const luneta = document.querySelector(".luneta");
 const luneta_brilho = document.createElement("img");
 const bussola = document.querySelector(".bussola");
@@ -12,6 +13,85 @@ const diario_brilho = document.createElement("img");
 const container = document.querySelector('.container');
 const content = document.querySelector('.content');
 const mapa_mundi = document.querySelector(".mapa_mundi");
+
+
+
+
+
+const estatua_liberdade = document.querySelector(".estatua_liberdade");
+const estatua_liberdade_contorno = document.querySelector(".estatua_liberdade_contorno");
+
+
+
+
+
+const torre_eiffel = document.querySelector(".torre_eiffel");
+const torre_eiffel_contorno = document.querySelector(".torre_eiffel_contorno");
+const torre_eiffel_praca = document.querySelector(".torre_eiffel_praca");
+const torre_eiffel_praca_contorno = document.querySelector(".torre_eiffel_praca_contorno");
+
+
+
+
+const piramide_teotihuacan_moita_terra = document.querySelector(".piramide_teotihuacan_moita_terra");
+const piramide_teotihuacan = document.querySelector(".piramide_teotihuacan");
+const piramide_teotihuacan_contorno = document.querySelector(".piramide_teotihuacan_contorno")
+const piramide_teotihuacan_moita_terra_contorno = document.querySelector(".piramide_teotihuacan_moita_terra_contorno");
+
+
+
+
+
+
+const machu_pichu = document.querySelector(".machu_pichu")
+const machu_pichu_moitas_contorno = document.querySelector(".machu_pichu_moitas_contorno");
+const machu_pichu_terras_contorno = document.querySelector(".machu_pichu_terras_contorno");
+const machu_pichu_contorno = document.querySelector(".machu_pichu_contorno");
+
+
+
+
+
+const piramides_gize = document.querySelector(".piramides_gize");
+const piramides_gize_contorno = document.querySelector(".piramides_gize_contorno");
+
+
+
+
+
+
+const opera_sidney = document.querySelector(".opera_sidney");
+const opera_sidney_contorno = document.querySelector(".opera_sidney_contorno");
+
+
+
+
+const big_ben = document.querySelector(".big_ben");
+const big_ben_contorno = document.querySelector(".big_ben_contorno");
+const big_ben_bus = document.querySelector(".big_ben_bus");
+const big_ben_bus_contorno = document.querySelector(".big_ben_bus_contorno");
+
+
+
+const torre_pisa = document.querySelector(".torre_pisa")
+const torre_pisa_contorno = document.querySelector(".torre_pisa_contorno")
+
+
+
+
+
+const monte_fuji = document.querySelector(".monte_fuji")
+const monte_fuji_contorno = document.querySelector(".monte_fuji_contorno")
+
+
+
+const taj_mahal = document.querySelector(".taj_mahal");
+const taj_mahal_contorno = document.querySelector(".taj_mahal_contorno");
+const taj_mahal_torres = document.querySelector(".taj_mahal_torres");
+const taj_mahal_torres_contorno = document.querySelector(".taj_mahal_torres_contorno");
+
+
+
 
 let luneta_clicked = false;
 let bussola_clicked = false;
@@ -66,6 +146,8 @@ function handleMovement() {
       matrix.m42 = Math.min(Math.max(-maxTranslateY, newY), maxTranslateY);
   
       mapa_mundi.style.transform = matrix.toString();
+
+      atualizarDirecaoBussola();
   
       // Continue the animation loop
       animationFrameId = requestAnimationFrame(handleMovement);
@@ -106,6 +188,9 @@ luneta.addEventListener("click", () => {
     bussola_brilho.src = "";
     dicas_brilho.src = "";
     diario_brilho.src = "";
+    bussola_grande.src = "";
+    bussola_ponteiro.src = "";
+    bussola_circulo.src = "";
     bussola_clicked = false;
     dicas_clicked = false;
     diario_clicked = false;
@@ -143,6 +228,7 @@ luneta.addEventListener("click", () => {
 
 bussola.addEventListener("click", () => {
 
+if(luneta_clicked === false) {
   if (bussola_clicked === false) {
     bussola_brilho.src = "./assets/02_bussola/bussola_contorno.png";
     bussola_clicked = true;
@@ -165,8 +251,9 @@ bussola.addEventListener("click", () => {
     console.log(bussola_clicked)
     bussola_grande.src = ""
     bussola_ponteiro.src = ""
-    bussola_circul.src = ""
+    bussola_circulo.src = ""
   }
+}
 
 
 })
@@ -214,3 +301,210 @@ diario.addEventListener("click", () => {
 
 
 })
+
+const arrowKeyState = {
+  ArrowUp: false,
+  ArrowDown: false,
+  ArrowRight: false,
+  ArrowLeft: false
+};
+
+document.addEventListener("keydown", event => {
+
+  if (luneta_clicked === false) {
+    const arrowKey = event.key;
+
+    // Verificar se a tecla foi pressionada inicialmente
+    if (!arrowKeyState[arrowKey]) {
+      arrowKeyState[arrowKey] = true;
+  
+      // Atualizar o src de acordo com a tecla pressionada
+      if (arrowKey === "ArrowUp") {
+        balao.src = "./assets/balao/balao_costa.gif";
+      } else if (arrowKey === "ArrowDown") {
+        balao.src = "./assets/balao/balao_frente.gif";
+      } else if (arrowKey === "ArrowRight") {
+        balao.src = "./assets/balao/balao_direito.gif";
+      } else if (arrowKey === "ArrowLeft") {
+        balao.src = "./assets/balao/balao_esquerdo.gif";
+      }
+    }
+  }
+
+});
+
+document.addEventListener("keyup", event => {
+
+  if (luneta_clicked === false) {
+    const arrowKey = event.key;
+
+    // Resetar o estado da tecla quando ela é liberada
+    arrowKeyState[arrowKey] = false;
+  
+    // Atualizar o src de acordo com as teclas restantes pressionadas
+    if (arrowKeyState.ArrowUp) {
+      balao.src = "./assets/balao/balao_costa.gif";
+    } else if (arrowKeyState.ArrowDown) {
+      balao.src = "./assets/balao/balao_frente.gif";
+    } else if (arrowKeyState.ArrowRight) {
+      balao.src = "./assets/balao/balao_direito.gif";
+    } else if (arrowKeyState.ArrowLeft) {
+      balao.src = "./assets/balao/balao_esquerdo.gif";
+    } else {
+      // Se nenhuma tecla estiver pressionada, volte ao estado padrão (frente)
+      balao.src = "./assets/balao/balao_frente.gif";
+    }
+  }
+
+});
+
+estatua_liberdade.addEventListener("mouseenter", () => {
+
+  estatua_liberdade_contorno.src="./assets/botoes_lugares/estatua_liberdade/estatua_liberdade_contorno.png"
+
+})
+
+estatua_liberdade.addEventListener("mouseleave", () => {
+  estatua_liberdade_contorno.src = ""
+})
+
+torre_eiffel.addEventListener("mouseenter", () => {
+
+  torre_eiffel_contorno.src="./assets/botoes_lugares/torre_eiffel/torre_eiffel_contorno.png"
+  torre_eiffel_praca_contorno.src="./assets/botoes_lugares/torre_eiffel/torre_eiffel_praca_contorno.png"
+
+})
+
+torre_eiffel.addEventListener("mouseleave", () => {
+  torre_eiffel_contorno.src = ""
+  torre_eiffel_praca_contorno.src = ""
+})
+
+piramide_teotihuacan.addEventListener("mouseenter", () => {
+
+  piramide_teotihuacan_contorno.src="./assets/botoes_lugares/piramide_de_teotihuacan/piramide_de_teotihuacan_contorno.png"
+  piramide_teotihuacan_moita_terra_contorno.src="./assets/botoes_lugares/piramide_de_teotihuacan/moita_terra_contorno.png"
+
+})
+
+piramide_teotihuacan.addEventListener("mouseleave", () => {
+  piramide_teotihuacan_contorno.src = ""
+  piramide_teotihuacan_moita_terra_contorno.src = ""
+})
+
+machu_pichu.addEventListener("mouseenter", () => {
+
+  machu_pichu_contorno.src="./assets/botoes_lugares/machu_picchu/machu_picchu_contorno.png"
+  machu_pichu_terras_contorno.src="./assets/botoes_lugares/machu_picchu/terras_contorno.png"
+  machu_pichu_moitas_contorno.src="./assets/botoes_lugares/machu_picchu/moitas_contorno.png"
+
+})
+
+machu_pichu.addEventListener("mouseleave", () => {
+  machu_pichu_moitas_contorno.src = ""
+  machu_pichu_terras_contorno.src = ""
+  machu_pichu_contorno.src = ""
+})
+
+piramides_gize.addEventListener("mouseenter", () => {
+
+  piramides_gize_contorno.src="./assets/botoes_lugares/piramides_gize/piramides_contorno.png"
+
+
+})
+
+piramides_gize.addEventListener("mouseleave", () => {
+  piramides_gize_contorno.src = ""
+})
+
+machu_pichu.addEventListener("mouseleave", () => {
+  machu_pichu_moitas_contorno.src = ""
+  machu_pichu_terras_contorno.src = ""
+  machu_pichu_contorno.src = ""
+})
+
+big_ben.addEventListener("mouseenter", () => {
+
+  big_ben_contorno.src="./assets/botoes_lugares/big_ben/big_ben_contorno.png"
+  big_ben_bus_contorno.src="./assets/botoes_lugares/big_ben/onibus_contorno.png"
+
+
+})
+
+big_ben.addEventListener("mouseleave", () => {
+  big_ben_contorno.src = ""
+  big_ben_bus_contorno.src = ""
+})
+
+torre_pisa.addEventListener("mouseenter", () => {
+
+  torre_pisa_contorno.src="./assets/botoes_lugares/torre_pisa/torre_pisa_contorno.png"
+
+
+
+})
+
+torre_pisa.addEventListener("mouseleave", () => {
+  torre_pisa_contorno.src = ""
+})
+
+taj_mahal.addEventListener("mouseenter", () => {
+
+  taj_mahal_contorno.src="./assets/botoes_lugares/taj_mahal/taj_mahal_contorno.png"
+  taj_mahal_torres_contorno.src="./assets/botoes_lugares/taj_mahal/torres_contorno.png"
+
+
+
+})
+
+taj_mahal.addEventListener("mouseleave", () => {
+  taj_mahal_contorno.src = ""
+  taj_mahal_torres_contorno.src = ""
+})
+
+monte_fuji.addEventListener("mouseenter", () => {
+
+  monte_fuji_contorno.src="./assets/botoes_lugares/monte_fuji/monte_fuji_contorno.png"
+
+
+
+})
+
+monte_fuji.addEventListener("mouseleave", () => {
+
+  monte_fuji_contorno.src = ""
+})
+
+opera_sidney.addEventListener("mouseenter", () => {
+
+  opera_sidney_contorno.src="./assets/botoes_lugares/opera_sydney/opera_de_sydney_contorno.png"
+
+
+
+})
+
+opera_sidney.addEventListener("mouseleave", () => {
+
+  opera_sidney_contorno.src = ""
+})
+
+// Elementos da bússola
+const bussolaPonteiro = document.querySelector('.bussola_ponteiro');
+
+function atualizarDirecaoBussola() {
+  const mapaRetangulo = mapa_mundi.getBoundingClientRect();
+  const centroX = mapaRetangulo.left + mapaRetangulo.width / 2;
+  const centroY = mapaRetangulo.top + mapaRetangulo.height / 2;
+
+  const balaoRetangulo = balao.getBoundingClientRect(); // Adicionei esta linha
+  const balaoX = balaoRetangulo.left + balaoRetangulo.width / 2;
+  const balaoY = balaoRetangulo.top + balaoRetangulo.height / 2;
+
+  const deltaX = balaoX - centroX;
+  const deltaY = balaoY - centroY;
+
+  const radianos = Math.atan2(deltaY, deltaX);
+  const graus = (radianos * 180) / Math.PI;
+
+  bussolaPonteiro.style.transform = `rotate(${graus + 90}deg)`; // Ajuste de +90 graus
+}
