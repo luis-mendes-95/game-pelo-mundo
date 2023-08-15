@@ -1,3 +1,4 @@
+const balao = document.querySelector(".balao");
 const luneta = document.querySelector(".luneta");
 const luneta_brilho = document.createElement("img");
 const bussola = document.querySelector(".bussola");
@@ -165,7 +166,7 @@ bussola.addEventListener("click", () => {
     console.log(bussola_clicked)
     bussola_grande.src = ""
     bussola_ponteiro.src = ""
-    bussola_circul.src = ""
+    bussola_circulo.src = ""
   }
 
 
@@ -214,3 +215,51 @@ diario.addEventListener("click", () => {
 
 
 })
+
+const arrowKeyState = {
+  ArrowUp: false,
+  ArrowDown: false,
+  ArrowRight: false,
+  ArrowLeft: false
+};
+
+document.addEventListener("keydown", event => {
+  const arrowKey = event.key;
+
+  // Verificar se a tecla foi pressionada inicialmente
+  if (!arrowKeyState[arrowKey]) {
+    arrowKeyState[arrowKey] = true;
+
+    // Atualizar o src de acordo com a tecla pressionada
+    if (arrowKey === "ArrowUp") {
+      balao.src = "./assets/balao/balao_costa.gif";
+    } else if (arrowKey === "ArrowDown") {
+      balao.src = "./assets/balao/balao_frente.gif";
+    } else if (arrowKey === "ArrowRight") {
+      balao.src = "./assets/balao/balao_direito.gif";
+    } else if (arrowKey === "ArrowLeft") {
+      balao.src = "./assets/balao/balao_esquerdo.gif";
+    }
+  }
+});
+
+document.addEventListener("keyup", event => {
+  const arrowKey = event.key;
+
+  // Resetar o estado da tecla quando ela é liberada
+  arrowKeyState[arrowKey] = false;
+
+  // Atualizar o src de acordo com as teclas restantes pressionadas
+  if (arrowKeyState.ArrowUp) {
+    balao.src = "./assets/balao/balao_costa.gif";
+  } else if (arrowKeyState.ArrowDown) {
+    balao.src = "./assets/balao/balao_frente.gif";
+  } else if (arrowKeyState.ArrowRight) {
+    balao.src = "./assets/balao/balao_direito.gif";
+  } else if (arrowKeyState.ArrowLeft) {
+    balao.src = "./assets/balao/balao_esquerdo.gif";
+  } else {
+    // Se nenhuma tecla estiver pressionada, volte ao estado padrão (frente)
+    balao.src = "./assets/balao/balao_frente.gif";
+  }
+});

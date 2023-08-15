@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 body {
@@ -295,6 +296,14 @@ body {
   transition: 0.3s;
 }
 
+.balao{
+  position: fixed;
+  width: 5%;
+  object-fit: contain; 
+  right: 50%;
+  bottom: 50.5%;
+  transition: 0.3s;
+}
 
 
 
