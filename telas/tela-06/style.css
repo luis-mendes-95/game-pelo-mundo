@@ -85,6 +85,45 @@ body {
   z-index: 1;
 }
 
+.dica_seta_avanca{
+  position: absolute;
+  width: 5%;
+  object-fit: contain; 
+  right: 5%;
+  bottom: 45%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dica_seta_volta{
+  position: absolute;
+  width: 5%;
+  object-fit: contain; 
+  left: 5%;
+  bottom: 45%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dica_seta_volta:hover, .dica_seta_avanca:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.dica {
+  position: absolute;
+  width: 65%;
+  object-fit: contain; 
+  right: 18%;
+  bottom: 25%;
+  transition: 0.3s;
+  z-index: 4;
+}
+
 .dicas {
   position: absolute;
   width: 10%;

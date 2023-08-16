@@ -44,11 +44,60 @@ const taj_mahal_contorno = document.querySelector(".taj_mahal_contorno");
 const taj_mahal_torres = document.querySelector(".taj_mahal_torres");
 const taj_mahal_torres_contorno = document.querySelector(".taj_mahal_torres_contorno");
 const black_background = document.querySelector(".black_background");
+const dica = document.querySelector(".dica");
+const dica_seta_volta = document.querySelector(".dica_seta_volta");
+const dica_seta_avanca = document.querySelector(".dica_seta_avanca");
 
 let luneta_clicked = false;
 let bussola_clicked = false;
 let dicas_clicked = false;
 let diario_clicked = false;
+
+let estatua_liberdade_descoberta = false
+let piramide_de_teotihuacan_descoberta = false
+let machu_picchu_descoberto = false
+let piramides_gize_descoberta = false
+let torre_pisa_descoberta = false
+let torre_eiffel_descoberta = false
+let big_ben_descoberto = false
+let taj_mahal_descoberto = false
+let monte_fuji_descoberto = false
+let opera_sidney_descoberta = false
+
+let folhas_dicas = []
+
+let choosen_dica = 1
+
+estatua_liberdade.addEventListener("click", () => {
+  estatua_liberdade_descoberta = true
+})
+piramide_teotihuacan.addEventListener("click", () => {
+  piramide_de_teotihuacan_descoberta = true
+})
+machu_pichu.addEventListener("click", () => {
+  machu_picchu_descoberto = true
+})
+piramides_gize.addEventListener("click", () => {
+  piramides_gize_descoberta = true
+})
+torre_pisa.addEventListener("click", () => {
+  torre_pisa_descoberta = true
+})
+torre_eiffel.addEventListener("click", () => {
+  torre_eiffel_descoberta = true
+})
+big_ben.addEventListener("click", () => {
+  big_ben_descoberto = true
+})
+taj_mahal.addEventListener("click", () => {
+  taj_mahal_descoberto = true
+})
+monte_fuji.addEventListener("click", () => {
+  monte_fuji_descoberto = true
+})
+opera_sidney.addEventListener("click", () => {
+  opera_sidney_descoberta = true
+})
 
 luneta_brilho.classList.add("luneta_brilho");
 bussola_brilho.classList.add("bussola_brilho");
@@ -210,17 +259,149 @@ if(luneta_clicked === false) {
 
 })
 
+const handleDicas = () => {
+
+  folhas_dicas = []
+
+  if(estatua_liberdade_descoberta === true) {
+    let estatua_liberdade_dica = './assets/02_folhas_com_figuras/01_folha_estatua_liberdade.png'
+    folhas_dicas.push(estatua_liberdade_dica)
+  } else {
+    let estatua_liberdade_dica = './assets/01_folhas_sem_figuras/01_folha_estatua_liberdade.png'
+    folhas_dicas.unshift(estatua_liberdade_dica)
+  }
+  if(machu_picchu_descoberto === true) {
+    let machu_picchu_dica = './assets/02_folhas_com_figuras/10_folha_machu_picchu.png'
+    folhas_dicas.push(machu_picchu_dica)
+  } else {
+    let machu_picchu_dica = './assets/01_folhas_sem_figuras/10_folha_machu_picchu.png'
+    folhas_dicas.unshift(machu_picchu_dica)
+  }
+  if(piramide_de_teotihuacan_descoberta === true) {
+    let piramide_de_teotihuacan_dica = './assets/02_folhas_com_figuras/09_folha_piramide.png'
+    folhas_dicas.push(piramide_de_teotihuacan_dica)
+  } else {
+    let piramide_de_teotihuacan_dica = './assets/01_folhas_sem_figuras/09_folha_piramide.png'
+    folhas_dicas.unshift(piramide_de_teotihuacan_dica)
+  }
+  if(piramides_gize_descoberta === true) {
+    let piramides_gize_dica = './assets/02_folhas_com_figuras/07_folha_piramide_gize.png'
+    folhas_dicas.push(piramides_gize_dica)
+  } else {
+    let piramides_gize_dica = './assets/01_folhas_sem_figuras/07_folha_piramide_gize.png'
+    folhas_dicas.unshift(piramides_gize_dica)
+  }
+  if(torre_pisa_descoberta === true) {
+    let torre_pisa_dica = './assets/02_folhas_com_figuras/02_folha_torre_pisa.png'
+    folhas_dicas.push(torre_pisa_dica)
+  } else {
+    let torre_pisa_dica = './assets/01_folhas_sem_figuras/02_folha_torre_pisa.png'
+    folhas_dicas.unshift(torre_pisa_dica)
+  }
+  if(torre_eiffel_descoberta === true) {
+    let torre_eiffel_dica = './assets/02_folhas_com_figuras/03_folha_torre_eiffel.png'
+    folhas_dicas.push(torre_eiffel_dica)
+  } else {
+    let torre_eiffel_dica = './assets/01_folhas_sem_figuras/03_folha_torre_eiffel.png'
+    folhas_dicas.unshift(torre_eiffel_dica)
+  }
+  if(big_ben_descoberto === true) {
+    let big_ben_dica = './assets/02_folhas_com_figuras/04_folha_big_ben.png'
+    folhas_dicas.push(big_ben_dica)
+  } else {
+    let big_ben_dica = './assets/01_folhas_sem_figuras/04_folha_big_ben.png'
+    folhas_dicas.unshift(big_ben_dica)
+  }
+  if(taj_mahal_descoberto === true) {
+    let taj_mahal_dica = './assets/02_folhas_com_figuras/06_folha_taj_mahal.png'
+    folhas_dicas.push(taj_mahal_dica)
+  } else {
+    let taj_mahal_dica = './assets/01_folhas_sem_figuras/06_folha_taj_mahal.png'
+    folhas_dicas.unshift(taj_mahal_dica)
+  }
+  if(monte_fuji_descoberto === true) {
+    let monte_fuji_dica = './assets/02_folhas_com_figuras/05_folha_monte_fuji.png'
+    folhas_dicas.push(monte_fuji_dica)
+  } else {
+    let monte_fuji_dica = './assets/01_folhas_sem_figuras/05_folha_monte_fuji.png'
+    folhas_dicas.unshift(monte_fuji_dica)
+  }
+  if(opera_sidney_descoberta === true) {
+    let opera_sidney_dica = './assets/02_folhas_com_figuras/08_folha_opera_sydney.png'
+    folhas_dicas.push(opera_sidney_dica)
+  } else {
+    let opera_sidney_dica = './assets/01_folhas_sem_figuras/08_folha_opera_sydney.png'
+    folhas_dicas.unshift(opera_sidney_dica)
+  }
+
+
+
+}
+
+const handleDicasPages = () => {
+  if(choosen_dica === 1) {
+    dica_seta_volta.src = ""
+    dica.src = folhas_dicas[0]
+  } else if (choosen_dica === 2) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica.src = folhas_dicas[1]
+  } else if (choosen_dica === 3) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica.src = folhas_dicas[2]
+  } else if (choosen_dica === 4) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica.src = folhas_dicas[3]
+  } else if (choosen_dica === 5) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica.src = folhas_dicas[4]
+  } else if (choosen_dica === 6) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica.src = folhas_dicas[5]
+  } else if (choosen_dica === 7) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica.src = folhas_dicas[6]
+  } else if (choosen_dica === 8) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica.src = folhas_dicas[7]
+  } else if (choosen_dica === 9) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica.src = folhas_dicas[8]
+  } else if (choosen_dica === 10) {
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    dica_seta_avanca.src = ""
+    dica.src = folhas_dicas[9]
+  } 
+  console.log(choosen_dica)
+}
+
 dicas.addEventListener("click", () => {
   if (!dicas_clicked) {
     black_background.style.display = "flex";
     dicas.style.zIndex = "3";
     dicas_brilho.src = "./assets/03_dicas/dicas_contorno.png";
+    handleDicas();
     dicas_clicked = true;
+
+    dica_seta_avanca.src = "./assets/botao_direito.png"
+    dica_seta_volta.src = "./assets/botao_esquerdo.png"
+    handleDicasPages();   
   } else {
     black_background.style.display = "none";
     dicas.style.zIndex = "2";
     dicas_brilho.src = "";
     dicas_clicked = false;
+    choosen_dica = 1
+    dica_seta_avanca.src = ""
+    dica_seta_volta.src = ""
+    dica.src = ""
   }
 
   luneta_brilho.src = "";
@@ -230,6 +411,28 @@ dicas.addEventListener("click", () => {
   bussola_clicked = false;
   diario_clicked = false;
 });
+
+dica_seta_avanca.addEventListener("click", () => {
+  if (choosen_dica >= 11) {
+    return
+  } 
+
+  if (choosen_dica <= 10) {
+    choosen_dica += 1
+    handleDicasPages()
+  }
+})
+
+dica_seta_volta.addEventListener("click", () => {
+  if (choosen_dica <= 1) {
+    return
+  } 
+
+  if (choosen_dica > 1) {
+    choosen_dica -= 1
+    handleDicasPages()
+  }
+})
 
 diario.addEventListener("click", () => {
 
