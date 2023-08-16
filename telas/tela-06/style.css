@@ -485,6 +485,14 @@ body {
   }
 }
 
-
+.black_background{
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  height: 100%;
+  z-index: 3;
+  opacity: 0.5;
+  display: none;
+}
 
 

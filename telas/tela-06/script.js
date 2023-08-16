@@ -13,85 +13,37 @@ const diario_brilho = document.createElement("img");
 const container = document.querySelector('.container');
 const content = document.querySelector('.content');
 const mapa_mundi = document.querySelector(".mapa_mundi");
-
-
-
-
-
 const estatua_liberdade = document.querySelector(".estatua_liberdade");
 const estatua_liberdade_contorno = document.querySelector(".estatua_liberdade_contorno");
-
-
-
-
-
 const torre_eiffel = document.querySelector(".torre_eiffel");
 const torre_eiffel_contorno = document.querySelector(".torre_eiffel_contorno");
 const torre_eiffel_praca = document.querySelector(".torre_eiffel_praca");
 const torre_eiffel_praca_contorno = document.querySelector(".torre_eiffel_praca_contorno");
-
-
-
-
 const piramide_teotihuacan_moita_terra = document.querySelector(".piramide_teotihuacan_moita_terra");
 const piramide_teotihuacan = document.querySelector(".piramide_teotihuacan");
 const piramide_teotihuacan_contorno = document.querySelector(".piramide_teotihuacan_contorno")
 const piramide_teotihuacan_moita_terra_contorno = document.querySelector(".piramide_teotihuacan_moita_terra_contorno");
-
-
-
-
-
-
 const machu_pichu = document.querySelector(".machu_pichu")
 const machu_pichu_moitas_contorno = document.querySelector(".machu_pichu_moitas_contorno");
 const machu_pichu_terras_contorno = document.querySelector(".machu_pichu_terras_contorno");
 const machu_pichu_contorno = document.querySelector(".machu_pichu_contorno");
-
-
-
-
-
 const piramides_gize = document.querySelector(".piramides_gize");
 const piramides_gize_contorno = document.querySelector(".piramides_gize_contorno");
-
-
-
-
-
-
 const opera_sidney = document.querySelector(".opera_sidney");
 const opera_sidney_contorno = document.querySelector(".opera_sidney_contorno");
-
-
-
-
 const big_ben = document.querySelector(".big_ben");
 const big_ben_contorno = document.querySelector(".big_ben_contorno");
 const big_ben_bus = document.querySelector(".big_ben_bus");
 const big_ben_bus_contorno = document.querySelector(".big_ben_bus_contorno");
-
-
-
 const torre_pisa = document.querySelector(".torre_pisa")
 const torre_pisa_contorno = document.querySelector(".torre_pisa_contorno")
-
-
-
-
-
 const monte_fuji = document.querySelector(".monte_fuji")
 const monte_fuji_contorno = document.querySelector(".monte_fuji_contorno")
-
-
-
 const taj_mahal = document.querySelector(".taj_mahal");
 const taj_mahal_contorno = document.querySelector(".taj_mahal_contorno");
 const taj_mahal_torres = document.querySelector(".taj_mahal_torres");
 const taj_mahal_torres_contorno = document.querySelector(".taj_mahal_torres_contorno");
-
-
-
+const black_background = document.querySelector(".black_background");
 
 let luneta_clicked = false;
 let bussola_clicked = false;
@@ -120,7 +72,7 @@ const moveAmount = 14; //
 let animationFrameId = null;
 
 function handleMovement() {
-  if (luneta_clicked === false) {
+  if (luneta_clicked === false && dicas_clicked === false) {
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
     }
@@ -259,26 +211,25 @@ if(luneta_clicked === false) {
 })
 
 dicas.addEventListener("click", () => {
-
-  if (dicas_clicked === false) {
+  if (!dicas_clicked) {
+    black_background.style.display = "flex";
+    dicas.style.zIndex = "3";
     dicas_brilho.src = "./assets/03_dicas/dicas_contorno.png";
     dicas_clicked = true;
-
-    luneta_brilho.src = ""
-    bussola_brilho.src = ""
-    diario_brilho.src = ""
-    luneta_clicked = false;
-    bussola_clicked = false;
-    diario_clicked = false;
-
-  } else if (dicas_clicked === true) {
+  } else {
+    black_background.style.display = "none";
+    dicas.style.zIndex = "2";
     dicas_brilho.src = "";
     dicas_clicked = false;
-    console.log(dicas_clicked)
   }
 
-
-})
+  luneta_brilho.src = "";
+  bussola_brilho.src = "";
+  diario_brilho.src = "";
+  luneta_clicked = false;
+  bussola_clicked = false;
+  diario_clicked = false;
+});
 
 diario.addEventListener("click", () => {
 
@@ -488,7 +439,6 @@ opera_sidney.addEventListener("mouseleave", () => {
   opera_sidney_contorno.src = ""
 })
 
-// Elementos da bússola
 const bussolaPonteiro = document.querySelector('.bussola_ponteiro');
 
 function atualizarDirecaoBussola() {
