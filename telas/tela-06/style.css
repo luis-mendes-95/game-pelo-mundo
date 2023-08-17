@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #6EBFAD; 
+  background: #6ebfad;
   overflow: hidden;
 }
 
@@ -20,24 +20,24 @@ body {
   overflow: hidden;
 }
 
-.mapa_mundi{
-  background-image: url('./assets/mapa_mundi/mapa_mundi.png'); 
-  background-size: cover; 
+.mapa_mundi {
+  background-image: url("./assets/mapa_mundi/mapa_mundi.png");
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   width: 100vw;
   height: 100%;
-  transform: scale(5); 
+  transform: scale(5);
 }
 
 .container::before {
   content: "";
   display: block;
-  padding-top: 56.25%; 
+  padding-top: 56.25%;
 }
 
 .container .content {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -47,7 +47,7 @@ body {
 .luneta {
   position: absolute;
   width: 8%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 42%;
   bottom: 8%;
   transition: 0.3s;
@@ -57,7 +57,7 @@ body {
 .luneta_brilho {
   position: absolute;
   width: 12%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 40%;
   bottom: 5%;
   transition: 0.3s;
@@ -67,7 +67,7 @@ body {
 .bussola {
   position: absolute;
   width: 8%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 30%;
   bottom: 8%;
   transition: 0.3s;
@@ -77,17 +77,18 @@ body {
 .bussola_brilho {
   position: absolute;
   width: 11%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 28.5%;
   bottom: 5.5%;
   transition: 0.3s;
   z-index: 1;
 }
 
-.dica_seta_avanca, .diario_seta_avanca{
+.dica_seta_avanca,
+.diario_seta_avanca {
   position: absolute;
   width: 5%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 5%;
   bottom: 45%;
   transition: 0.3s;
@@ -96,10 +97,11 @@ body {
   transition: 0.3s;
 }
 
-.dica_seta_volta, .diario_seta_volta{
+.dica_seta_volta,
+.diario_seta_volta {
   position: absolute;
   width: 5%;
-  object-fit: contain; 
+  object-fit: contain;
   left: 5%;
   bottom: 45%;
   transition: 0.3s;
@@ -107,18 +109,57 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+.monumento_seta_avanca {
+  position: absolute;
+  width: 7.5%;
+  object-fit: contain;
+  right: 7%;
+  bottom: 25%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.monumento_seta_volta {
+  position: absolute;
+  width: 7.5%;
+  object-fit: contain;
+  right: 7%;
+  bottom: 25%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-.dica_seta_volta:hover, .dica_seta_avanca:hover, .diario_seta_volta:hover, .diario_seta_avanca:hover{
+
+
+.dica_seta_volta:hover,
+.dica_seta_avanca:hover,
+.diario_seta_volta:hover,
+.diario_seta_avanca:hover,
+.monumento_seta_volta:hover,
+.monumento_seta_avanca:hover {
   transform: scale(1.1);
   transition: 0.3s;
 }
 
-.diario_grande{
+.diario_grande {
   position: absolute;
   width: 55%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 22%;
   bottom: 24%;
+  transition: 0.3s;
+  z-index: 4;
+}
+
+.monumento_info {
+  position: absolute;
+  width: 75%;
+  object-fit: contain;
+  right: 15%;
+  bottom: 25%;
   transition: 0.3s;
   z-index: 4;
 }
@@ -126,7 +167,7 @@ body {
 .dica {
   position: absolute;
   width: 65%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 18%;
   bottom: 25%;
   transition: 0.3s;
@@ -136,7 +177,7 @@ body {
 .dicas {
   position: absolute;
   width: 10%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 17%;
   bottom: 10%;
   transition: 0.3s;
@@ -146,7 +187,7 @@ body {
 .dicas_brilho {
   position: absolute;
   width: 13%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 15.5%;
   bottom: 8%;
   transition: 0.3s;
@@ -156,7 +197,7 @@ body {
 .diario {
   position: absolute;
   width: 9%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 5%;
   bottom: 8%;
   transition: 0.3s;
@@ -166,20 +207,23 @@ body {
 .diario_brilho {
   position: absolute;
   width: 12%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 3.5%;
   bottom: 5.5%;
   transition: 0.3s;
   z-index: 1;
 }
 
-.luneta:hover, .bussola:hover, .dicas:hover, .diario:hover{
+.luneta:hover,
+.bussola:hover,
+.dicas:hover,
+.diario:hover {
   transform: scale(1.1);
   transition: 0.3s;
   cursor: pointer;
 }
 
-.estatua_liberdade{
+.estatua_liberdade {
   position: absolute;
   top: 17.9%;
   left: 20.3%;
@@ -189,7 +233,7 @@ body {
   z-index: 1;
 }
 
-.estatua_liberdade_contorno{
+.estatua_liberdade_contorno {
   position: absolute;
   top: 17.8%;
   left: 20.2%;
@@ -198,7 +242,7 @@ body {
   cursor: pointer;
 }
 
-.torre_pisa{
+.torre_pisa {
   position: absolute;
   top: 20.3%;
   left: 46.5%;
@@ -208,7 +252,7 @@ body {
   z-index: 2;
 }
 
-.torre_pisa_contorno{
+.torre_pisa_contorno {
   position: absolute;
   top: 20.2%;
   left: 46.4%;
@@ -217,7 +261,7 @@ body {
   cursor: pointer;
 }
 
-.torre_eiffel{
+.torre_eiffel {
   position: absolute;
   top: 14.1%;
   left: 42.4%;
@@ -227,7 +271,7 @@ body {
   z-index: 1;
 }
 
-.torre_eiffel_contorno{
+.torre_eiffel_contorno {
   position: absolute;
   top: 14.1%;
   left: 42.35%;
@@ -236,7 +280,7 @@ body {
   cursor: pointer;
 }
 
-.torre_eiffel_praca{
+.torre_eiffel_praca {
   position: absolute;
   top: 22.1%;
   left: 42.2%;
@@ -246,17 +290,16 @@ body {
   z-index: 1;
 }
 
-.torre_eiffel_praca_contorno{
+.torre_eiffel_praca_contorno {
   position: absolute;
   top: 22%;
   left: 42.15%;
   height: 2.2%;
   transition: 0.3s;
   cursor: pointer;
-  
 }
 
-.big_ben{
+.big_ben {
   position: absolute;
   top: 9.5%;
   left: 38.8%;
@@ -266,7 +309,7 @@ body {
   z-index: 2;
 }
 
-.big_ben_contorno{
+.big_ben_contorno {
   position: absolute;
   top: 9.5%;
   left: 38.7%;
@@ -275,7 +318,7 @@ body {
   cursor: pointer;
 }
 
-.big_ben_bus{
+.big_ben_bus {
   position: absolute;
   top: 16.7%;
   left: 38.8%;
@@ -285,7 +328,7 @@ body {
   z-index: 2;
 }
 
-.big_ben_bus_contorno{
+.big_ben_bus_contorno {
   position: absolute;
   top: 16.6%;
   left: 38.7%;
@@ -294,7 +337,7 @@ body {
   cursor: pointer;
 }
 
-.monte_fuji{
+.monte_fuji {
   position: absolute;
   top: 36%;
   left: 86%;
@@ -304,7 +347,7 @@ body {
   z-index: 2;
 }
 
-.monte_fuji_contorno{
+.monte_fuji_contorno {
   position: absolute;
   top: 35.85%;
   left: 86%;
@@ -313,7 +356,7 @@ body {
   cursor: pointer;
 }
 
-.taj_mahal{
+.taj_mahal {
   position: absolute;
   top: 31.4%;
   left: 65.1%;
@@ -323,7 +366,7 @@ body {
   z-index: 2;
 }
 
-.taj_mahal_contorno{
+.taj_mahal_contorno {
   position: absolute;
   top: 31.4%;
   left: 65%;
@@ -332,7 +375,7 @@ body {
   cursor: pointer;
 }
 
-.taj_mahal_torres{
+.taj_mahal_torres {
   position: absolute;
   top: 35%;
   left: 65.5%;
@@ -342,7 +385,7 @@ body {
   z-index: 2;
 }
 
-.taj_mahal_torres_contorno{
+.taj_mahal_torres_contorno {
   position: absolute;
   top: 34.9%;
   left: 65.5%;
@@ -351,7 +394,7 @@ body {
   cursor: pointer;
 }
 
-.piramides_gize{
+.piramides_gize {
   position: absolute;
   top: 39.4%;
   left: 47.5%;
@@ -361,7 +404,7 @@ body {
   z-index: 1;
 }
 
-.piramides_gize_contorno{
+.piramides_gize_contorno {
   position: absolute;
   top: 39.3%;
   left: 47.3%;
@@ -370,7 +413,7 @@ body {
   cursor: pointer;
 }
 
-.opera_sidney{
+.opera_sidney {
   position: absolute;
   top: 69%;
   left: 83.2%;
@@ -380,7 +423,7 @@ body {
   z-index: 2;
 }
 
-.opera_sidney_contorno{
+.opera_sidney_contorno {
   position: absolute;
   top: 68.9%;
   left: 83.1%;
@@ -389,7 +432,7 @@ body {
   cursor: pointer;
 }
 
-.piramide_teotihuacan{
+.piramide_teotihuacan {
   position: absolute;
   top: 37%;
   left: 13.2%;
@@ -399,7 +442,7 @@ body {
   z-index: 1;
 }
 
-.piramide_teotihuacan_contorno{
+.piramide_teotihuacan_contorno {
   position: absolute;
   top: 36.9%;
   left: 13.2%;
@@ -408,7 +451,7 @@ body {
   cursor: pointer;
 }
 
-.piramide_teotihuacan_moita_terra{
+.piramide_teotihuacan_moita_terra {
   position: absolute;
   top: 39%;
   left: 13.2%;
@@ -418,7 +461,7 @@ body {
   z-index: 1;
 }
 
-.piramide_teotihuacan_moita_terra_contorno{
+.piramide_teotihuacan_moita_terra_contorno {
   position: absolute;
   top: 38.85%;
   left: 13.15%;
@@ -427,7 +470,7 @@ body {
   cursor: pointer;
 }
 
-.machu_pichu_terras{
+.machu_pichu_terras {
   position: absolute;
   top: 61.2%;
   left: 24.45%;
@@ -437,7 +480,7 @@ body {
   z-index: 4;
 }
 
-.machu_pichu_terras_contorno{
+.machu_pichu_terras_contorno {
   position: absolute;
   top: 61.2%;
   left: 24.4%;
@@ -447,7 +490,7 @@ body {
   z-index: 2;
 }
 
-.machu_pichu{
+.machu_pichu {
   position: absolute;
   top: 56.3%;
   left: 22.35%;
@@ -457,7 +500,7 @@ body {
   z-index: 2;
 }
 
-.machu_pichu_contorno{
+.machu_pichu_contorno {
   position: absolute;
   top: 56.2%;
   left: 22.35%;
@@ -467,7 +510,7 @@ body {
   z-index: 1;
 }
 
-.machu_pichu_moitas{
+.machu_pichu_moitas {
   position: absolute;
   top: 62%;
   left: 22.35%;
@@ -477,7 +520,7 @@ body {
   z-index: 4;
 }
 
-.machu_pichu_moitas_contorno{
+.machu_pichu_moitas_contorno {
   position: absolute;
   top: 62%;
   left: 22.35%;
@@ -487,28 +530,28 @@ body {
   z-index: 3;
 }
 
-.bussola_grande{
+.bussola_grande {
   position: absolute;
   width: 20%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 5%;
   bottom: 35%;
   transition: 0.3s;
 }
 
-.bussola_ponteiro{
+.bussola_ponteiro {
   position: absolute;
   width: 14.5%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 7.6%;
   bottom: 51.6%;
   transition: 0.3s;
 }
 
-.dica_fechar{
+.dica_fechar {
   position: absolute;
   width: 7.5%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 15.6%;
   bottom: 78.6%;
   transition: 0.3s;
@@ -516,10 +559,26 @@ body {
   cursor: pointer;
 }
 
-.diario_fechar{
+.monumento_fechar {
   position: absolute;
   width: 7.5%;
-  object-fit: contain; 
+  object-fit: contain;
+  right: 7%;
+  bottom: 75.6%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.monumento_fechar:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.diario_fechar {
+  position: absolute;
+  width: 7.5%;
+  object-fit: contain;
   right: 19%;
   bottom: 82.6%;
   transition: 0.3s;
@@ -527,24 +586,25 @@ body {
   cursor: pointer;
 }
 
-.dica_fechar:hover, .diario_fechar:hover{
+.dica_fechar:hover,
+.diario_fechar:hover {
   transform: scale(1.1);
   transition: 0.3s;
 }
 
-.bussola_circulo{
+.bussola_circulo {
   position: absolute;
   width: 4%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 13%;
   bottom: 50.5%;
   transition: 0.3s;
 }
 
-.balao{
+.balao {
   position: fixed;
   width: 5%;
-  object-fit: contain; 
+  object-fit: contain;
   right: 50%;
   bottom: 50.5%;
   transition: 0.3s;
@@ -552,7 +612,8 @@ body {
 }
 
 @keyframes moveUpDown {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -560,7 +621,7 @@ body {
   }
 }
 
-.black_background{
+.black_background {
   position: absolute;
   width: 100%;
   background-color: black;
@@ -569,5 +630,3 @@ body {
   opacity: 0.5;
   display: none;
 }
-
-
