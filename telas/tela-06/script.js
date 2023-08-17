@@ -47,6 +47,7 @@ const black_background = document.querySelector(".black_background");
 const dica = document.querySelector(".dica");
 const dica_seta_volta = document.querySelector(".dica_seta_volta");
 const dica_seta_avanca = document.querySelector(".dica_seta_avanca");
+const dica_fechar = document.querySelector(".dica_fechar");
 
 let luneta_clicked = false;
 let bussola_clicked = false;
@@ -387,9 +388,9 @@ dicas.addEventListener("click", () => {
     black_background.style.display = "flex";
     dicas.style.zIndex = "3";
     dicas_brilho.src = "./assets/03_dicas/dicas_contorno.png";
+    dica_fechar.src = "./assets/botao_fechar.png"
     handleDicas();
     dicas_clicked = true;
-
     dica_seta_avanca.src = "./assets/botao_direito.png"
     dica_seta_volta.src = "./assets/botao_esquerdo.png"
     handleDicasPages();   
@@ -402,6 +403,7 @@ dicas.addEventListener("click", () => {
     dica_seta_avanca.src = ""
     dica_seta_volta.src = ""
     dica.src = ""
+    dica_fechar.src = ""
   }
 
   luneta_brilho.src = "";
@@ -411,6 +413,18 @@ dicas.addEventListener("click", () => {
   bussola_clicked = false;
   diario_clicked = false;
 });
+
+dica_fechar.addEventListener("click", () => {
+  black_background.style.display = "none";
+    dicas.style.zIndex = "2";
+    dicas_brilho.src = "";
+    dicas_clicked = false;
+    choosen_dica = 1
+    dica_seta_avanca.src = ""
+    dica_seta_volta.src = ""
+    dica.src = ""
+    dica_fechar.src = ""
+})
 
 dica_seta_avanca.addEventListener("click", () => {
   if (choosen_dica >= 11) {
@@ -437,6 +451,8 @@ dica_seta_volta.addEventListener("click", () => {
 diario.addEventListener("click", () => {
 
   if (diario_clicked === false) {
+    black_background.style.display = "flex"
+    diario.style.zIndex = "3"
     diario_brilho.src = "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png";
     diario_clicked = true;
 
@@ -448,6 +464,8 @@ diario.addEventListener("click", () => {
     dicas_clicked = false;
 
   } else if (diario_clicked === true) {
+    black_background.style.display = "none"
+    diario.style.zIndex = "2"
     diario_brilho.src = "";
     diario_clicked = false;
     console.log(diario_clicked)

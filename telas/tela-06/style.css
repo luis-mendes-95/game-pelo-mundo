@@ -496,6 +496,22 @@ body {
   transition: 0.3s;
 }
 
+.dica_fechar{
+  position: absolute;
+  width: 7.5%;
+  object-fit: contain; 
+  right: 15.6%;
+  bottom: 78.6%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.dica_fechar:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 .bussola_circulo{
   position: absolute;
   width: 4%;
