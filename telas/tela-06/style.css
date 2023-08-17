@@ -85,7 +85,7 @@ body {
   z-index: 1;
 }
 
-.dica_seta_avanca{
+.dica_seta_avanca, .diario_seta_avanca{
   position: absolute;
   width: 5%;
   object-fit: contain; 
@@ -97,7 +97,7 @@ body {
   transition: 0.3s;
 }
 
-.dica_seta_volta{
+.dica_seta_volta, .diario_seta_volta{
   position: absolute;
   width: 5%;
   object-fit: contain; 
@@ -109,9 +109,19 @@ body {
   transition: 0.3s;
 }
 
-.dica_seta_volta:hover, .dica_seta_avanca:hover{
+.dica_seta_volta:hover, .dica_seta_avanca:hover, .diario_seta_volta:hover, .diario_seta_avanca:hover{
   transform: scale(1.1);
   transition: 0.3s;
+}
+
+.diario_grande{
+  position: absolute;
+  width: 55%;
+  object-fit: contain; 
+  right: 22%;
+  bottom: 24%;
+  transition: 0.3s;
+  z-index: 4;
 }
 
 .dica {
@@ -507,7 +517,18 @@ body {
   cursor: pointer;
 }
 
-.dica_fechar:hover{
+.diario_fechar{
+  position: absolute;
+  width: 7.5%;
+  object-fit: contain; 
+  right: 19%;
+  bottom: 82.6%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.dica_fechar:hover, .diario_fechar:hover{
   transform: scale(1.1);
   transition: 0.3s;
 }

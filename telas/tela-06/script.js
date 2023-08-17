@@ -48,6 +48,10 @@ const dica = document.querySelector(".dica");
 const dica_seta_volta = document.querySelector(".dica_seta_volta");
 const dica_seta_avanca = document.querySelector(".dica_seta_avanca");
 const dica_fechar = document.querySelector(".dica_fechar");
+const diario_grande = document.querySelector(".diario_grande");
+const diario_seta_avanca = document.querySelector(".diario_seta_avanca");
+const diario_seta_volta = document.querySelector(".diario_seta_volta");
+const diario_fechar = document.querySelector(".diario_fechar");
 
 let luneta_clicked = false;
 let bussola_clicked = false;
@@ -66,8 +70,13 @@ let monte_fuji_descoberto = false
 let opera_sidney_descoberta = false
 
 let folhas_dicas = []
+let folhas_diario = [
+  './assets/01_diario_sem_adesivos/capa_diario.png',
+  './assets/01_diario_sem_adesivos/guarda_diario.png',
+]
 
 let choosen_dica = 1
+let choosen_diario = 1
 
 estatua_liberdade.addEventListener("click", () => {
   estatua_liberdade_descoberta = true
@@ -339,6 +348,156 @@ const handleDicas = () => {
 
 }
 
+const handleDiario = () => {
+
+  folhas_diario = [
+    './assets/01_diario_sem_adesivos/capa_diario.png',
+    './assets/01_diario_sem_adesivos/guarda_diario.png',
+  ]
+
+  if(estatua_liberdade_descoberta === true) {
+    let estatua_liberdade_diario = './assets/02_diario_com_adesivos/01_folha_estatua_liberdade_adesivos.png'
+    folhas_diario.push(estatua_liberdade_diario)
+  } else {
+    let estatua_liberdade_diario = './assets/01_diario_sem_adesivos/01_folha_estatua_liberdade_sombra.png'
+    folhas_diario.push(estatua_liberdade_diario)
+  }
+
+  if(torre_pisa_descoberta === true) {
+    let torre_pisa_diario = './assets/02_diario_com_adesivos/02_folha_torre_pisa_adesivos.jpg'
+    folhas_diario.push(torre_pisa_diario)
+  } else {
+    let torre_pisa_diario = './assets/01_diario_sem_adesivos/02_folha_torre_pisa_sombra.png'
+    folhas_diario.push(torre_pisa_diario)
+  }
+
+  if(torre_eiffel_descoberta === true) {
+    let torre_eiffel_descoberta = './assets/02_diario_com_adesivos/03_folha_torre_eiffel_adesivos.png'
+    folhas_diario.push(torre_eiffel_descoberta)
+  } else {
+    let torre_eiffel_descoberta = './assets/01_diario_sem_adesivos/03_folha_torre_eiffel_sombra.png'
+    folhas_diario.push(torre_eiffel_descoberta)
+  }
+
+  if(big_ben_descoberto === true) {
+    let big_ben_descoberto = './assets/02_diario_com_adesivos/04_folha_big_ben_adesivos.png'
+    folhas_diario.push(big_ben_descoberto)
+  } else {
+    let big_ben_descoberto = './assets/01_diario_sem_adesivos/04_folha_big_ben_sombra.png'
+    folhas_diario.push(big_ben_descoberto)
+  }
+
+  if(monte_fuji_descoberto === true) {
+    let monte_fuji_descoberto = './assets/02_diario_com_adesivos/05_folha_monte_fuji_adesivos.png'
+    folhas_diario.push(monte_fuji_descoberto)
+  } else {
+    let monte_fuji_descoberto = './assets/01_diario_sem_adesivos/05_folha_monte_fuji_sombra.png'
+    folhas_diario.push(monte_fuji_descoberto)
+  }
+
+  if(taj_mahal_descoberto === true) {
+    let taj_mahal_descoberto = './assets/02_diario_com_adesivos/06_folha_taji_mahal_adesivos.png'
+    folhas_diario.push(taj_mahal_descoberto)
+  } else {
+    let taj_mahal_descoberto = './assets/01_diario_sem_adesivos/06_folha_taji_mahal_sombra.png'
+    folhas_diario.push(taj_mahal_descoberto)
+  }
+
+  if(piramides_gize_descoberta === true) {
+    let piramides_gize_descoberta = './assets/02_diario_com_adesivos/07_folha_piramides_gize_adesivos.png'
+    folhas_diario.push(piramides_gize_descoberta)
+  } else {
+    let piramides_gize_descoberta = './assets/01_diario_sem_adesivos/07_folha_piramides_gize_sombra.png'
+    folhas_diario.push(piramides_gize_descoberta)
+  }
+
+  if(opera_sidney_descoberta === true) {
+    let opera_sidney_descoberta = './assets/02_diario_com_adesivos/08_folha_opera_sydney_adesivos.png'
+    folhas_diario.push(opera_sidney_descoberta)
+  } else {
+    let opera_sidney_descoberta = './assets/01_diario_sem_adesivos/08_folha_opera_sydney_sombra.png'
+    folhas_diario.push(opera_sidney_descoberta)
+  }
+
+  if(piramide_de_teotihuacan_descoberta === true) {
+    let piramide_de_teotihuacan_descoberta = './assets/02_diario_com_adesivos/09_folha_piramide_adesivos.png'
+    folhas_diario.push(piramide_de_teotihuacan_descoberta)
+  } else {
+    let piramide_de_teotihuacan_descoberta = './assets/01_diario_sem_adesivos/09_folha_piramide_sombra.png'
+    folhas_diario.push(piramide_de_teotihuacan_descoberta)
+  }
+
+  if(machu_picchu_descoberto === true) {
+    let machu_picchu_descoberto = './assets/02_diario_com_adesivos/10_folha_machu_micchu_adesivos.png'
+    folhas_diario.push(machu_picchu_descoberto)
+  } else {
+    let machu_picchu_descoberto = './assets/01_diario_sem_adesivos/10_folha_machu_micchu_sombra.png'
+    folhas_diario.push(machu_picchu_descoberto)
+  }
+
+  folhas_diario.push('./assets/01_diario_sem_adesivos/quarta_capa_diario.png')
+
+}
+
+
+const handleDiarioPages = () => {
+  if(choosen_diario === 1) {
+    diario_seta_volta.src = ""
+    diario_grande.src = folhas_diario[0]
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+  } else if (choosen_diario === 2) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[1]
+  } else if (choosen_diario === 3) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[2]
+  } else if (choosen_diario === 4) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[3]
+  } else if (choosen_diario === 5) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[4]
+  } else if (choosen_diario === 6) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[5]
+  } else if (choosen_diario === 7) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[6]
+  } else if (choosen_diario === 8) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[7]
+  } else if (choosen_diario === 9) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[8]
+  } else if (choosen_diario === 10) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[9]
+  } else if (choosen_diario === 11) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[10]
+  } else if (choosen_diario === 12) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = "./assets/botao_direito.png"
+    diario_grande.src = folhas_diario[11]
+  } else if (choosen_diario === 13) {
+    diario_seta_volta.src = "./assets/botao_esquerdo.png"
+    diario_seta_avanca.src = ""
+    diario_grande.src = folhas_diario[12]
+  } 
+
+  console.log(folhas_diario)
+}
+
 const handleDicasPages = () => {
   if(choosen_dica === 1) {
     dica_seta_volta.src = ""
@@ -437,6 +596,31 @@ dica_seta_avanca.addEventListener("click", () => {
   }
 })
 
+diario_seta_avanca.addEventListener("click", () => {
+
+  console.log(choosen_diario)
+  if (choosen_diario >= 13) {
+    return
+  } 
+
+  if (choosen_diario <= 13) {
+    choosen_diario += 1
+    handleDiarioPages()
+  }
+  console.log(choosen_diario)
+})
+
+diario_seta_volta.addEventListener("click", () => {
+  if (choosen_diario <= 1) {
+    return
+  } 
+
+  if (choosen_diario > 1) {
+    choosen_diario -= 1
+    handleDiarioPages()
+  }
+})
+
 dica_seta_volta.addEventListener("click", () => {
   if (choosen_dica <= 1) {
     return
@@ -455,6 +639,10 @@ diario.addEventListener("click", () => {
     diario.style.zIndex = "3"
     diario_brilho.src = "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png";
     diario_clicked = true;
+    diario_fechar.src = "./assets/botao_fechar.png"
+
+    
+    handleDiario();
 
     luneta_brilho.src = ""
     bussola_brilho.src = ""
@@ -463,15 +651,31 @@ diario.addEventListener("click", () => {
     bussola_clicked = false;
     dicas_clicked = false;
 
+    handleDiarioPages();
+
   } else if (diario_clicked === true) {
     black_background.style.display = "none"
     diario.style.zIndex = "2"
     diario_brilho.src = "";
     diario_clicked = false;
     console.log(diario_clicked)
+    diario_grande.src = ""
+    
   }
 
 
+})
+
+diario_fechar.addEventListener("click", () => {
+  black_background.style.display = "none";
+    diario_grande.src = ""
+    diario.style.zIndex = "2";
+    diario_brilho.src = "";
+    diario_clicked_clicked = false;
+    choosen_diario = 1
+    diario_seta_avanca.src = ""
+    diario_seta_volta.src = ""
+    diario_fechar.src = ""
 })
 
 const arrowKeyState = {
