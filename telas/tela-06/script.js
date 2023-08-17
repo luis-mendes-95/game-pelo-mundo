@@ -102,6 +102,19 @@ const monumento_info_activate = (monumento) => {
     monumento_atual = 'piramide_teotihuacan'
   }
 
+  if (monumento === 'machu_pichu'){
+    monumento_info.src = "./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_atual = 'machu_pichu'
+  }
+  
+  if (monumento === 'piramides_gize'){
+    monumento_info.src = "./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_atual = 'piramides_gize'
+  }
+
+
 
 
 }
@@ -116,9 +129,11 @@ piramide_teotihuacan.addEventListener("click", () => {
 });
 machu_pichu.addEventListener("click", () => {
   machu_picchu_descoberto = true;
+  monumento_info_activate('machu_pichu')
 });
 piramides_gize.addEventListener("click", () => {
   piramides_gize_descoberta = true;
+  monumento_info_activate('piramides_gize')
 });
 torre_pisa.addEventListener("click", () => {
   torre_pisa_descoberta = true;
@@ -160,7 +175,6 @@ monumento_fechar.addEventListener("click", () => {
     monumento_fechar.src = ""
     monumento_info.style.width = "75%"
     monumento_info.style.right = "15%"
- 
   }
 
   if (monumento_fechar_num === 1) {
@@ -171,7 +185,7 @@ monumento_fechar.addEventListener("click", () => {
     monumento_seta_volta.src = ""
   }
 
-
+  monumento_page = 1
 
 })
 
@@ -190,6 +204,32 @@ monumento_seta_avanca.addEventListener("click", () => {
     monumento_page += 1
   }
 
+  if (monumento_atual === 'machu_pichu' && monumento_page === 2) {
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+  }
+
+  if (monumento_atual === 'machu_pichu' && monumento_page === 1) {
+    monumento_info.src="./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_02.png"
+    monumento_seta_avanca.src = ""
+    monumento_seta_volta.src = "./assets/cards_monumentos_historicos/botoes/botao_voltar.png"
+    monumento_fechar.src = "./assets/cards_monumentos_historicos/botoes/botao_fechar.png"
+    monumento_page += 1
+  }
+
+  if (monumento_atual === 'piramides_gize' && monumento_page === 2) {
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+  }
+
+  if (monumento_atual === 'piramides_gize' && monumento_page === 1) {
+    monumento_info.src="./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_02.png"
+    monumento_seta_avanca.src = ""
+    monumento_seta_volta.src = "./assets/cards_monumentos_historicos/botoes/botao_voltar.png"
+    monumento_fechar.src = "./assets/cards_monumentos_historicos/botoes/botao_fechar.png"
+    monumento_page += 1
+  }
+
 
 })
 
@@ -197,6 +237,30 @@ monumento_seta_volta.addEventListener("click", () => {
 
   if (monumento_atual === 'piramide_teotihuacan' && monumento_page === 2) {
     monumento_info.src="./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
+
+  if (monumento_atual === 'machu_pichu' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
+
+  if (monumento_atual === 'piramide_teotihuacan' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
+
+  if (monumento_atual === 'piramides_gize' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_01.png"
     monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
     monumento_seta_volta.src = ""
     monumento_page = 1
