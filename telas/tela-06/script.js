@@ -126,7 +126,7 @@ const pressedKeys = {};
 document.addEventListener("keydown", handleArrowKeyDown);
 document.addEventListener("keyup", handleArrowKeyUp);
 
-const moveAmount = 14; //
+const moveAmount = 14; 
 
 let animationFrameId = null;
 
@@ -137,19 +137,15 @@ function handleMovement() {
     }
   
     animationFrameId = requestAnimationFrame(() => {
-      // Get the current transform values
       const transform = window.getComputedStyle(mapa_mundi).getPropertyValue("transform");
       const matrix = new DOMMatrix(transform);
   
-      // Calculate the movement amounts based on pressed keys
       const moveX = (pressedKeys["ArrowRight"] ? -moveAmount : 0) + (pressedKeys["ArrowLeft"] ? moveAmount : 0);
       const moveY = (pressedKeys["ArrowDown"] ? -moveAmount : 0) + (pressedKeys["ArrowUp"] ? moveAmount : 0);
   
-      // Calculate the new positions after movement
       const newX = matrix.m41 + moveX;
       const newY = matrix.m42 + moveY;
-  
-      // Limit the movement based on the boundaries of mapa_mundi
+
       const maxTranslateX = (mapa_mundi.clientWidth * matrix.a - container.clientWidth) / 2;
       const maxTranslateY = (mapa_mundi.clientHeight * matrix.a - container.clientHeight) / 2;
   
@@ -160,7 +156,6 @@ function handleMovement() {
 
       atualizarDirecaoBussola();
   
-      // Continue the animation loop
       animationFrameId = requestAnimationFrame(handleMovement);
     });
   }
@@ -184,18 +179,14 @@ function handleArrowKeyUp(event) {
 
 luneta.addEventListener("click", () => {
   if (luneta_clicked === false) {
-    // Atualizar os valores da matriz de transformação quando a luneta é clicada
     const transform = window.getComputedStyle(mapa_mundi).getPropertyValue("transform");
     const matrix = new DOMMatrix(transform);
     
-    // Atualizar os valores da matriz de acordo com o que você deseja
     matrix.a = 4;
     matrix.d = 4;
 
-    // Aplicar a nova matriz de transformação
     mapa_mundi.style.transform = matrix.toString();
 
-    // Resto do seu código para atualizar os estados das outras interações
     bussola_brilho.src = "";
     dicas_brilho.src = "";
     diario_brilho.src = "";
@@ -212,18 +203,15 @@ luneta.addEventListener("click", () => {
     dicas_clicked = false;
     diario_clicked = false;
   } else if (luneta_clicked === true) {
-    // Resetar os valores da matriz de transformação quando a luneta é clicada novamente
+
     const transform = window.getComputedStyle(mapa_mundi).getPropertyValue("transform");
     const matrix = new DOMMatrix(transform);
 
-    // Atualizar os valores da matriz de acordo com a matriz original
     matrix.a = 5;
     matrix.d = 5;
 
-    // Aplicar a nova matriz de transformação
     mapa_mundi.style.transform = matrix.toString();
 
-    // Resto do seu código para atualizar os estados das outras interações
     bussola_brilho.src = "";
     dicas_brilho.src = "";
     diario_brilho.src = "";
@@ -690,11 +678,9 @@ document.addEventListener("keydown", event => {
   if (luneta_clicked === false) {
     const arrowKey = event.key;
 
-    // Verificar se a tecla foi pressionada inicialmente
     if (!arrowKeyState[arrowKey]) {
       arrowKeyState[arrowKey] = true;
   
-      // Atualizar o src de acordo com a tecla pressionada
       if (arrowKey === "ArrowUp") {
         balao.src = "./assets/balao/balao_costa.gif";
       } else if (arrowKey === "ArrowDown") {
@@ -714,10 +700,8 @@ document.addEventListener("keyup", event => {
   if (luneta_clicked === false) {
     const arrowKey = event.key;
 
-    // Resetar o estado da tecla quando ela é liberada
     arrowKeyState[arrowKey] = false;
   
-    // Atualizar o src de acordo com as teclas restantes pressionadas
     if (arrowKeyState.ArrowUp) {
       balao.src = "./assets/balao/balao_costa.gif";
     } else if (arrowKeyState.ArrowDown) {
@@ -727,7 +711,6 @@ document.addEventListener("keyup", event => {
     } else if (arrowKeyState.ArrowLeft) {
       balao.src = "./assets/balao/balao_esquerdo.gif";
     } else {
-      // Se nenhuma tecla estiver pressionada, volte ao estado padrão (frente)
       balao.src = "./assets/balao/balao_frente.gif";
     }
   }
@@ -871,7 +854,7 @@ function atualizarDirecaoBussola() {
   const centroX = mapaRetangulo.left + mapaRetangulo.width / 2;
   const centroY = mapaRetangulo.top + mapaRetangulo.height / 2;
 
-  const balaoRetangulo = balao.getBoundingClientRect(); // Adicionei esta linha
+  const balaoRetangulo = balao.getBoundingClientRect();
   const balaoX = balaoRetangulo.left + balaoRetangulo.width / 2;
   const balaoY = balaoRetangulo.top + balaoRetangulo.height / 2;
 
@@ -881,5 +864,5 @@ function atualizarDirecaoBussola() {
   const radianos = Math.atan2(deltaY, deltaX);
   const graus = (radianos * 180) / Math.PI;
 
-  bussolaPonteiro.style.transform = `rotate(${graus + 90}deg)`; // Ajuste de +90 graus
+  bussolaPonteiro.style.transform = `rotate(${graus + 90}deg)`;
 }
