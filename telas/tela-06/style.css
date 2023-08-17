@@ -85,6 +85,55 @@ body {
   z-index: 1;
 }
 
+.dica_seta_avanca, .diario_seta_avanca{
+  position: absolute;
+  width: 5%;
+  object-fit: contain; 
+  right: 5%;
+  bottom: 45%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dica_seta_volta, .diario_seta_volta{
+  position: absolute;
+  width: 5%;
+  object-fit: contain; 
+  left: 5%;
+  bottom: 45%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dica_seta_volta:hover, .dica_seta_avanca:hover, .diario_seta_volta:hover, .diario_seta_avanca:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.diario_grande{
+  position: absolute;
+  width: 55%;
+  object-fit: contain; 
+  right: 22%;
+  bottom: 24%;
+  transition: 0.3s;
+  z-index: 4;
+}
+
+.dica {
+  position: absolute;
+  width: 65%;
+  object-fit: contain; 
+  right: 18%;
+  bottom: 25%;
+  transition: 0.3s;
+  z-index: 4;
+}
+
 .dicas {
   position: absolute;
   width: 10%;
@@ -457,6 +506,33 @@ body {
   transition: 0.3s;
 }
 
+.dica_fechar{
+  position: absolute;
+  width: 7.5%;
+  object-fit: contain; 
+  right: 15.6%;
+  bottom: 78.6%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.diario_fechar{
+  position: absolute;
+  width: 7.5%;
+  object-fit: contain; 
+  right: 19%;
+  bottom: 82.6%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+}
+
+.dica_fechar:hover, .diario_fechar:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 .bussola_circulo{
   position: absolute;
   width: 4%;
@@ -485,6 +561,14 @@ body {
   }
 }
 
-
+.black_background{
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  height: 100%;
+  z-index: 3;
+  opacity: 0.5;
+  display: none;
+}
 
 
