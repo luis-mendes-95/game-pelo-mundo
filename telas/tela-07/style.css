@@ -15,9 +15,9 @@ body {
 }
 
 .container {
-  background-image: url('./assets/cenario.png'); 
-  background-size: cover; 
-  background-position: center; 
+  background-image: url("./assets/cenario.png");
+  background-size: cover;
+  background-position: center;
   width: 100vw;
   position: relative;
 }
@@ -25,45 +25,46 @@ body {
 .container::before {
   content: "";
   display: block;
-  padding-top: 56.25%; 
+  padding-top: 56.25%;
 }
 
 .container .content {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
 }
 
-.botao_continuar{
-  position: absolute; 
-  width: 10%; 
-  object-fit: contain; 
+.botao_continuar {
+  position: absolute;
+  width: 10%;
+  object-fit: contain;
   right: 5%;
   bottom: 10%;
   z-index: 2;
 }
 
-.botao_voltar{
-  position: absolute; 
-  width: 10%; 
-  object-fit: contain; 
+.botao_voltar {
+  position: absolute;
+  width: 10%;
+  object-fit: contain;
   left: 5%;
   bottom: 10%;
   z-index: 2;
 }
 
-.botao_continuar:hover, .botao_voltar:hover{
+.botao_continuar:hover,
+.botao_voltar:hover {
   transform: scale(1.3);
   transition: 0.3s;
   cursor: pointer;
 }
 
 .balao {
-  position: absolute; 
-  height: 100%; 
-  object-fit: contain; 
+  position: absolute;
+  height: 100%;
+  object-fit: contain;
   left: 2%;
   top: 0%;
   z-index: 2;
@@ -71,71 +72,71 @@ body {
 
 .fogo {
   position: absolute;
-  width: 10%; 
-  object-fit: contain; 
+  width: 10%;
+  object-fit: contain;
   left: 35%;
   top: 15%;
   z-index: 1;
 }
 
 .ferro_balao {
-  position: absolute; 
-  width: 21%; 
-  object-fit: contain; 
+  position: absolute;
+  width: 21%;
+  object-fit: contain;
   left: 30.5%;
   top: 45%;
 }
 
 .avatar {
-  position: absolute; /* Mude para posição absoluta */
-  height: 50%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  height: 50%;
+  object-fit: contain;
   left: 15%;
   bottom: 0;
   z-index: 2;
 }
 
 .lucas {
-  position: absolute; /* Mude para posição absoluta */
-  height: 50%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  height: 50%;
+  object-fit: contain;
   right: 15%;
   bottom: 0;
   z-index: 2;
 }
 
 .balao_fala {
-  position: absolute; /* Mude para posição absoluta */
-  height: 40%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  height: 40%;
+  object-fit: contain;
   right: 25%;
   top: 2%;
   z-index: 2;
 }
 
-.nuvem_01{
-  position: absolute; /* Mude para posição absoluta */
-  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+.nuvem_01 {
+  position: absolute;
+  width: 10%;
+  object-fit: contain;
   left: 5%;
   top: 15%;
   animation: moveClouds 6.5s infinite;
 }
 
-.nuvem_02{
-  position: absolute; /* Mude para posição absoluta */
-  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+.nuvem_02 {
+  position: absolute;
+  width: 10%;
+  object-fit: contain;
   left: 20%;
   top: 10%;
   animation: moveClouds 8.5s infinite;
   transition: 0.3s;
 }
 
-.nuvem_03{
-  position: absolute; /* Mude para posição absoluta */
-  width: 20%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+.nuvem_03 {
+  position: absolute;
+  width: 20%;
+  object-fit: contain;
   left: 85%;
   top: 35%;
   animation: moveClouds 7.5s infinite;

@@ -15,9 +15,9 @@ body {
 }
 
 .container {
-  background-image: url('./assets/cenario.png'); 
-  background-size: cover; 
-  background-position: center; 
+  background-image: url("./assets/cenario.png");
+  background-size: cover;
+  background-position: center;
   width: 100vw;
   position: relative;
 }
@@ -25,11 +25,11 @@ body {
 .container::before {
   content: "";
   display: block;
-  padding-top: 56.25%; 
+  padding-top: 56.25%;
 }
 
 .container .content {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -37,36 +37,36 @@ body {
 }
 
 .pelo {
-  position: absolute; /* Mude para posição absoluta */
-  width: 25%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  width: 25%;
+  object-fit: contain;
   left: 20%;
   top: 14%;
   animation: slideInFromLeft 1s ease-in-out;
 }
 
 .mundo {
-  position: absolute; /* Mude para posição absoluta */
-  width: 35%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  width: 35%;
+  object-fit: contain;
   left: 15%;
   top: 50%;
   animation: slideInFromBottom 1s ease-in-out;
 }
 
 .balao {
-  position: absolute; /* Mude para posição absoluta */
-  width: 25%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  width: 25%;
+  object-fit: contain;
   left: 60%;
   top: 30%;
   animation: slideInFromRight 1s ease-in-out;
 }
 
 .botao_iniciar {
-  position: absolute; /* Mude para posição absoluta */
-  width: 18%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  width: 18%;
+  object-fit: contain;
   left: 75%;
   bottom: 10%;
   animation: slideInFromBottomStart 2.5s ease-in-out;
@@ -74,7 +74,7 @@ body {
   transition: 0.3s;
 }
 
-.botao_iniciar:hover{
+.botao_iniciar:hover {
   background-color: white;
   border-radius: 8%;
   cursor: pointer;
@@ -83,36 +83,36 @@ body {
 
 @keyframes slideInFromLeft {
   0% {
-      transform: translateX(-200%);
+    transform: translateX(-200%);
   }
   100% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
 @keyframes slideInFromRight {
   0% {
-      transform: translateX(100%);
+    transform: translateX(100%);
   }
   100% {
-      transform: translateX(0);
+    transform: translateX(0);
   }
 }
 
 @keyframes slideInFromBottom {
   0% {
-      transform: translateY(200%);
+    transform: translateY(200%);
   }
   100% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes slideInFromBottomStart {
   0% {
-      transform: translateY(2000%);
+    transform: translateY(2000%);
   }
   100% {
-      transform: translateY(0);
+    transform: translateY(0);
   }
 }
