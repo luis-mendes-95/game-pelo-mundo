@@ -587,12 +587,12 @@ const pressedKeys = {};
 document.addEventListener("keydown", handleArrowKeyDown);
 document.addEventListener("keyup", handleArrowKeyUp);
 
-const moveAmount = 14;
+const moveAmount = 2;
 
 let animationFrameId = null;
 
 let lastTimestamp = 0;
-const frameRate = 500 / 30;
+const frameRate = 1 / 1;
 
 function handleMovement(timestamp) {
   if (
