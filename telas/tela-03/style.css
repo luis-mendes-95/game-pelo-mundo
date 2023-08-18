@@ -10,14 +10,14 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: #0099FF;
+  background: #0099ff;
   overflow: hidden;
 }
 
 .container {
-  background-image: url('./assets/cenario.png'); 
-  background-size: cover; 
-  background-position: center; 
+  background-image: url("./assets/cenario.png");
+  background-size: cover;
+  background-position: center;
   width: 100vw;
   position: relative;
 }
@@ -25,11 +25,11 @@ body {
 .container::before {
   content: "";
   display: block;
-  padding-top: 56.25%; 
+  padding-top: 56.25%;
 }
 
 .container .content {
-  position: absolute; 
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -37,33 +37,33 @@ body {
 }
 
 .mensagem {
-  position: absolute; /* Mude para posição absoluta */
-  width: 25%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  width: 25%;
+  object-fit: contain;
   left: 5%;
   top: 10%;
   animation: slideInFromLeft 1s ease-in-out;
 }
 
 .botao_voltar {
-  position: absolute; /* Mude para posição absoluta */
-  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  width: 10%;
+  object-fit: contain;
   left: 5%;
   bottom: 10%;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.botao_voltar:hover{
+.botao_voltar:hover {
   transform: scale(1.1);
   transition: 0.3s;
 }
 
 .avatar {
-  position: absolute; /* Mude para posição absoluta */
+  position: absolute;
   height: 55%;
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  object-fit: contain;
   left: 46%;
   top: 20%;
   transition: 0.3s;
@@ -71,10 +71,10 @@ body {
   cursor: pointer;
 }
 
-.contorno_avatar{
-  position: absolute; /* Mude para posição absoluta */
+.contorno_avatar {
+  position: absolute;
   height: 57%;
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  object-fit: contain;
   left: 45.5%;
   top: 19%;
   transition: 0.3s;
@@ -82,27 +82,27 @@ body {
 }
 
 .botao_avancar_troca {
-  position: absolute; /* Mude para posição absoluta */
-  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  width: 10%;
+  object-fit: contain;
   right: 5%;
   top: 35%;
   transition: 0.3s;
 }
 
 .botao_voltar_troca {
-  position: absolute; /* Mude para posição absoluta */
-  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute;
+  width: 10%;
+  object-fit: contain;
   left: 5%;
   top: 35%;
   padding: 1%;
   transition: 0.3s;
 }
 
-.botao_voltar_troca:hover, .botao_avancar_troca:hover{
+.botao_voltar_troca:hover,
+.botao_avancar_troca:hover {
   cursor: pointer;
   transform: scale(1.1);
   transition: 0.3s;
 }
-
