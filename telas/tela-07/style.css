@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to bottom, #3eb1ff, #ffffff);
+  overflow: hidden;
+}
+
+.container {
+  background-image: url('./assets/cenario.png'); 
+  background-size: cover; 
+  background-position: center; 
+  width: 100vw;
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  display: block;
+  padding-top: 56.25%; 
+}
+
+.container .content {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.botao_continuar{
+  position: absolute; 
+  width: 10%; 
+  object-fit: contain; 
+  right: 5%;
+  bottom: 10%;
+  z-index: 2;
+}
+
+.botao_voltar{
+  position: absolute; 
+  width: 10%; 
+  object-fit: contain; 
+  left: 5%;
+  bottom: 10%;
+  z-index: 2;
+}
+
+.botao_continuar:hover, .botao_voltar:hover{
+  transform: scale(1.3);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.balao {
+  position: absolute; 
+  height: 100%; 
+  object-fit: contain; 
+  left: 2%;
+  top: 0%;
+  z-index: 2;
+}
+
+.fogo {
+  position: absolute;
+  width: 10%; 
+  object-fit: contain; 
+  left: 35%;
+  top: 15%;
+  z-index: 1;
+}
+
+.ferro_balao {
+  position: absolute; 
+  width: 21%; 
+  object-fit: contain; 
+  left: 30.5%;
+  top: 45%;
+}
+
+.avatar {
+  position: absolute; /* Mude para posição absoluta */
+  height: 50%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 15%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.lucas {
+  position: absolute; /* Mude para posição absoluta */
+  height: 50%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  right: 15%;
+  bottom: 0;
+  z-index: 2;
+}
+
+.balao_fala {
+  position: absolute; /* Mude para posição absoluta */
+  height: 40%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  right: 25%;
+  top: 2%;
+  z-index: 2;
+}
+
+.nuvem_01{
+  position: absolute; /* Mude para posição absoluta */
+  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 5%;
+  top: 15%;
+  animation: moveClouds 6.5s infinite;
+}
+
+.nuvem_02{
+  position: absolute; /* Mude para posição absoluta */
+  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 20%;
+  top: 10%;
+  animation: moveClouds 8.5s infinite;
+  transition: 0.3s;
+}
+
+.nuvem_03{
+  position: absolute; /* Mude para posição absoluta */
+  width: 20%; /* Ajusta a largura para ocupar todo o contêiner */
+  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  left: 85%;
+  top: 35%;
+  animation: moveClouds 7.5s infinite;
+}
+
+@keyframes moveClouds {
+  0% {
+    transform: translateX(-10%);
+  }
+  50% {
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(-10%);
+  }
+}

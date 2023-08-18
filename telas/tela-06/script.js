@@ -56,11 +56,14 @@ const monumento_info = document.querySelector(".monumento_info");
 const monumento_seta_volta = document.querySelector(".monumento_seta_volta");
 const monumento_seta_avanca = document.querySelector(".monumento_seta_avanca");
 const monumento_fechar = document.querySelector(".monumento_fechar");
+const final_seta_avanca = document.querySelector(".final_seta_avanca");
 
 let luneta_clicked = false;
 let bussola_clicked = false;
 let dicas_clicked = false;
 let diario_clicked = false;
+
+let can_move = true
 
 let estatua_liberdade_descoberta = false;
 let piramide_de_teotihuacan_descoberta = false;
@@ -72,6 +75,59 @@ let big_ben_descoberto = false;
 let taj_mahal_descoberto = false;
 let monte_fuji_descoberto = false;
 let opera_sidney_descoberta = false;
+
+const checkAllComplete = () => {
+
+  let all_complete = 9
+
+  if (estatua_liberdade_descoberta === true){
+    all_complete += 1
+  }
+
+  if (piramide_de_teotihuacan_descoberta === true){
+    all_complete += 1
+  }
+
+  if (machu_picchu_descoberto === true){
+    all_complete += 1
+  }
+
+  if (piramides_gize_descoberta === true){
+    all_complete += 1
+  }
+
+  if (torre_pisa_descoberta === true){
+    all_complete += 1
+  }
+
+  if (torre_eiffel_descoberta === true){
+    all_complete += 1
+  }
+
+  if (big_ben_descoberto === true){
+    all_complete += 1
+  }
+
+  if (taj_mahal_descoberto === true){
+    all_complete += 1
+  }
+
+  if (monte_fuji_descoberto === true){
+    all_complete += 1
+  }
+
+  if (opera_sidney_descoberta === true){
+    all_complete += 1
+  }
+
+  if(all_complete === 10) {
+    setTimeout(() => {
+      final_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    }, 5000);
+
+  }
+
+}
 
 let folhas_dicas = [];
 let folhas_diario = [
@@ -88,7 +144,10 @@ let monumento_atual = ''
 
 const monumento_info_activate = (monumento) => {
 
+  black_background.style.display = "flex"
+
   monumento_fechar_num = 1
+  can_move = false
 
   if (monumento === 'estatua_liberdade'){
     monumento_info.src = "./assets/cards_monumentos_historicos/01_estatua_liberdade/01_estatua_liberdade.png"
@@ -114,6 +173,41 @@ const monumento_info_activate = (monumento) => {
     monumento_atual = 'piramides_gize'
   }
 
+  if (monumento === 'torre_pisa'){
+    monumento_info.src = "./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_atual = 'torre_pisa'
+  }
+
+  if (monumento === 'torre_eiffel'){
+    monumento_info.src = "./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_atual = 'torre_eiffel'
+  }
+
+  if (monumento === 'big_ben'){
+    monumento_info.src = "./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_atual = 'big_ben'
+  }
+  
+  if (monumento === 'taj_mahal'){
+    monumento_info.src = "./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_atual = 'taj_mahal'
+  }
+  
+  if (monumento === 'monte_fuji'){
+    monumento_info.src = "./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_atual = 'monte_fuji'
+  }
+  
+  if (monumento === 'opera_sidney'){
+    monumento_info.src = "./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_atual = 'opera_sidney'
+  }
 
 
 
@@ -137,21 +231,27 @@ piramides_gize.addEventListener("click", () => {
 });
 torre_pisa.addEventListener("click", () => {
   torre_pisa_descoberta = true;
+  monumento_info_activate('torre_pisa')
 });
 torre_eiffel.addEventListener("click", () => {
   torre_eiffel_descoberta = true;
+  monumento_info_activate('torre_eiffel')
 });
 big_ben.addEventListener("click", () => {
   big_ben_descoberto = true;
+  monumento_info_activate('big_ben')
 });
 taj_mahal.addEventListener("click", () => {
   taj_mahal_descoberto = true;
+  monumento_info_activate('taj_mahal')
 });
 monte_fuji.addEventListener("click", () => {
   monte_fuji_descoberto = true;
+  monumento_info_activate('monte_fuji')
 });
 opera_sidney.addEventListener("click", () => {
   opera_sidney_descoberta = true;
+  monumento_info_activate('opera_sidney')
 });
 
 luneta_brilho.classList.add("luneta_brilho");
@@ -175,6 +275,8 @@ monumento_fechar.addEventListener("click", () => {
     monumento_fechar.src = ""
     monumento_info.style.width = "75%"
     monumento_info.style.right = "15%"
+    can_move = true
+    black_background.style.display = "none"
   }
 
   if (monumento_fechar_num === 1) {
@@ -186,6 +288,7 @@ monumento_fechar.addEventListener("click", () => {
   }
 
   monumento_page = 1
+  checkAllComplete();
 
 })
 
@@ -230,6 +333,84 @@ monumento_seta_avanca.addEventListener("click", () => {
     monumento_page += 1
   }
 
+  if (monumento_atual === 'torre_pisa' && monumento_page === 2) {
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+  }
+
+  if (monumento_atual === 'torre_pisa' && monumento_page === 1) {
+    monumento_info.src="./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_02.png"
+    monumento_seta_avanca.src = ""
+    monumento_seta_volta.src = "./assets/cards_monumentos_historicos/botoes/botao_voltar.png"
+    monumento_fechar.src = "./assets/cards_monumentos_historicos/botoes/botao_fechar.png"
+    monumento_page += 1
+  }
+
+  if (monumento_atual === 'torre_eiffel' && monumento_page === 2) {
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+  }
+
+  if (monumento_atual === 'torre_eiffel' && monumento_page === 1) {
+    monumento_info.src="./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_02.png"
+    monumento_seta_avanca.src = ""
+    monumento_seta_volta.src = "./assets/cards_monumentos_historicos/botoes/botao_voltar.png"
+    monumento_fechar.src = "./assets/cards_monumentos_historicos/botoes/botao_fechar.png"
+    monumento_page += 1
+  }
+
+  if (monumento_atual === 'big_ben' && monumento_page === 2) {
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+  }
+
+  if (monumento_atual === 'big_ben' && monumento_page === 1) {
+    monumento_info.src="./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_02.png"
+    monumento_seta_avanca.src = ""
+    monumento_seta_volta.src = "./assets/cards_monumentos_historicos/botoes/botao_voltar.png"
+    monumento_fechar.src = "./assets/cards_monumentos_historicos/botoes/botao_fechar.png"
+    monumento_page += 1
+  }
+
+  if (monumento_atual === 'taj_mahal' && monumento_page === 2) {
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+  }
+
+  if (monumento_atual === 'taj_mahal' && monumento_page === 1) {
+    monumento_info.src="./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_02.png"
+    monumento_seta_avanca.src = ""
+    monumento_seta_volta.src = "./assets/cards_monumentos_historicos/botoes/botao_voltar.png"
+    monumento_fechar.src = "./assets/cards_monumentos_historicos/botoes/botao_fechar.png"
+    monumento_page += 1
+  }
+
+  if (monumento_atual === 'monte_fuji' && monumento_page === 2) {
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+  }
+
+  if (monumento_atual === 'monte_fuji' && monumento_page === 1) {
+    monumento_info.src="./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_02.png"
+    monumento_seta_avanca.src = ""
+    monumento_seta_volta.src = "./assets/cards_monumentos_historicos/botoes/botao_voltar.png"
+    monumento_fechar.src = "./assets/cards_monumentos_historicos/botoes/botao_fechar.png"
+    monumento_page += 1
+  }
+
+  if (monumento_atual === 'opera_sidney' && monumento_page === 2) {
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+  }
+
+  if (monumento_atual === 'opera_sidney' && monumento_page === 1) {
+    monumento_info.src="./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_02.png"
+    monumento_seta_avanca.src = ""
+    monumento_seta_volta.src = "./assets/cards_monumentos_historicos/botoes/botao_voltar.png"
+    monumento_fechar.src = "./assets/cards_monumentos_historicos/botoes/botao_fechar.png"
+    monumento_page += 1
+  }
+
 
 })
 
@@ -267,7 +448,59 @@ monumento_seta_volta.addEventListener("click", () => {
     monumento_fechar.src = ""
   }
 
+  if (monumento_atual === 'torre_pisa' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
 
+  if (monumento_atual === 'torre_eiffel' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
+
+  if (monumento_atual === 'big_ben' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
+
+  if (monumento_atual === 'taj_mahal' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
+
+  if (monumento_atual === 'monte_fuji' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
+
+  if (monumento_atual === 'opera_sidney' && monumento_page === 2) {
+    monumento_info.src="./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png"
+    monumento_seta_avanca.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+    monumento_seta_volta.src = ""
+    monumento_page = 1
+    monumento_fechar.src = ""
+  }
+
+
+})
+
+final_seta_avanca.addEventListener("click", () => {
+  window.location.href = "../tela-07/";
 })
 
 const pressedKeys = {};
@@ -280,7 +513,7 @@ const moveAmount = 14;
 let animationFrameId = null;
 
 function handleMovement() {
-  if (luneta_clicked === false && dicas_clicked === false) {
+  if (luneta_clicked === false && dicas_clicked === false && can_move === true) {
     if (animationFrameId) {
       cancelAnimationFrame(animationFrameId);
     }
@@ -805,6 +1038,7 @@ dica_seta_volta.addEventListener("click", () => {
 });
 
 diario.addEventListener("click", () => {
+  
   if (diario_clicked === false) {
     black_background.style.display = "flex";
     diario.style.zIndex = "3";
@@ -830,6 +1064,9 @@ diario.addEventListener("click", () => {
     diario_clicked = false;
     console.log(diario_clicked);
     diario_grande.src = "";
+    diario_fechar.src = "";
+    diario_seta_avanca.src = "";
+    choosen_diario = 1    
   }
 });
 
@@ -843,6 +1080,7 @@ diario_fechar.addEventListener("click", () => {
   diario_seta_avanca.src = "";
   diario_seta_volta.src = "";
   diario_fechar.src = "";
+  diario_clicked = false;
 });
 
 const arrowKeyState = {

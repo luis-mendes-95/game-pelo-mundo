@@ -109,6 +109,25 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+
+.final_seta_avanca {
+  position: absolute;
+  width: 7.5%;
+  object-fit: contain;
+  right: 7%;
+  bottom: 25%;
+  transition: 0.3s;
+  z-index: 4;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.final_seta_avanca:hover{
+  cursor: pointer;
+  transform: scale(1.3);
+  transition: 0.3s;
+}
+
 .monumento_seta_avanca {
   position: absolute;
   width: 7.5%;
@@ -120,6 +139,7 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
+
 .monumento_seta_volta {
   position: absolute;
   width: 7.5%;
@@ -131,8 +151,6 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-
-
 
 .dica_seta_volta:hover,
 .dica_seta_avanca:hover,
@@ -570,7 +588,7 @@ body {
   cursor: pointer;
 }
 
-.monumento_fechar:hover{
+.monumento_fechar:hover {
   transform: scale(1.1);
   transition: 0.3s;
 }
