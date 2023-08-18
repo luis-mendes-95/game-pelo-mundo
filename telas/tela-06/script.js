@@ -78,7 +78,7 @@ let opera_sidney_descoberta = false;
 
 const checkAllComplete = () => {
 
-  let all_complete = 9
+  let all_complete = 0
 
   if (estatua_liberdade_descoberta === true){
     all_complete += 1
