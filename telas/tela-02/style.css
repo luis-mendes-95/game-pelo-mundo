@@ -71,7 +71,7 @@ body {
   object-fit: contain;
   left: 15%;
   top: 10%;
-  animation: moveBalloon 30s linear infinite;
+  animation: moveBalloon 50s linear infinite;
 }
 
 .lucas {
@@ -84,18 +84,18 @@ body {
 
 .botao_continuar {
   position: absolute;
-  width: 10%;
+  width: 6%;
   object-fit: contain;
-  right: 5%;
-  bottom: 10%;
+  right: 1%;
+  bottom: 5%;
 }
 
 .botao_voltar {
   position: absolute;
-  width: 10%;
+  width: 6%;
   object-fit: contain;
-  left: 5%;
-  bottom: 10%;
+  left: 1%;
+  bottom: 5%;
 }
 
 .botao_continuar:hover,
@@ -163,66 +163,49 @@ body {
 
 @keyframes moveBalloon {
   0% {
-    transform: translateY(-20px) translateX(-10vw);
+    transform: translateY(-20px) translateX(-25vw);
   }
   5% {
-    transform: translateY(-10px) translateX(-4vw);
+    transform: translateY(-10px) translateX(-15vw);
   }
   10% {
-    transform: translateY(0) translateX(2vw);
+    transform: translateY(0) translateX(-5vw);
   }
   15% {
-    transform: translateY(-10px) translateX(8vw);
+    transform: translateY(-10px) translateX(5vw);
   }
   20% {
-    transform: translateY(-20px) translateX(14vw);
+    transform: translateY(-20px) translateX(15vw);
   }
   25% {
-    transform: translateY(-30px) translateX(20vw);
+    transform: translateY(-30px) translateX(25vw);
   }
   30% {
-    transform: translateY(-20px) translateX(26vw);
+    transform: translateY(-20px) translateX(35vw);
   }
   35% {
-    transform: translateY(-10px) translateX(32vw);
+    transform: translateY(-10px) translateX(45vw);
   }
   40% {
-    transform: translateY(0) translateX(38vw);
+    transform: translateY(0) translateX(55vw);
   }
   45% {
-    transform: translateY(-10px) translateX(44vw);
+    transform: translateY(-10px) translateX(65vw);
   }
   50% {
-    transform: translateY(-20px) translateX(50vw);
+    transform: translateY(-20px) translateX(75vw);
   }
   55% {
-    transform: translateY(-30px) translateX(56vw);
+    transform: translateY(-30px) translateX(85vw);
   }
   60% {
-    transform: translateY(-20px) translateX(62vw);
+    transform: translateY(-20px) translateX(95vw);
   }
   65% {
-    transform: translateY(-10px) translateX(68vw);
-  }
-  70% {
-    transform: translateY(0) translateX(74vw);
-  }
-  75% {
-    transform: translateY(-10px) translateX(80vw);
-  }
-  80% {
-    transform: translateY(-20px) translateX(86vw);
-  }
-  85% {
-    transform: translateY(-30px) translateX(92vw);
-  }
-  90% {
-    transform: translateY(-20px) translateX(98vw);
-  }
-  95% {
-    transform: translateY(-10px) translateX(104vw);
+    transform: translateY(-10px) translateX(96vw);
   }
   100% {
-    transform: translateY(0) translateX(110vw);
+    transform: translateY(0) translateX(115vw);
   }
+
 }

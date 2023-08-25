@@ -24,9 +24,9 @@ const next_baloon_talk = () => {
   }
 };
 
-const baloon_talk = document.createElement("img");
+let baloon_talk = document.createElement("img");
 
-baloon_talk.src = "./assets/baloes_fala/balao_fala_01.png";
+
 
 baloon_talk.classList.add("balao_fala");
 
@@ -56,3 +56,20 @@ button_previous.addEventListener("click", () => {
   previous_baloon_talk();
   change_baloon_talk();
 });
+
+const checkParams = () => {
+  const queryString = window.location.search;
+  const params = new URLSearchParams(queryString);
+
+  if(params.size != 0){
+    let baloon_param_talk = parseInt(params.get("param"))
+    baloon_number_talk = baloon_param_talk
+    baloon_talk.src = `./assets/baloes_fala/balao_fala_0${baloon_number_talk}.png`;
+  } else {
+    baloon_talk.src = "./assets/baloes_fala/balao_fala_01.png";
+  }
+
+
+}
+
+checkParams()

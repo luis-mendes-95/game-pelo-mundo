@@ -11,34 +11,40 @@ const changeAvatar = () => {
   if (avatar_number === 1) {
     avatar.src = "./assets/avatares/negra.png";
     localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/negra.png");
+    avatar.style.left = "46%"
     content.removeChild(botao_voltar_troca);
   }
 
   if (avatar_number === 2) {
     avatar.src = "./assets/avatares/negro.png";
     localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/negro.png");
+    avatar.style.left = "45.5%"
     content.appendChild(botao_voltar_troca);
   }
 
   if (avatar_number === 3) {
     avatar.src = "./assets/avatares/morena.png";
     localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/morena.png");
+    avatar.style.left = "46%"
   }
 
   if (avatar_number === 4) {
     avatar.src = "./assets/avatares/loiro.png";
     localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/loiro.png");
+    avatar.style.left = "46%"
   }
 
   if (avatar_number === 5) {
     avatar.src = "./assets/avatares/japonesa.png";
     localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/japonesa.png");
+    avatar.style.left = "46%"
     content.appendChild(botao_avancar_troca);
   }
 
   if (avatar_number === 6) {
     avatar.src = "./assets/avatares/japones.png";
     localStorage.setItem("pelo_mundo_avatar", "./assets/avatares/japones.png");
+    avatar.style.left = "46%"
     content.removeChild(botao_avancar_troca);
   }
 };
@@ -75,7 +81,7 @@ botao_voltar_troca.addEventListener("click", () => {
 });
 
 botao_voltar.addEventListener("click", () => {
-  window.location.href = "../tela-02/";
+  window.location.href = "../tela-02/?param=4";
 });
 
 avatar.addEventListener("mouseenter", () => {

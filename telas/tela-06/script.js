@@ -14,37 +14,23 @@ const container = document.querySelector(".container");
 const content = document.querySelector(".content");
 const mapa_mundi = document.querySelector(".mapa_mundi");
 const estatua_liberdade = document.querySelector(".estatua_liberdade");
-const estatua_liberdade_contorno = document.querySelector(
-  ".estatua_liberdade_contorno"
-);
+const estatua_liberdade_contorno = document.querySelector(".estatua_liberdade_contorno");
 const torre_eiffel = document.querySelector(".torre_eiffel");
 const torre_eiffel_contorno = document.querySelector(".torre_eiffel_contorno");
 const torre_eiffel_praca = document.querySelector(".torre_eiffel_praca");
-const torre_eiffel_praca_contorno = document.querySelector(
-  ".torre_eiffel_praca_contorno"
-);
-const piramide_teotihuacan_moita_terra = document.querySelector(
-  ".piramide_teotihuacan_moita_terra"
-);
+const torre_eiffel_praca_contorno = document.querySelector(".torre_eiffel_praca_contorno");
+const piramide_teotihuacan_moita_terra = document.querySelector(".piramide_teotihuacan_moita_terra");
 const piramide_teotihuacan = document.querySelector(".piramide_teotihuacan");
-const piramide_teotihuacan_contorno = document.querySelector(
-  ".piramide_teotihuacan_contorno"
-);
-const piramide_teotihuacan_moita_terra_contorno = document.querySelector(
-  ".piramide_teotihuacan_moita_terra_contorno"
-);
+const piramide_teotihuacan_contorno = document.querySelector(".piramide_teotihuacan_contorno");
+const piramide_teotihuacan_moita_terra_contorno = document.querySelector(".piramide_teotihuacan_moita_terra_contorno");
 const machu_pichu = document.querySelector(".machu_pichu");
-const machu_pichu_moitas_contorno = document.querySelector(
-  ".machu_pichu_moitas_contorno"
-);
-const machu_pichu_terras_contorno = document.querySelector(
-  ".machu_pichu_terras_contorno"
-);
+const machu_pichu_terras = document.querySelector(".machu_pichu_terras");
+const machu_pichu_moitas = document.querySelector(".machu_pichu_moitas");
+const machu_pichu_moitas_contorno = document.querySelector(".machu_pichu_moitas_contorno");
+const machu_pichu_terras_contorno = document.querySelector(".machu_pichu_terras_contorno");
 const machu_pichu_contorno = document.querySelector(".machu_pichu_contorno");
 const piramides_gize = document.querySelector(".piramides_gize");
-const piramides_gize_contorno = document.querySelector(
-  ".piramides_gize_contorno"
-);
+const piramides_gize_contorno = document.querySelector(".piramides_gize_contorno");
 const opera_sidney = document.querySelector(".opera_sidney");
 const opera_sidney_contorno = document.querySelector(".opera_sidney_contorno");
 const big_ben = document.querySelector(".big_ben");
@@ -58,9 +44,7 @@ const monte_fuji_contorno = document.querySelector(".monte_fuji_contorno");
 const taj_mahal = document.querySelector(".taj_mahal");
 const taj_mahal_contorno = document.querySelector(".taj_mahal_contorno");
 const taj_mahal_torres = document.querySelector(".taj_mahal_torres");
-const taj_mahal_torres_contorno = document.querySelector(
-  ".taj_mahal_torres_contorno"
-);
+const taj_mahal_torres_contorno = document.querySelector(".taj_mahal_torres_contorno");
 const black_background = document.querySelector(".black_background");
 const dica = document.querySelector(".dica");
 const dica_seta_volta = document.querySelector(".dica_seta_volta");
@@ -146,19 +130,20 @@ const checkAllComplete = () => {
 };
 
 let folhas_dicas = [];
-let folhas_diario = [
-  "./assets/01_diario_sem_adesivos/capa_diario.png",
-  "./assets/01_diario_sem_adesivos/guarda_diario.png",
-];
-
 let choosen_dica = 1;
+
+
+let folhas_diario = ["./assets/01_diario_sem_adesivos/capa_diario.png", "./assets/01_diario_sem_adesivos/guarda_diario.png",];
 let choosen_diario = 1;
+
 
 let monumento_fechar_num = 1;
 let monumento_page = 1;
 let monumento_atual = "";
 
+
 const monumento_info_activate = (monumento) => {
+
   black_background.style.display = "flex";
 
   monumento_fechar_num = 1;
@@ -243,6 +228,8 @@ const monumento_info_activate = (monumento) => {
       "./assets/cards_monumentos_historicos/botoes/botao_continuar.png";
     monumento_atual = "opera_sidney";
   }
+
+
 };
 
 estatua_liberdade.addEventListener("click", () => {
@@ -253,10 +240,23 @@ piramide_teotihuacan.addEventListener("click", () => {
   piramide_de_teotihuacan_descoberta = true;
   monumento_info_activate("piramide_teotihuacan");
 });
+piramide_teotihuacan_moita_terra.addEventListener("click", () => {
+  piramide_de_teotihuacan_descoberta = true;
+  monumento_info_activate("piramide_teotihuacan");
+});
 machu_pichu.addEventListener("click", () => {
   machu_picchu_descoberto = true;
   monumento_info_activate("machu_pichu");
 });
+machu_pichu_terras.addEventListener("click", () => {
+  machu_picchu_descoberto = true;
+  monumento_info_activate("machu_pichu");
+});
+machu_pichu_moitas.addEventListener("click", () => {
+  machu_picchu_descoberto = true;
+  monumento_info_activate("machu_pichu");
+});
+
 piramides_gize.addEventListener("click", () => {
   piramides_gize_descoberta = true;
   monumento_info_activate("piramides_gize");
@@ -269,11 +269,23 @@ torre_eiffel.addEventListener("click", () => {
   torre_eiffel_descoberta = true;
   monumento_info_activate("torre_eiffel");
 });
+torre_eiffel_praca.addEventListener("click", () => {
+  torre_eiffel_descoberta = true;
+  monumento_info_activate("torre_eiffel");
+});
 big_ben.addEventListener("click", () => {
   big_ben_descoberto = true;
   monumento_info_activate("big_ben");
 });
+big_ben_bus.addEventListener("click", () => {
+  big_ben_descoberto = true;
+  monumento_info_activate("big_ben");
+});
 taj_mahal.addEventListener("click", () => {
+  taj_mahal_descoberto = true;
+  monumento_info_activate("taj_mahal");
+});
+taj_mahal_torres.addEventListener("click", () => {
   taj_mahal_descoberto = true;
   monumento_info_activate("taj_mahal");
 });
@@ -299,6 +311,7 @@ diario_brilho.src = "";
 content.append(luneta_brilho, bussola_brilho, dicas_brilho, diario_brilho);
 
 monumento_fechar.addEventListener("click", () => {
+
   if (monumento_fechar_num === 2) {
     monumento_info.src = "";
     monumento_fechar.src = "";
@@ -319,6 +332,7 @@ monumento_fechar.addEventListener("click", () => {
 
   monumento_page = 1;
   checkAllComplete();
+
 });
 
 monumento_seta_avanca.addEventListener("click", () => {
@@ -598,6 +612,7 @@ function handleMovement(timestamp) {
   if (
     luneta_clicked === false &&
     dicas_clicked === false &&
+    diario_clicked === false &&
     can_move === true
   ) {
     if (animationFrameId) {
@@ -664,8 +679,8 @@ luneta.addEventListener("click", () => {
       .getPropertyValue("transform");
     const matrix = new DOMMatrix(transform);
 
-    matrix.a = 4;
-    matrix.d = 4;
+    matrix.a = 3;
+    matrix.d = 3;
 
     mapa_mundi.style.transform = matrix.toString();
 
@@ -828,10 +843,7 @@ const handleDicas = () => {
 };
 
 const handleDiario = () => {
-  folhas_diario = [
-    "./assets/01_diario_sem_adesivos/capa_diario.png",
-    "./assets/01_diario_sem_adesivos/guarda_diario.png",
-  ];
+  folhas_diario = ["./assets/01_diario_sem_adesivos/capa_diario.png", "./assets/01_diario_sem_adesivos/guarda_diario.png" ];
 
   if (estatua_liberdade_descoberta === true) {
     let estatua_liberdade_diario =
@@ -1155,6 +1167,7 @@ diario.addEventListener("click", () => {
     diario_grande.src = "";
     diario_fechar.src = "";
     diario_seta_avanca.src = "";
+    diario_seta_volta.src = "";
     choosen_diario = 1;
   }
 });
@@ -1234,8 +1247,18 @@ torre_eiffel.addEventListener("mouseenter", () => {
   torre_eiffel_praca_contorno.src =
     "./assets/botoes_lugares/torre_eiffel/torre_eiffel_praca_contorno.png";
 });
+torre_eiffel_praca.addEventListener("mouseenter", () => {
+  torre_eiffel_contorno.src =
+    "./assets/botoes_lugares/torre_eiffel/torre_eiffel_contorno.png";
+  torre_eiffel_praca_contorno.src =
+    "./assets/botoes_lugares/torre_eiffel/torre_eiffel_praca_contorno.png";
+});
 
 torre_eiffel.addEventListener("mouseleave", () => {
+  torre_eiffel_contorno.src = "";
+  torre_eiffel_praca_contorno.src = "";
+});
+torre_eiffel_praca.addEventListener("mouseleave", () => {
   torre_eiffel_contorno.src = "";
   torre_eiffel_praca_contorno.src = "";
 });
@@ -1246,8 +1269,18 @@ piramide_teotihuacan.addEventListener("mouseenter", () => {
   piramide_teotihuacan_moita_terra_contorno.src =
     "./assets/botoes_lugares/piramide_de_teotihuacan/moita_terra_contorno.png";
 });
+piramide_teotihuacan_moita_terra.addEventListener("mouseenter", () => {
+  piramide_teotihuacan_contorno.src =
+    "./assets/botoes_lugares/piramide_de_teotihuacan/piramide_de_teotihuacan_contorno.png";
+  piramide_teotihuacan_moita_terra_contorno.src =
+    "./assets/botoes_lugares/piramide_de_teotihuacan/moita_terra_contorno.png";
+});
 
 piramide_teotihuacan.addEventListener("mouseleave", () => {
+  piramide_teotihuacan_contorno.src = "";
+  piramide_teotihuacan_moita_terra_contorno.src = "";
+});
+piramide_teotihuacan_moita_terra.addEventListener("mouseleave", () => {
   piramide_teotihuacan_contorno.src = "";
   piramide_teotihuacan_moita_terra_contorno.src = "";
 });
@@ -1260,8 +1293,36 @@ machu_pichu.addEventListener("mouseenter", () => {
   machu_pichu_moitas_contorno.src =
     "./assets/botoes_lugares/machu_picchu/moitas_contorno.png";
 });
+machu_pichu_terras.addEventListener("mouseenter", () => {
+  machu_pichu_contorno.src =
+    "./assets/botoes_lugares/machu_picchu/machu_picchu_contorno.png";
+  machu_pichu_terras_contorno.src =
+    "./assets/botoes_lugares/machu_picchu/terras_contorno.png";
+  machu_pichu_moitas_contorno.src =
+    "./assets/botoes_lugares/machu_picchu/moitas_contorno.png";
+});
+machu_pichu_moitas.addEventListener("mouseenter", () => {
+  machu_pichu_contorno.src =
+    "./assets/botoes_lugares/machu_picchu/machu_picchu_contorno.png";
+  machu_pichu_terras_contorno.src =
+    "./assets/botoes_lugares/machu_picchu/terras_contorno.png";
+  machu_pichu_moitas_contorno.src =
+    "./assets/botoes_lugares/machu_picchu/moitas_contorno.png";
+});
 
 machu_pichu.addEventListener("mouseleave", () => {
+  machu_pichu_moitas_contorno.src = "";
+  machu_pichu_terras_contorno.src = "";
+  machu_pichu_contorno.src = "";
+});
+
+machu_pichu_moitas.addEventListener("mouseleave", () => {
+  machu_pichu_moitas_contorno.src = "";
+  machu_pichu_terras_contorno.src = "";
+  machu_pichu_contorno.src = "";
+});
+
+machu_pichu_terras.addEventListener("mouseleave", () => {
   machu_pichu_moitas_contorno.src = "";
   machu_pichu_terras_contorno.src = "";
   machu_pichu_contorno.src = "";
@@ -1287,8 +1348,17 @@ big_ben.addEventListener("mouseenter", () => {
   big_ben_bus_contorno.src =
     "./assets/botoes_lugares/big_ben/onibus_contorno.png";
 });
+big_ben_bus.addEventListener("mouseenter", () => {
+  big_ben_contorno.src = "./assets/botoes_lugares/big_ben/big_ben_contorno.png";
+  big_ben_bus_contorno.src =
+    "./assets/botoes_lugares/big_ben/onibus_contorno.png";
+});
 
 big_ben.addEventListener("mouseleave", () => {
+  big_ben_contorno.src = "";
+  big_ben_bus_contorno.src = "";
+});
+big_ben_bus.addEventListener("mouseleave", () => {
   big_ben_contorno.src = "";
   big_ben_bus_contorno.src = "";
 });
@@ -1309,7 +1379,19 @@ taj_mahal.addEventListener("mouseenter", () => {
     "./assets/botoes_lugares/taj_mahal/torres_contorno.png";
 });
 
+taj_mahal_torres.addEventListener("mouseenter", () => {
+  taj_mahal_contorno.src =
+    "./assets/botoes_lugares/taj_mahal/taj_mahal_contorno.png";
+  taj_mahal_torres_contorno.src =
+    "./assets/botoes_lugares/taj_mahal/torres_contorno.png";
+});
+
 taj_mahal.addEventListener("mouseleave", () => {
+  taj_mahal_contorno.src = "";
+  taj_mahal_torres_contorno.src = "";
+});
+
+taj_mahal_torres.addEventListener("mouseleave", () => {
   taj_mahal_contorno.src = "";
   taj_mahal_torres_contorno.src = "";
 });
