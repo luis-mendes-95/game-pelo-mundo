@@ -77,7 +77,6 @@ body {
   object-fit: contain;
   left: 46%;
   top: 20%;
-  transition: 0.3s;
   z-index: 2;
   cursor: pointer;
 }
