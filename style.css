@@ -18,7 +18,7 @@ body {
   background-image: url("./assets/cenario.png");
   background-size: cover;
   background-position: center;
-  width: 100vw;
+  width: 90vw;
   position: relative;
 }
 
@@ -72,14 +72,22 @@ body {
   animation: slideInFromBottomStart 2.5s ease-in-out;
   padding: 1%;
   transition: 0.3s;
+  z-index: 3;
+  cursor: pointer;
 }
 
-.botao_iniciar:hover {
-  background-color: white;
-  border-radius: 8%;
-  cursor: pointer;
+.botao_iniciar_brilho {
+  position: absolute;
+  width: 20.5%;
+  object-fit: contain;
+  left: 73.8%;
+  bottom: 7.6%;
+  animation: FadeInFromDisplayNone 0.2s ease-in-out;
+  padding: 1%;
   transition: 0.3s;
+  display: none;
 }
+
 
 @keyframes slideInFromLeft {
   0% {
@@ -114,5 +122,14 @@ body {
   }
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes FadeInFromDisplayNone {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

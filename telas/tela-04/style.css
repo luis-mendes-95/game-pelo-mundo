@@ -38,20 +38,21 @@ body {
 
 .botao_continuar{
   position: absolute; 
-  width: 10%; 
+  width: 6%; 
   object-fit: contain; 
-  right: 5%;
-  bottom: 10%;
-  z-index: 2;
+  right: 1%;
+  bottom: 5%;
+  z-index: 7;
 }
 
 .botao_voltar{
   position: absolute; 
-  width: 10%; 
+  width: 6%; 
   object-fit: contain; 
-  left: 5%;
-  bottom: 10%;
-  z-index: 2;
+  left: 1%;
+  bottom: 5%;
+  transition: 0.3s;
+  z-index: 7;
 }
 
 .botao_continuar:hover, .botao_voltar:hover{
@@ -66,7 +67,7 @@ body {
   object-fit: contain; 
   left: 2%;
   top: 0%;
-  z-index: 2;
+  z-index: 7;
 }
 
 .fogo {
@@ -74,8 +75,8 @@ body {
   width: 10%; 
   object-fit: contain; 
   left: 35%;
-  top: 15%;
-  z-index: 1;
+  top: 3%;
+  z-index: 6;
 }
 
 .ferro_balao {
@@ -84,48 +85,58 @@ body {
   object-fit: contain; 
   left: 30.5%;
   top: 45%;
+  z-index: 5;
+}
+
+.metal_redondo{
+  position: absolute; 
+  width: 21%; 
+  object-fit: contain; 
+  left: 30.5%;
+  top: 45%;
+  z-index: 1;
 }
 
 .avatar {
-  position: absolute; /* Mude para posição absoluta */
-  height: 50%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute; 
+  height: 50%; 
+  object-fit: contain;
   left: 15%;
   bottom: 0;
-  z-index: 2;
+  z-index: 8;
 }
 
 .lucas {
-  position: absolute; /* Mude para posição absoluta */
-  height: 50%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute; 
+  height: 50%; 
+  object-fit: contain; 
   right: 15%;
   bottom: 0;
-  z-index: 2;
+  z-index: 8;
 }
 
 .balao_fala {
-  position: absolute; /* Mude para posição absoluta */
-  height: 40%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute; 
+  height: 40%; 
+  object-fit: contain; 
   right: 1%;
   top: 2%;
-  z-index: 2;
+  z-index: 7;
 }
 
 .nuvem_01{
-  position: absolute; /* Mude para posição absoluta */
-  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute; 
+  width: 10%; 
+  object-fit: contain; 
   left: 5%;
   top: 15%;
   animation: moveClouds 6.5s infinite;
 }
 
 .nuvem_02{
-  position: absolute; /* Mude para posição absoluta */
-  width: 10%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute; 
+  width: 10%; 
+  object-fit: contain; 
   left: 20%;
   top: 10%;
   animation: moveClouds 8.5s infinite;
@@ -133,9 +144,9 @@ body {
 }
 
 .nuvem_03{
-  position: absolute; /* Mude para posição absoluta */
-  width: 20%; /* Ajusta a largura para ocupar todo o contêiner */
-  object-fit: contain; /* Mantém a proporção e ajusta a imagem dentro */
+  position: absolute; 
+  width: 20%; 
+  object-fit: contain; 
   left: 85%;
   top: 35%;
   animation: moveClouds 7.5s infinite;

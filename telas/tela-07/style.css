@@ -36,82 +36,106 @@ body {
   height: 100%;
 }
 
-.botao_continuar {
-  position: absolute;
-  width: 10%;
-  object-fit: contain;
-  right: 5%;
-  bottom: 10%;
-  z-index: 2;
+.botao_continuar{
+  position: absolute; 
+  width: 6%; 
+  object-fit: contain; 
+  right: 1%;
+  bottom: 5%;
+  z-index: 7;
 }
 
-.botao_voltar {
-  position: absolute;
-  width: 10%;
-  object-fit: contain;
-  left: 5%;
-  bottom: 10%;
-  z-index: 2;
+.botao_reiniciar{
+  position: absolute; 
+  height: 9%; 
+  object-fit: contain; 
+  right: 1%;
+  bottom: 5%;
+  z-index: 8;
 }
 
-.botao_continuar:hover,
-.botao_voltar:hover {
+.botao_voltar{
+  position: absolute; 
+  width: 6%; 
+  object-fit: contain; 
+  left: 1%;
+  bottom: 5%;
+  transition: 0.3s;
+  z-index: 7;
+}
+
+.botao_continuar:hover, .botao_voltar:hover {
   transform: scale(1.3);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.botao_reiniciar:hover {
+  transform: scale(1.1);
   transition: 0.3s;
   cursor: pointer;
 }
 
 .balao {
-  position: absolute;
-  height: 100%;
-  object-fit: contain;
+  position: absolute; 
+  height: 100%; 
+  object-fit: contain; 
   left: 2%;
   top: 0%;
-  z-index: 2;
+  z-index: 7;
 }
 
 .fogo {
   position: absolute;
-  width: 10%;
-  object-fit: contain;
+  width: 10%; 
+  object-fit: contain; 
   left: 35%;
-  top: 15%;
-  z-index: 1;
+  top: 3%;
+  z-index: 6;
 }
 
 .ferro_balao {
-  position: absolute;
-  width: 21%;
-  object-fit: contain;
+  position: absolute; 
+  width: 21%; 
+  object-fit: contain; 
   left: 30.5%;
   top: 45%;
+  z-index: 5;
+}
+
+.metal_redondo{
+  position: absolute; 
+  width: 21%; 
+  object-fit: contain; 
+  left: 30.5%;
+  top: 45%;
+  z-index: 1;
 }
 
 .avatar {
-  position: absolute;
-  height: 50%;
+  position: absolute; 
+  height: 40%; 
   object-fit: contain;
   left: 15%;
   bottom: 0;
-  z-index: 2;
+  z-index: 8;
 }
 
 .lucas {
-  position: absolute;
-  height: 50%;
-  object-fit: contain;
+  position: absolute; 
+  height: 50%; 
+  object-fit: contain; 
   right: 15%;
   bottom: 0;
-  z-index: 2;
+  z-index: 8;
 }
 
 .balao_fala {
-  position: absolute;
-  height: 40%;
-  object-fit: contain;
-  right: 25%;
-  top: 2%;
-  z-index: 2;
+  position: absolute; 
+  height: 40%; 
+  object-fit: contain; 
+  right: 20%;
+  top: 5%;
+  z-index: 7;
 }
 
 .nuvem_01 {
@@ -140,6 +164,15 @@ body {
   left: 85%;
   top: 35%;
   animation: moveClouds 7.5s infinite;
+}
+
+.metal_redondo{
+  position: absolute; 
+  width: 21%; 
+  object-fit: contain; 
+  left: 30.5%;
+  top: 45%;
+  z-index: 1;
 }
 
 @keyframes moveClouds {

@@ -115,7 +115,7 @@ body {
   width: 7.5%;
   object-fit: contain;
   right: 7%;
-  bottom: 25%;
+  bottom: 45%;
   transition: 0.3s;
   z-index: 4;
   cursor: pointer;
@@ -192,25 +192,7 @@ body {
   z-index: 4;
 }
 
-.dicas {
-  position: absolute;
-  width: 10%;
-  object-fit: contain;
-  right: 17%;
-  bottom: 10%;
-  transition: 0.3s;
-  z-index: 2;
-}
 
-.dicas_brilho {
-  position: absolute;
-  width: 13%;
-  object-fit: contain;
-  right: 15.5%;
-  bottom: 8%;
-  transition: 0.3s;
-  z-index: 1;
-}
 
 .diario {
   position: absolute;
@@ -311,8 +293,8 @@ body {
 .torre_eiffel_praca_contorno {
   position: absolute;
   top: 22%;
-  left: 42.15%;
-  height: 2.2%;
+  left: 42.1%;
+  height: 2.3%;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -329,9 +311,9 @@ body {
 
 .big_ben_contorno {
   position: absolute;
-  top: 9.5%;
-  left: 38.7%;
-  height: 8.2%;
+  top: 9.2%;
+  left: 38.7055%;
+  height: 8.5%;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -348,8 +330,8 @@ body {
 
 .big_ben_bus_contorno {
   position: absolute;
-  top: 16.6%;
-  left: 38.7%;
+  top: 16.7%;
+  left: 38.75%;
   height: 2.1%;
   transition: 0.3s;
   cursor: pointer;
@@ -386,7 +368,7 @@ body {
 
 .taj_mahal_contorno {
   position: absolute;
-  top: 31.4%;
+  top: 31.25%;
   left: 65%;
   height: 7.4%;
   transition: 0.3s;
@@ -621,7 +603,7 @@ body {
 
 .balao {
   position: fixed;
-  width: 5%;
+  height: 20%;
   object-fit: contain;
   right: 50%;
   bottom: 50.5%;
@@ -645,6 +627,27 @@ body {
   background-color: black;
   height: 100%;
   z-index: 3;
-  opacity: 0.5;
+  opacity: 0.2;
   display: none;
+  z-index: 3;
+}
+
+.dicas {
+  position: absolute;
+  width: 10%;
+  object-fit: contain;
+  right: 17%;
+  bottom: 10%;
+  transition: 0.3s;
+  z-index: 8;
+}
+
+.dicas_brilho {
+  position: absolute;
+  width: 13%;
+  object-fit: contain;
+  right: 15.5%;
+  bottom: 8%;
+  transition: 0.3s;
+  z-index: 2;
 }
