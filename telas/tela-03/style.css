@@ -47,11 +47,20 @@ body {
 
 .botao_voltar {
   position: absolute;
+  width: 6%;
+  object-fit: contain;
+  left: 1%;
+  bottom: 5%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.botao_avancar_troca {
+  position: absolute;
   width: 10%;
   object-fit: contain;
-  left: 5%;
-  bottom: 10%;
-  cursor: pointer;
+  right: 5%;
+  top: 35%;
   transition: 0.3s;
 }
 
@@ -59,6 +68,8 @@ body {
   transform: scale(1.1);
   transition: 0.3s;
 }
+
+
 
 .avatar {
   position: absolute;
@@ -81,14 +92,7 @@ body {
   z-index: 1;
 }
 
-.botao_avancar_troca {
-  position: absolute;
-  width: 10%;
-  object-fit: contain;
-  right: 5%;
-  top: 35%;
-  transition: 0.3s;
-}
+
 
 .botao_voltar_troca {
   position: absolute;
