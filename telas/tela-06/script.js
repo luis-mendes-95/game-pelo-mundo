@@ -256,7 +256,6 @@ machu_pichu_moitas.addEventListener("click", () => {
   machu_picchu_descoberto = true;
   monumento_info_activate("machu_pichu");
 });
-
 piramides_gize.addEventListener("click", () => {
   piramides_gize_descoberta = true;
   monumento_info_activate("piramides_gize");
@@ -334,7 +333,6 @@ monumento_fechar.addEventListener("click", () => {
   checkAllComplete();
 
 });
-
 monumento_seta_avanca.addEventListener("click", () => {
   if (monumento_atual === "piramide_teotihuacan" && monumento_page === 2) {
     monumento_seta_avanca.src =
@@ -489,7 +487,6 @@ monumento_seta_avanca.addEventListener("click", () => {
     monumento_page += 1;
   }
 });
-
 monumento_seta_volta.addEventListener("click", () => {
   if (monumento_atual === "piramide_teotihuacan" && monumento_page === 2) {
     monumento_info.src =
@@ -591,7 +588,6 @@ monumento_seta_volta.addEventListener("click", () => {
     monumento_fechar.src = "";
   }
 });
-
 final_seta_avanca.addEventListener("click", () => {
   window.location.href = "../tela-07/";
 });
@@ -1430,6 +1426,7 @@ function atualizarDirecaoBussola() {
 
   const radianos = Math.atan2(deltaY, deltaX);
   const graus = (radianos * 180) / Math.PI;
+  const grausAmplificados = (radianos * 180) / Math.PI * 2; // Multiplicador de 2
 
-  bussolaPonteiro.style.transform = `rotate(${graus + 90}deg)`;
+  bussolaPonteiro.style.transform = `rotate(${grausAmplificados + 90}deg)`;
 }
