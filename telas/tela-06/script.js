@@ -61,32 +61,179 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
 
     const dashboard = document.querySelector(".dashboard")
+    const container = document.querySelector(".container")
 
     const luneta_brilho = document.createElement("img");
-    luneta_brilho.classList.add("luneta_brilho")
+    luneta_brilho.classList.add("luneta_brilho");
     const luneta = dashboard.querySelector(".luneta");
     let luneta_clicked = false;
     luneta_brilho.src = ""
 
-    const bussola = dashboard.querySelector(".bussola");
+    const bussola_brilho = document.createElement("img");
+    bussola_brilho.classList.add("bussola_brilho")
+    const bussola = dashboard.querySelector(".bussolaDash");
     let bussola_clicked = false;
+    bussola_brilho.src = ""
 
+    const dicas_brilho = document.createElement("img");
+    dicas_brilho.classList.add("dicas_brilho");
     const dicas = dashboard.querySelector(".dicas");
     let dicas_clicked = false;
+    dicas_brilho.src = ""
 
+    const diarioDeBordo_brilho = document.createElement("img");
+    diarioDeBordo_brilho.classList.add("diarioDeBordo_brilho");
     const diarioDeBordo = dashboard.querySelector(".diarioDeBordo");
     let diarioDeBordo_clicked = false;
+    diarioDeBordo_brilho.src = ""
 
     luneta.addEventListener("click", () => {
         
         if (luneta_clicked === false) {
+
             luneta_clicked = true;
             luneta_brilho.src = "./assets/01_luneta/luneta_contorno.png"
             container.appendChild(luneta_brilho)
+
+            bussola_clicked = false;
+            bussola_brilho.src = ""
+            if (container.contains(bussola_brilho)){
+                container.removeChild(bussola_brilho)
+            }
+
+            dicas_clicked = false;
+            dicas_brilho.src = ""
+            if(container.contains(dicas_brilho)){
+                container.removeChild(dicas_brilho)
+            }
+
+            diarioDeBordo_clicked = false;
+            diarioDeBordo_brilho.src = ""
+            if(container.contains(diarioDeBordo_brilho)){
+                container.removeChild(diarioDeBordo_brilho)
+            }
+
+
         } else if (luneta_clicked === true) {
+
             luneta_clicked = false;
             luneta_brilho.src = ""
             container.removeChild(luneta_brilho)
+            
+        }
+
+    })
+
+    bussola.addEventListener("click", () => {
+        
+        if (bussola_clicked === false) {
+            bussola_clicked = true;
+            bussola_brilho.src = "./assets/02_bussola/bussola_contorno.png"
+            container.appendChild(bussola_brilho)
+
+            luneta_clicked = false;
+            luneta_brilho.src = ""
+            if(container.contains(luneta_brilho)){
+                container.removeChild(luneta_brilho)
+            }
+
+            dicas_clicked = false;
+            dicas_brilho.src = ""
+            if(container.contains(dicas_brilho)){
+                container.removeChild(dicas_brilho)
+            }
+
+            diarioDeBordo_clicked = false;
+            diarioDeBordo_brilho.src = ""
+            if(container.contains(diarioDeBordo_brilho)){
+                container.removeChild(diarioDeBordo_brilho)
+            }
+
+            
+        } else if (bussola_clicked === true) {
+            bussola_clicked = false;
+            bussola_brilho.src = ""
+            container.removeChild(bussola_brilho)
+        }
+
+    })
+
+    dicas.addEventListener("click", () => {
+        
+        if (dicas_clicked === false) {
+
+            dicas_clicked = true;
+            dicas_brilho.src = "./assets/03_dicas/dicas_contorno.png"
+            container.appendChild(dicas_brilho)
+
+            luneta_clicked = false;
+            luneta_brilho.src = ""
+            if(container.contains(luneta_brilho)){
+                container.removeChild(luneta_brilho)
+            }
+
+            bussola_clicked = false;
+            bussola_brilho.src = ""
+            if (container.contains(bussola_brilho)){
+                container.removeChild(bussola_brilho)
+            }
+
+            diarioDeBordo_clicked = false;
+            diarioDeBordo_brilho.src = ""
+            if(container.contains(diarioDeBordo_brilho)){
+                container.removeChild(diarioDeBordo_brilho)
+            }
+
+
+
+        } else if (dicas_clicked === true) {
+            dicas_clicked = false;
+            dicas_brilho.src = ""
+            if(container.contains(dicas_brilho)){
+                container.removeChild(dicas_brilho)
+            }
+
+
+        }
+
+    })
+
+    diarioDeBordo.addEventListener("click", () => {
+        
+        if (diarioDeBordo_clicked === false) {
+
+            diarioDeBordo_clicked = true;
+            diarioDeBordo_brilho.src = "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png"
+            container.appendChild(diarioDeBordo_brilho)
+
+            luneta_clicked = false;
+            luneta_brilho.src = ""
+            if(container.contains(luneta_brilho)){
+                container.removeChild(luneta_brilho)
+            }
+
+            bussola_clicked = false;
+            bussola_brilho.src = ""
+            if (container.contains(bussola_brilho)){
+                container.removeChild(bussola_brilho)
+            }
+
+            dicas_clicked = false;
+            dicas_brilho.src = ""
+            if(container.contains(dicas_brilho)){
+                container.removeChild(dicas_brilho)
+            }
+
+
+
+        } else if (diarioDeBordo_clicked === true) {
+            diarioDeBordo_clicked = false;
+            diarioDeBordo_brilho.src = ""
+            if(container.contains(diarioDeBordo_brilho)){
+                container.removeChild(diarioDeBordo_brilho)
+            }
+
+
         }
 
     })

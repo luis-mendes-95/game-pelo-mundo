@@ -28,17 +28,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    scale: 1; /*ORIGINAL É 5*/
+    scale: 5; /*ORIGINAL É 5*/
 }
-
-
-
 .position-input{
     position: fixed;
     top: 0;
     left: 50;
     z-index: 99;
 }
+
+
+
 
 
 
@@ -135,6 +135,8 @@ body {
 
 
 
+
+
 .dashboard{
     width: 60%;
     height: 20%;
@@ -154,22 +156,44 @@ body {
 .dashboard > .dicas {
     width: 20%;
     margin: 0 2% 2%;
+    z-index: 10;
 }
 .dashboard > .luneta {
     width: 15%;
     margin: 0 2%;
+    z-index: 10;
 }
 .dashboard > .bussolaDash {
     width: 15%;
     margin: 0 2%;
+    z-index: 10;
 }
 .dashboard > .diarioDeBordo {
     width: 17%;
+    z-index: 10;
 }
 .luneta_brilho{
-    width: 10%;
-    height: 100%;
-    position: relative;
-
+    width: 14%;
+    position: absolute;
+    bottom: 9.7%;
+    left: 46.85%;
+}
+.bussola_brilho{
+    width: 13%;
+    position: absolute;
+    bottom: 10%;
+    left: 59.15%;
+}
+.dicas_brilho{
+    width: 17%;
+    position: absolute;
+    bottom: 12.7%;
+    left: 70.5%;
+}
+.diarioDeBordo_brilho{
+    width: 14%;
+    position: absolute;
+    bottom: 10.7%;
+    left: 84.6%;
 }
 
