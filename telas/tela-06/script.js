@@ -7,8 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const vwIncrement = 0.05;
 
     const checkLocal = () => {
-        if (balaoY <= 27 && balaoX >= 35 && balaoX <= 53) {localizacao.value = "Norte"} else 
-        if (balaoY > 27) {localizacao.value = "Sul"} else {localizacao.value="aha"}
+        if (balaoY <= 27 && balaoX >= 35 && balaoX >= 35 && balaoX <= 53) {localizacao.value = "Norte"} else 
+        if (balaoX <= 53 && balaoX >= 35 && balaoY > 27) {localizacao.value = "Sul"} else 
+        if (balaoY <= 18 && balaoX <= 35) {localizacao.value="Noroeste"} else 
+        if (balaoX >= 53 && balaoY <= 17) {localizacao.value="Nordeste"} else 
+        if (balaoX >= 53 && balaoY >= 17 && balaoY <= 27){localizacao.value="Leste"} else
+        if (balaoX >= 53 && balaoY >= 27) {localizacao.value = "Sudeste"} else
+        if (balaoY >= 27 && balaoX <= 35) {localizacao.value = "Sudoeste"} else 
+        if (balaoY <= 27 && balaoX <= 35 && balaoY >= 17) {localizacao.value="Oeste"}
     }
 
     const updateBalaoPosition = () => {
