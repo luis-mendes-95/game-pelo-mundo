@@ -1,61 +1,43 @@
 //FUNÇÕES QUE MOVIMENTAM O BALÃO DENTRO DA DIV "calculoBussola" - INÍCIO //
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     const balao = document.querySelector(".balao");
     const mapa = document.querySelector(".mapa");
-    const calculoBussola = document.querySelector(".calculoBussola");
-    const container = document.querySelector(".container");
-    let balaoX = 40;
-    let balaoY = 25;
-    let mapaX = 10;
-    let mapaY = -30;
-    const vwIncrement = 0.05; // Defina o incremento em unidades VW
+    const localizacao = document.getElementById("local")
+    let [balaoX, balaoY, mapaX, mapaY] = [40, 25, 10, -30];
+    const vwIncrement = 0.05;
 
-    function updateBalaoPosition() {
-        balao.style.left = balaoX + "vw";
-        balao.style.top = balaoY + "vw";
-        mapa.style.left = mapaX + "vw";
-        mapa.style.top = mapaY + "vw";
-        document.getElementById("balaoX").value = balaoX;
-        document.getElementById("balaoY").value = balaoY;
+    const checkLocal = () => {
+        if (balaoY <= 27 && balaoX >= 35 && balaoX <= 53) {localizacao.value = "Norte"} else 
+        if (balaoY > 27) {localizacao.value = "Sul"} else {localizacao.value="aha"}
     }
+
+    const updateBalaoPosition = () => {
+        [balao.style.left, balao.style.top] = [`${balaoX}vw`, `${balaoY}vw`];
+        [mapa.style.left, mapa.style.top] = [`${mapaX}vw`, `${mapaY}vw`];
+        ["balaoX", "balaoY"].forEach((el, idx) => document.getElementById(el).value = [balaoX, balaoY][idx]);
+        checkLocal();
+    };
 
     const keyState = {};
 
-    document.addEventListener("keydown", (e) => {
-        keyState[e.key] = true;
-    });
+    document.addEventListener("keydown", (e) => { keyState[e.key] = true; });
+    document.addEventListener("keyup", (e) => { keyState[e.key] = false; });
 
-    document.addEventListener("keyup", (e) => {
-        keyState[e.key] = false;
-    });
-
-    function moveBalao() {
-        if (keyState["ArrowUp"] && balaoY >= 1) {
-            balaoY -= vwIncrement;
-            mapaY += vwIncrement * 5;
-        }
-        if (keyState["ArrowDown"] && balaoY <= 40) {
-            balaoY += vwIncrement;
-            mapaY -= vwIncrement * 5;
-        }
-        if (keyState["ArrowLeft"] && balaoX >= 1) {
-            balaoX -= vwIncrement;
-            mapaX += vwIncrement * 5;
-        }
-        if (keyState["ArrowRight"] && balaoX <= 90) {
-            balaoX += vwIncrement;
-            mapaX -= vwIncrement * 5;
-        }
+    const moveBalao = () => {
+        if (keyState["ArrowUp"] && balaoY >= 1) { [balaoY, mapaY] = [balaoY - vwIncrement, mapaY + vwIncrement * 5]; }
+        if (keyState["ArrowDown"] && balaoY <= 40) { [balaoY, mapaY] = [balaoY + vwIncrement, mapaY - vwIncrement * 5]; }
+        if (keyState["ArrowLeft"] && balaoX >= 1) { [balaoX, mapaX] = [balaoX - vwIncrement, mapaX + vwIncrement * 5]; }
+        if (keyState["ArrowRight"] && balaoX <= 90) { [balaoX, mapaX] = [balaoX + vwIncrement, mapaX - vwIncrement * 5]; }
 
         updateBalaoPosition();
         requestAnimationFrame(moveBalao);
-    }
+    };
+
+
+
     moveBalao();
 });
 //FUNÇÕES QUE MOVIMENTAM O BALÃO DENTRO DA DIV "calculoBussola" - FIM //
-
-
-
 
 //FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - INICIO //
 document.addEventListener("DOMContentLoaded", function() {
@@ -87,157 +69,59 @@ document.addEventListener("DOMContentLoaded", function() {
     let diarioDeBordo_clicked = false;
     diarioDeBordo_brilho.src = ""
 
+    function toggleBrilho(clicked, brilho, brilhoSrc) {
+        if (clicked === false) {
+            luneta_clicked = false;
+            bussola_clicked = false;
+            dicas_clicked = false;
+            diarioDeBordo_clicked = false;
+    
+            luneta_brilho.src = "";
+            bussola_brilho.src = "";
+            dicas_brilho.src = "";
+            diarioDeBordo_brilho.src = "";
+    
+            if (container.contains(luneta_brilho)) {
+                container.removeChild(luneta_brilho);
+            }
+            if (container.contains(bussola_brilho)) {
+                container.removeChild(bussola_brilho);
+            }
+            if (container.contains(dicas_brilho)) {
+                container.removeChild(dicas_brilho);
+            }
+            if (container.contains(diarioDeBordo_brilho)) {
+                container.removeChild(diarioDeBordo_brilho);
+            }
+    
+            clicked = true;
+            brilho.src = brilhoSrc;
+            container.appendChild(brilho);
+        } else {
+            clicked = false;
+            brilho.src = "";
+            if (container.contains(brilho)) {
+                container.removeChild(brilho);
+            }
+        }
+        return clicked;
+    }
+    
     luneta.addEventListener("click", () => {
-        
-        if (luneta_clicked === false) {
-
-            luneta_clicked = true;
-            luneta_brilho.src = "./assets/01_luneta/luneta_contorno.png"
-            container.appendChild(luneta_brilho)
-
-            bussola_clicked = false;
-            bussola_brilho.src = ""
-            if (container.contains(bussola_brilho)){
-                container.removeChild(bussola_brilho)
-            }
-
-            dicas_clicked = false;
-            dicas_brilho.src = ""
-            if(container.contains(dicas_brilho)){
-                container.removeChild(dicas_brilho)
-            }
-
-            diarioDeBordo_clicked = false;
-            diarioDeBordo_brilho.src = ""
-            if(container.contains(diarioDeBordo_brilho)){
-                container.removeChild(diarioDeBordo_brilho)
-            }
-
-
-        } else if (luneta_clicked === true) {
-
-            luneta_clicked = false;
-            luneta_brilho.src = ""
-            container.removeChild(luneta_brilho)
-            
-        }
-
-    })
-
+        luneta_clicked = toggleBrilho(luneta_clicked, luneta_brilho, "./assets/01_luneta/luneta_contorno.png");
+    });
+    
     bussola.addEventListener("click", () => {
-        
-        if (bussola_clicked === false) {
-            bussola_clicked = true;
-            bussola_brilho.src = "./assets/02_bussola/bussola_contorno.png"
-            container.appendChild(bussola_brilho)
-
-            luneta_clicked = false;
-            luneta_brilho.src = ""
-            if(container.contains(luneta_brilho)){
-                container.removeChild(luneta_brilho)
-            }
-
-            dicas_clicked = false;
-            dicas_brilho.src = ""
-            if(container.contains(dicas_brilho)){
-                container.removeChild(dicas_brilho)
-            }
-
-            diarioDeBordo_clicked = false;
-            diarioDeBordo_brilho.src = ""
-            if(container.contains(diarioDeBordo_brilho)){
-                container.removeChild(diarioDeBordo_brilho)
-            }
-
-            
-        } else if (bussola_clicked === true) {
-            bussola_clicked = false;
-            bussola_brilho.src = ""
-            container.removeChild(bussola_brilho)
-        }
-
-    })
-
+        bussola_clicked = toggleBrilho(bussola_clicked, bussola_brilho, "./assets/02_bussola/bussola_contorno.png");
+    });
+    
     dicas.addEventListener("click", () => {
-        
-        if (dicas_clicked === false) {
-
-            dicas_clicked = true;
-            dicas_brilho.src = "./assets/03_dicas/dicas_contorno.png"
-            container.appendChild(dicas_brilho)
-
-            luneta_clicked = false;
-            luneta_brilho.src = ""
-            if(container.contains(luneta_brilho)){
-                container.removeChild(luneta_brilho)
-            }
-
-            bussola_clicked = false;
-            bussola_brilho.src = ""
-            if (container.contains(bussola_brilho)){
-                container.removeChild(bussola_brilho)
-            }
-
-            diarioDeBordo_clicked = false;
-            diarioDeBordo_brilho.src = ""
-            if(container.contains(diarioDeBordo_brilho)){
-                container.removeChild(diarioDeBordo_brilho)
-            }
-
-
-
-        } else if (dicas_clicked === true) {
-            dicas_clicked = false;
-            dicas_brilho.src = ""
-            if(container.contains(dicas_brilho)){
-                container.removeChild(dicas_brilho)
-            }
-
-
-        }
-
-    })
-
+        dicas_clicked = toggleBrilho(dicas_clicked, dicas_brilho, "./assets/03_dicas/dicas_contorno.png");
+    });
+    
     diarioDeBordo.addEventListener("click", () => {
-        
-        if (diarioDeBordo_clicked === false) {
-
-            diarioDeBordo_clicked = true;
-            diarioDeBordo_brilho.src = "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png"
-            container.appendChild(diarioDeBordo_brilho)
-
-            luneta_clicked = false;
-            luneta_brilho.src = ""
-            if(container.contains(luneta_brilho)){
-                container.removeChild(luneta_brilho)
-            }
-
-            bussola_clicked = false;
-            bussola_brilho.src = ""
-            if (container.contains(bussola_brilho)){
-                container.removeChild(bussola_brilho)
-            }
-
-            dicas_clicked = false;
-            dicas_brilho.src = ""
-            if(container.contains(dicas_brilho)){
-                container.removeChild(dicas_brilho)
-            }
-
-
-
-        } else if (diarioDeBordo_clicked === true) {
-            diarioDeBordo_clicked = false;
-            diarioDeBordo_brilho.src = ""
-            if(container.contains(diarioDeBordo_brilho)){
-                container.removeChild(diarioDeBordo_brilho)
-            }
-
-
-        }
-
-    })
-
+        diarioDeBordo_clicked = toggleBrilho(diarioDeBordo_clicked, diarioDeBordo_brilho, "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png");
+    });
 
 });
 //FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - FIM //
