@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 container.removeChild(luneta_brilho);
             }
             if (container.contains(bussola_brilho)) {
-                container.removeChild(bussola_brilho);
+                container.removeChild(bussola_brilho);                
             }
             if (container.contains(dicas_brilho)) {
                 container.removeChild(dicas_brilho);
@@ -183,19 +183,33 @@ document.addEventListener("DOMContentLoaded", function() {
     bussola.addEventListener("click", () => {
         bussola_clicked = toggleBrilho(bussola_clicked, bussola_brilho, "./assets/02_bussola/bussola_contorno.png");
         
-        const bussola_fundo = document.createElement("img")
-        const bussola_ponteiro = document.createElement("img")
-        const bussola_circulo = document.createElement("img")
+ 
 
-        bussola_fundo.classList.add("bussola_fundo")
-        bussola_ponteiro.classList.add("bussola_ponteiro")
-        bussola_circulo.classList.add("bussola_circulo")
-
-        bussola_fundo.src = "./assets/bussola_grande/bussola_aumentada.png"
-        bussola_ponteiro.src = "./assets/bussola_grande/ponteiro.png"
-        bussola_circulo.src = "./assets/bussola_grande/circulo.png"
-
-        container.append(bussola_fundo, bussola_ponteiro, bussola_circulo);
+        if(bussola_clicked === true) {
+            const bussola_fundo = document.createElement("img")
+            const bussola_ponteiro = document.createElement("img")
+            const bussola_circulo = document.createElement("img")
+    
+            bussola_fundo.classList.add("bussola_fundo")
+            bussola_ponteiro.classList.add("bussola_ponteiro")
+            bussola_circulo.classList.add("bussola_circulo")
+    
+            bussola_fundo.src = "./assets/bussola_grande/bussola_aumentada.png"
+            bussola_ponteiro.src = "./assets/bussola_grande/ponteiro.png"
+            bussola_circulo.src = "./assets/bussola_grande/circulo.png"
+    
+            container.append(bussola_fundo, bussola_ponteiro, bussola_circulo);
+        } else if (bussola_clicked === false) {
+            let existing_bussola = document.querySelector(".bussola_fundo")
+            let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro")
+            let existing_bussola_circulo = document.querySelector(".bussola_circulo")
+    
+            if(existing_bussola) {
+                container.removeChild(existing_bussola)
+                container.removeChild(existing_bussola_ponteiro)
+                container.removeChild(existing_bussola_circulo)
+            }
+        }
           
     });
     
