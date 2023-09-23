@@ -110,6 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 //FUNÇÕES QUE MOVIMENTAM O BALÃO DENTRO DA DIV "calculoBussola" - FIM //
 
+
+
 //FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - INICIO //
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -331,3 +333,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 //FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - FIM //
+
+
+
+//FUNÇÕES QUE INSEREM OS BOTÕES PELO MAPA - INICIO//
+document.addEventListener("DOMContentLoaded", function () {
+  const botoes_lugares = [
+    {
+      name: "estatuaLiberdade",
+      src: "./assets/",
+      localX: 5,
+      localY: 5,
+      brilhoSrc: "./assets/",
+      brilhoX: 5,
+      brilhoY: 5
+    }
+  ]
+});
+//FUNÇÕES QUE INSEREM OS BOTÕES PELO MAPA - FIM//
