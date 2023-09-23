@@ -23,6 +23,7 @@ body {
   height: 70%;
   position: relative;
   background-image: url("./assets/mapa_mundi/mapa_mundi.png");
+  /*background-image: url("./assets/mapa_mundi/mapa_mundi.png");*/
   background-size: cover; /* A imagem cobrirá toda a div */
   background-repeat: no-repeat;
   display: flex;
@@ -36,6 +37,10 @@ body {
   left: 50;
   z-index: 99;
 }
+
+
+
+
 
 .balao {
   width: 25px;
@@ -126,6 +131,14 @@ body {
   display: none;
 }
 
+
+
+
+
+
+
+
+
 .dashboard {
   width: 60%;
   height: 20%;
@@ -186,6 +199,13 @@ body {
   left: 84.6%;
 }
 
+
+
+
+
+
+
+
 .bussola_fundo,
 .bussola_ponteiro,
 .bussola_circulo {
@@ -201,10 +221,26 @@ body {
   top: 42.5%;
   right: 5%;
   transform-origin: center center;
-  transition: 5s;
+  transition: 3s;
 }
 .bussola_circulo {
   height: 30px;
   right: 12%;
   top: 43%;
+}
+
+
+
+
+
+
+
+
+.black_background{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 10;
+  opacity: 0.5;
 }

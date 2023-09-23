@@ -1,4 +1,5 @@
 let canMove = true;
+let blackBackground = false;
 
 //FUNÇÕES QUE MOVIMENTAM O BALÃO DENTRO DA DIV "calculoBussola" - INÍCIO //
 document.addEventListener("DOMContentLoaded", () => {
@@ -63,13 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
             bussola_ponteiro.style.transform = `rotate(${270}deg)`;
             break;
           case "Sudoeste":
-            bussola_ponteiro.style.transform = `rotate(${315}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${-45}deg)`;
             break;
           case "Oeste":
-            bussola_ponteiro.style.transform = `rotate(${360}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${0}deg)`;
             break;
           case "Noroeste":
-            bussola_ponteiro.style.transform = `rotate(${405}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${45}deg)`;
             break;
           default:
             bussola_ponteiro.style.transform = `rotate(${90}deg)`;
@@ -111,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - INICIO //
 document.addEventListener("DOMContentLoaded", function () {
+
   const dashboard = document.querySelector(".dashboard");
   const container = document.querySelector(".container");
   const mapa = document.querySelector(".mapa");
@@ -139,6 +141,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const diarioDeBordo = dashboard.querySelector(".diarioDeBordo");
   let diarioDeBordo_clicked = false;
   diarioDeBordo_brilho.src = "";
+
+  const set_black_background = (botao) => {
+    if(botao === "dicas") {
+      if(blackBackground === false) {
+        canMove = false;
+        blackBackground = true;
+        let black_background = document.createElement("div");
+        black_background.classList.add("black_background");
+        dicas.style.zIndex = "12"
+        dicas_brilho.style.zIndex = "11"
+        container.appendChild(black_background);
+      } else if (blackBackground === true){
+        canMove = true;
+        blackBackground = false;
+        let existing_background = document.querySelector(".black_background");
+        if(existing_background){
+          container.removeChild(existing_background)
+          dicas.style.zIndex = "10"
+          dicas_brilho.style.zIndex = "9"
+        }
+      } 
+    } else if (botao === "diario") {
+      if(blackBackground === false) {
+        canMove = false;
+        blackBackground = true;
+        let black_background = document.createElement("div");
+        black_background.classList.add("black_background");
+        diarioDeBordo.style.zIndex = "12"
+        diarioDeBordo_brilho.style.zIndex = "11"
+        container.appendChild(black_background);
+      } else if (blackBackground === true){
+        canMove = true;
+        blackBackground = false;
+        let existing_background = document.querySelector(".black_background");
+        if(existing_background){
+          container.removeChild(existing_background)
+          diarioDeBordo.style.zIndex = "10"
+          diarioDeBordo_brilho.style.zIndex = "9"
+        }
+      } 
+    }
+  }
 
   function toggleBrilho(clicked, brilho, brilhoSrc) {
     if (clicked === false) {
@@ -231,36 +275,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   bussola.addEventListener("click", () => {
-    bussola_clicked = toggleBrilho(
-      bussola_clicked,
-      bussola_brilho,
-      "./assets/02_bussola/bussola_contorno.png"
-    );
-
-    if (bussola_clicked === true) {
-      const bussola_fundo = document.createElement("img");
-      const bussola_ponteiro = document.createElement("img");
-      const bussola_circulo = document.createElement("img");
-
-      bussola_fundo.classList.add("bussola_fundo");
-      bussola_ponteiro.classList.add("bussola_ponteiro");
-      bussola_circulo.classList.add("bussola_circulo");
-
-      bussola_fundo.src = "./assets/bussola_grande/bussola_aumentada.png";
-      bussola_ponteiro.src = "./assets/bussola_grande/ponteiro.png";
-      bussola_circulo.src = "./assets/bussola_grande/circulo.png";
-
-      container.append(bussola_fundo, bussola_ponteiro, bussola_circulo);
-    } else if (bussola_clicked === false) {
-      let existing_bussola = document.querySelector(".bussola_fundo");
-      let existing_bussola_ponteiro =
-        document.querySelector(".bussola_ponteiro");
-      let existing_bussola_circulo = document.querySelector(".bussola_circulo");
-
-      if (existing_bussola) {
-        container.removeChild(existing_bussola);
-        container.removeChild(existing_bussola_ponteiro);
-        container.removeChild(existing_bussola_circulo);
+    if(luneta_clicked === false) {
+      bussola_clicked = toggleBrilho(
+        bussola_clicked,
+        bussola_brilho,
+        "./assets/02_bussola/bussola_contorno.png"
+      );
+  
+      if (bussola_clicked === true) {
+        const bussola_fundo = document.createElement("img");
+        const bussola_ponteiro = document.createElement("img");
+        const bussola_circulo = document.createElement("img");
+  
+        bussola_fundo.classList.add("bussola_fundo");
+        bussola_ponteiro.classList.add("bussola_ponteiro");
+        bussola_circulo.classList.add("bussola_circulo");
+  
+        bussola_fundo.src = "./assets/bussola_grande/bussola_aumentada.png";
+        bussola_ponteiro.src = "./assets/bussola_grande/ponteiro.png";
+        bussola_circulo.src = "./assets/bussola_grande/circulo.png";
+  
+        container.append(bussola_fundo, bussola_ponteiro, bussola_circulo);
+      } else if (bussola_clicked === false) {
+        let existing_bussola = document.querySelector(".bussola_fundo");
+        let existing_bussola_ponteiro =
+          document.querySelector(".bussola_ponteiro");
+        let existing_bussola_circulo = document.querySelector(".bussola_circulo");
+  
+        if (existing_bussola) {
+          container.removeChild(existing_bussola);
+          container.removeChild(existing_bussola_ponteiro);
+          container.removeChild(existing_bussola_circulo);
+        }
       }
     }
   });
@@ -271,6 +317,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicas_brilho,
       "./assets/03_dicas/dicas_contorno.png"
     );
+    set_black_background("dicas");
   });
 
   diarioDeBordo.addEventListener("click", () => {
@@ -279,6 +326,8 @@ document.addEventListener("DOMContentLoaded", function () {
       diarioDeBordo_brilho,
       "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png"
     );
+    set_black_background("diario");
   });
+
 });
 //FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - FIM //
