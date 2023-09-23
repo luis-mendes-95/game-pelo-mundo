@@ -201,6 +201,7 @@ body {
   top: 42.5%;
   right: 5%;
   transform-origin: center center;
+  transition: 5s;
 }
 .bussola_circulo {
   height: 30px;
