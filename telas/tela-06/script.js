@@ -1,7 +1,85 @@
+//VARIÁVEIS GLOBAIS - INICIO//
 let canMove = true;
 let blackBackground = false;
 const container = document.querySelector(".container");
 const mapa = document.querySelector(".mapa");
+//VARIÁVEIS GLOBAIS - FIM//
+
+
+
+
+//FUNÇÕES GLOBAIS - INICIO//
+
+//FUNDO PRETO DINAMICO QUE PODE SER CHAMADO POR QUALQUER UM
+const set_black_background = (botao) => {
+
+    if(botao === "dicas") {
+      if(blackBackground === false) {
+        canMove = false;
+        blackBackground = true;
+        let black_background = document.createElement("div");
+        black_background.classList.add("black_background");
+        dicas.style.zIndex = "12"
+        dicas_brilho.style.zIndex = "11"
+        container.appendChild(black_background);
+      } else if (blackBackground === true){
+        canMove = true;
+        blackBackground = false;
+        let existing_background = document.querySelector(".black_background");
+        if(existing_background){
+          container.removeChild(existing_background)
+          dicas.style.zIndex = "10"
+          dicas_brilho.style.zIndex = "9"
+        }
+      } 
+    } else if (botao === "diario") {
+      if(blackBackground === false) {
+        canMove = false;
+        blackBackground = true;
+        let black_background = document.createElement("div");
+        black_background.classList.add("black_background");
+        diarioDeBordo.style.zIndex = "12"
+        diarioDeBordo_brilho.style.zIndex = "11"
+        container.appendChild(black_background);
+      } else if (blackBackground === true){
+        canMove = true;
+        blackBackground = false;
+        let existing_background = document.querySelector(".black_background");
+        if(existing_background){
+          container.removeChild(existing_background)
+          diarioDeBordo.style.zIndex = "10"
+          diarioDeBordo_brilho.style.zIndex = "9"
+        }
+      } 
+    } else {
+      if(blackBackground === false) {
+        canMove = false;
+        blackBackground = true;
+        let black_background = document.createElement("div");
+        black_background.classList.add("black_background");
+        container.appendChild(black_background);
+      } else if (blackBackground === true){
+        canMove = true;
+        blackBackground = false;
+        let existing_background = document.querySelector(".black_background");
+        if(existing_background){
+          container.removeChild(existing_background)
+          let diarioDeBordo = document.querySelector(".diarioDeBordo");
+          let diarioDeBordo_brilho = document.querySelector(".diarioDeBordo_brilho");
+          if(diarioDeBordo && diarioDeBordo_brilho){
+            diarioDeBordo.style.zIndex = "10"
+            diarioDeBordo_brilho.style.zIndex = "9"
+          }
+
+        }
+    }
+  }
+}
+
+//FUNÇÕES GLOBAIS - FIM//
+
+
+
 
 //FUNÇÕES QUE MOVIMENTAM O BALÃO DENTRO DA DIV "calculoBussola" - INÍCIO //
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let [balaoX, balaoY, mapaX, mapaY] = [42, 24, 10, -30];
 
   //INCREMENTO DE "VW" A INCREMENTAR PARA GERAR O MOVIMENTO
-  const vwIncrement = 0.5; //ORIGINAL 0.05
+  const vwIncrement = 0.05; //ORIGINAL 0.05
 
   //SPRITE DO BALÃO
   balao.src = "./assets/balao/balao_direito.gif";
@@ -103,15 +181,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const moveBalao = () => {
     if (keyState["ArrowUp"] && balaoY >= 1) {
       [balaoY, mapaY] = [balaoY - vwIncrement, mapaY + vwIncrement * 5];
+      balao.src = "./assets/balao/balao_costa.gif"
     }
     if (keyState["ArrowDown"] && balaoY <= 40) {
       [balaoY, mapaY] = [balaoY + vwIncrement, mapaY - vwIncrement * 5];
+      balao.src = "./assets/balao/balao_frente.gif"
     }
     if (keyState["ArrowLeft"] && balaoX >= 1) {
       [balaoX, mapaX] = [balaoX - vwIncrement, mapaX + vwIncrement * 5];
+      balao.src = "./assets/balao/balao_esquerdo.gif"
     }
     if (keyState["ArrowRight"] && balaoX <= 90) {
       [balaoX, mapaX] = [balaoX + vwIncrement, mapaX - vwIncrement * 5];
+      balao.src = "./assets/balao/balao_direito.gif"
     }
 
     updateBalaoPosition();
@@ -121,6 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
   moveBalao();
 });
 //FUNÇÕES QUE MOVIMENTAM O BALÃO DENTRO DA DIV "calculoBussola" - FIM //
+
 
 
 
@@ -160,49 +243,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const diarioDeBordo = dashboard.querySelector(".diarioDeBordo");
   let diarioDeBordo_clicked = false;
   diarioDeBordo_brilho.src = "";
-
-  //FUNDO PRETO QUE APARECE QUANDO CLICA EM DICAS E DIARIO
-  const set_black_background = (botao) => {
-    if(botao === "dicas") {
-      if(blackBackground === false) {
-        canMove = false;
-        blackBackground = true;
-        let black_background = document.createElement("div");
-        black_background.classList.add("black_background");
-        dicas.style.zIndex = "12"
-        dicas_brilho.style.zIndex = "11"
-        container.appendChild(black_background);
-      } else if (blackBackground === true){
-        canMove = true;
-        blackBackground = false;
-        let existing_background = document.querySelector(".black_background");
-        if(existing_background){
-          container.removeChild(existing_background)
-          dicas.style.zIndex = "10"
-          dicas_brilho.style.zIndex = "9"
-        }
-      } 
-    } else if (botao === "diario") {
-      if(blackBackground === false) {
-        canMove = false;
-        blackBackground = true;
-        let black_background = document.createElement("div");
-        black_background.classList.add("black_background");
-        diarioDeBordo.style.zIndex = "12"
-        diarioDeBordo_brilho.style.zIndex = "11"
-        container.appendChild(black_background);
-      } else if (blackBackground === true){
-        canMove = true;
-        blackBackground = false;
-        let existing_background = document.querySelector(".black_background");
-        if(existing_background){
-          container.removeChild(existing_background)
-          diarioDeBordo.style.zIndex = "10"
-          diarioDeBordo_brilho.style.zIndex = "9"
-        }
-      } 
-    }
-  }
 
   //FUNÇÃO QUE ALTERA ESTADO DO BRILHO DOS ITENS CLICADOS
   function toggleBrilho(clicked, brilho, brilhoSrc) {
@@ -307,8 +347,6 @@ document.addEventListener("DOMContentLoaded", function () {
       mapa.style.marginLeft = "0";
       mapa.style.marginRight = "0";
       mapa.style.marginBottom = "0";
-
-
     }
   });
 
@@ -360,6 +398,14 @@ document.addEventListener("DOMContentLoaded", function () {
       "./assets/03_dicas/dicas_contorno.png"
     );
     set_black_background("dicas");
+    let existing_bussola = document.querySelector(".bussola_fundo");
+    let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
+    let existing_bussola_circulo = document.querySelector(".bussola_circulo");
+    if (existing_bussola) {
+      container.removeChild(existing_bussola);
+      container.removeChild(existing_bussola_ponteiro);
+      container.removeChild(existing_bussola_circulo);
+    }
   });
 
 
@@ -371,10 +417,19 @@ document.addEventListener("DOMContentLoaded", function () {
       "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png"
     );
     set_black_background("diario");
+    let existing_bussola = document.querySelector(".bussola_fundo");
+    let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
+    let existing_bussola_circulo = document.querySelector(".bussola_circulo");
+    if (existing_bussola) {
+      container.removeChild(existing_bussola);
+      container.removeChild(existing_bussola_ponteiro);
+      container.removeChild(existing_bussola_circulo);
+    }
   });
 
 });
 //FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - FIM //
+
 
 
 
@@ -552,3 +607,167 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 //FUNÇÕES QUE INSEREM OS BOTÕES PELO MAPA - FIM//
+
+
+
+
+//FUNÇÕES QUE DESCOBREM OS MONUMENTOS - INICIO//
+document.addEventListener("DOMContentLoaded", function () {
+
+  const set_monumento_cards = (monumento) => {
+    const black_background = document.querySelector(".black_background");
+
+    let monument
+
+    if (monumento.cards.length > 1) {
+
+      const monumento_card = document.createElement("img");
+      monumento_card.classList.add("monumento_card");
+      monumento_card.src = monumento.cards[0];
+
+      monument = monumento_card
+
+      const create_next_button = () => {
+        const button_next = document.createElement("img");
+        button_next.classList.add("button_next");
+        button_next.src = "./assets/botoes_lugares/botao_continuar_azul.png";
+        button_next.addEventListener("click", () => {
+          monumento_card.src = monumento.cards[1];
+          container.removeChild(button_next)
+          const button_back = document.createElement("img");
+          button_back.classList.add("button_back");
+          button_back.src = "./assets/botoes_lugares/botao_voltar_azul.png";
+          container.appendChild(button_back);
+          button_back.addEventListener("click", () => {
+            monument.src = monumento.cards[0];
+            container.removeChild(button_back);
+            create_next_button();
+          })
+        })
+        container.appendChild(button_next);
+      }
+
+      create_next_button();
+      
+
+      const button_close = document.createElement("img");
+      button_close.classList.add("button_close");
+      button_close.src = "./assets/botoes_lugares/botao_fechar_azul.png"
+      button_close.addEventListener("click", () => {
+        const existing_card = document.querySelector(".monumento_card");
+        const existing_button_next = document.querySelector(".button_next");
+        if(existing_button_next) { container.removeChild(existing_button_next)};
+        const existing_button_back = document.querySelector(".button_back");
+        if(existing_button_back) { container.removeChild(existing_button_back)};
+        container.removeChild(button_close);
+        container.removeChild(existing_card);
+        set_black_background();
+      })
+      container.appendChild(button_close);
+
+
+
+    } else {
+
+      const monumento_card = document.createElement("img");
+      monumento_card.classList.add("monumento_card");
+      monumento_card.src = monumento.cards[0];
+      monument = monumento_card
+
+      const button_close = document.createElement("img");
+      button_close.classList.add("button_close");
+      button_close.src = "./assets/botoes_lugares/botao_fechar_azul.png"
+      button_close.addEventListener("click", () => {
+        const existing_card = document.querySelector(".monumento_card");
+        container.removeChild(button_close);
+        container.removeChild(existing_card);
+        set_black_background();
+      })
+      container.appendChild(button_close);
+    }
+
+
+    container.appendChild(monument);
+
+
+  }
+
+  let monumentos = [
+    {
+      name: "bigBen",
+      element: document.querySelector(".bigBen"),
+      cards: ["./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_01.png","./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_02.png"],
+      descoberto: false
+    },
+    {
+      name: "estatuaLiberdade",
+      element: document.querySelector(".estatuaLiberdade"),
+      cards: ["./assets/cards_monumentos_historicos/01_estatua_liberdade/01_estatua_liberdade.png"],
+      descoberto: false
+    },
+    {
+      name: "machu_picchu",
+      element: document.querySelector(".machu_picchu"),
+      cards: ["./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_01.png", "./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "monte_fuji",
+      element: document.querySelector(".monte_fuji"),
+      cards: ["./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_01.png", "./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_02.png"],
+      descoberto: false
+    },
+    {
+      name: "opera_sydney",
+      element: document.querySelector(".opera_sydney"),
+      cards: ["./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png", "./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "piramideTeotihuacan",
+      element: document.querySelector(".piramideTeotihuacan"),
+      cards: ["./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_01.png", "./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "piramidesGize",
+      element: document.querySelector(".piramidesGize"),
+      cards: ["./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_01.png", "./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "taj_mahal",
+      element: document.querySelector(".taj_mahal"),
+      cards: ["./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_01.png", "./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "torreEiffel",
+      element: document.querySelector(".torreEiffel"),
+      cards: ["./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_01.png", "./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "torrePisa",
+      element: document.querySelector(".torrePisa"),
+      cards: ["./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_01.png", "./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_02.png" ],
+      descoberto: false
+    }
+  ]
+
+  monumentos.forEach((monumento) => {
+
+    monumento.element.addEventListener("click", () => {
+      set_black_background();
+      set_monumento_cards(monumento);
+    })
+  });
+
+
+
+
+  //CAPTURA OS BOTÕES - FIM//
+
+
+});
+//FUNÇÕES QUE DESCOBREM OS MONUMENTOS - FIM//

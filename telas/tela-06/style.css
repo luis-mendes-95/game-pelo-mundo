@@ -36,6 +36,7 @@ body {
   top: 0;
   left: 50;
   z-index: 99;
+  display: none;
 }
 
 
@@ -43,13 +44,22 @@ body {
 
 
 .balao {
-  width: 15px;
+  height: 15px;
   position: absolute;
   top: 0vw;
   left: 0vw;
   transform: translate(-50%, -50%);
   transition: all 1s ease-out;
   z-index: 90;
+  animation: moveUpDown 4s linear infinite;
+}
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 .calculoBussola {
   position: relative;
@@ -244,4 +254,32 @@ body {
   background-color: black;
   z-index: 10;
   opacity: 0.5;
+}
+.monumento_card{
+  position: absolute;
+  width: 80%;
+  top: 6vw;
+  left: 8vw;
+  z-index: 30;
+}
+.button_close{
+  position: absolute;
+  z-index: 30;
+  top: 6vw;
+  right: 3vw;
+  width: 8vw;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button_next, .button_back{
+  position: absolute;
+  z-index: 31;
+  bottom: 13vw;
+  right: 2vw;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button_close:hover, .button_next:hover{
+  transform: scale(1.1);
+  transition: 0.3s;
 }
