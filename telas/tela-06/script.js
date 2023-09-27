@@ -1,16 +1,26 @@
 let canMove = true;
 let blackBackground = false;
+const container = document.querySelector(".container");
+const mapa = document.querySelector(".mapa");
 
 //FUNÇÕES QUE MOVIMENTAM O BALÃO DENTRO DA DIV "calculoBussola" - INÍCIO //
 document.addEventListener("DOMContentLoaded", () => {
+
+  //CAPTURA DOS ELEMENTOS NO HTML
   const balao = document.querySelector(".balao");
   const mapa = document.querySelector(".mapa");
   const localizacao = document.getElementById("local");
-  let [balaoX, balaoY, mapaX, mapaY] = [42, 25, 10, -30];
-  const vwIncrement = 0.05;
 
+  //DEFINE A LOCALIZAÇÃO DO BALÃO NA TELA E NO MAPA
+  let [balaoX, balaoY, mapaX, mapaY] = [42, 24, 10, -30];
+
+  //INCREMENTO DE "VW" A INCREMENTAR PARA GERAR O MOVIMENTO
+  const vwIncrement = 0.5; //ORIGINAL 0.05
+
+  //SPRITE DO BALÃO
   balao.src = "./assets/balao/balao_direito.gif";
 
+  //CAPTURA DA LOCALIZAÇÃO DO BALÃO E DEFININDO LOCAL GEOGRÁFICO
   const checkLocal = () => {
     if (balaoY <= 17 && balaoX >= 35 && balaoX >= 35 && balaoX <= 53) {
       localizacao.value = "Norte";
@@ -33,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  //ATUALIZA A POSIÇÃO DO BALÃO NA TELA
   const updateBalaoPosition = () => {
     if (canMove) {
       [balao.style.left, balao.style.top] = [`${balaoX}vw`, `${balaoY}vw`];
@@ -79,6 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  //TECLAS QUE ESTÃO SENDO APERTADAS
   const keyState = {};
 
   document.addEventListener("keydown", (e) => {
@@ -115,35 +127,41 @@ document.addEventListener("DOMContentLoaded", () => {
 //FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - INICIO //
 document.addEventListener("DOMContentLoaded", function () {
 
+  //CAPTURA DE ELEMENTOS
   const dashboard = document.querySelector(".dashboard");
-  const container = document.querySelector(".container");
-  const mapa = document.querySelector(".mapa");
+
+
   const local = document.getElementById("local");
 
+  //LUNETA
   const luneta_brilho = document.createElement("img");
   luneta_brilho.classList.add("luneta_brilho");
   const luneta = dashboard.querySelector(".luneta");
   let luneta_clicked = false;
   luneta_brilho.src = "";
 
+  //BÚSSOLA
   const bussola_brilho = document.createElement("img");
   bussola_brilho.classList.add("bussola_brilho");
   const bussola = dashboard.querySelector(".bussolaDash");
   let bussola_clicked = false;
   bussola_brilho.src = "";
 
+  //DICAS
   const dicas_brilho = document.createElement("img");
   dicas_brilho.classList.add("dicas_brilho");
   const dicas = dashboard.querySelector(".dicas");
   let dicas_clicked = false;
   dicas_brilho.src = "";
 
+  //DIARIO DE BORDO
   const diarioDeBordo_brilho = document.createElement("img");
   diarioDeBordo_brilho.classList.add("diarioDeBordo_brilho");
   const diarioDeBordo = dashboard.querySelector(".diarioDeBordo");
   let diarioDeBordo_clicked = false;
   diarioDeBordo_brilho.src = "";
 
+  //FUNDO PRETO QUE APARECE QUANDO CLICA EM DICAS E DIARIO
   const set_black_background = (botao) => {
     if(botao === "dicas") {
       if(blackBackground === false) {
@@ -186,6 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  //FUNÇÃO QUE ALTERA ESTADO DO BRILHO DOS ITENS CLICADOS
   function toggleBrilho(clicked, brilho, brilhoSrc) {
     if (clicked === false) {
       luneta_clicked = false;
@@ -224,6 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return clicked;
   }
 
+  //LUNETA FUNCIONALIDADES DE CLIQUE
   luneta.addEventListener("click", () => {
     luneta_clicked = toggleBrilho(
       luneta_clicked,
@@ -276,6 +296,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+
+  //BUSSOLA FUNCIONALIDADES DE CLIQUE
   bussola.addEventListener("click", () => {
     if(luneta_clicked === false) {
       bussola_clicked = toggleBrilho(
@@ -313,6 +335,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+
+  //DICAS FUNCIONALIDADES DE CLIQUE
   dicas.addEventListener("click", () => {
     dicas_clicked = toggleBrilho(
       dicas_clicked,
@@ -322,6 +346,8 @@ document.addEventListener("DOMContentLoaded", function () {
     set_black_background("dicas");
   });
 
+
+  //DIARIO FUNCIONALIDADES DE CLIQUE
   diarioDeBordo.addEventListener("click", () => {
     diarioDeBordo_clicked = toggleBrilho(
       diarioDeBordo_clicked,
@@ -338,16 +364,115 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //FUNÇÕES QUE INSEREM OS BOTÕES PELO MAPA - INICIO//
 document.addEventListener("DOMContentLoaded", function () {
+  
   const botoes_lugares = [
     {
+      name: "piramidesGize",
+      src: "./assets/botoes_lugares/piramides_gize/piramides_de_gize.png",
+      srcBrilho: "./assets/botoes_lugares/piramides_gize/piramides_contorno.png",
+      localX: 47,
+      localY: 16,
+      brilhoX: 47,
+      brilhoY: 16,
+      width: "5vw",
+      brilhoWidth: "5vw",
+      scale: "scale(1.1)"
+    },
+    {
+      name: "torrePisa",
+      src: "./assets/botoes_lugares/torre_pisa/torre_pisa.png",
+      srcBrilho: "./assets/botoes_lugares/torre_pisa/torre_pisa_contorno.png",
+      localX: 47.47,
+      localY: 7.9,
+      brilhoX: 47.46,
+      brilhoY: 7.9,
+      width: "1.30vw",
+      brilhoWidth: "1.35vw",
+      scale: "scale(1.13)"
+    },
+    {
+      name: "torreEiffel",
+      src: "./assets/botoes_lugares/torre_eiffel/torre_eiffel.png",
+      srcBrilho: "./assets/botoes_lugares/torre_eiffel/torre_eiffel_contorno.png",
+      localX: 44,
+      localY: 5.9,
+      brilhoX: 44.13,
+      brilhoY: 6.15,
+      width: "2.3vw",
+      brilhoWidth: "2vw",
+      scale: "scale(1.21)"
+    },
+    {
+      name: "bigBen",
+      src: "./assets/botoes_lugares/big_ben/big_ben.png",
+      srcBrilho: "./assets/botoes_lugares/big_ben/big_ben_contorno.png",
+      localX: 41.2,
+      localY: 2.6,
+      brilhoX: 41.33,
+      brilhoY: 2.84,
+      width: "2.3vw",
+      brilhoWidth: "2.05vw",
+      scale: "scale(1.21)"
+    },
+    {
       name: "estatuaLiberdade",
-      src: "./assets/",
-      localX: 5,
-      localY: 5,
-      brilhoSrc: "./assets/",
-      brilhoX: 5,
-      brilhoY: 5
-    }
+      src: "./assets/botoes_lugares/estatua_liberdade/estatua_liberdade.png",
+      srcBrilho: "./assets/botoes_lugares/estatua_liberdade/estatua_liberdade_contorno.png",
+      localX: 28,
+      localY: 5.5,
+      brilhoX: 28.10,
+      brilhoY: 5.9,
+      width: "2.3vw",
+      brilhoWidth: "2.13vw",
+      scale: "scale(1.21)"
+    },
   ]
+
+  const render_buttons = () => {
+    botoes_lugares.forEach((button)=>{
+
+      const botao = document.createElement("img");
+      const contorno = document.createElement("img");
+
+      botao.classList.add(`${button.name}`);
+      contorno.classList.add(`${button.name}Contorno`);
+
+      botao.src = button.src
+      contorno.src = button.srcBrilho
+
+      botao.style.width = button.width
+      botao.style.position = `absolute`
+      botao.style.left = `${button.localX}vw`
+      botao.style.top = `${button.localY}vw`
+      botao.style.zIndex = `3`
+
+      contorno.style.width = button.brilhoWidth
+      contorno.style.transform = button.scale
+      contorno.style.position = `absolute`
+      contorno.style.left = `${button.brilhoX}vw`
+      contorno.style.top = `${button.brilhoY - 0.030}vw` 
+      contorno.style.zIndex = `2`
+
+      botao.addEventListener("mouseenter", () => {
+        botao.style.cursor = "pointer";
+        const contorno_existente = document.querySelector(`.${button.name}Contorno`)
+        if (!contorno_existente){
+          mapa.appendChild(contorno)
+        }
+      });
+
+      botao.addEventListener("mouseleave", function() {
+        //const contorno_existente = document.querySelector(`.${button.name}Contorno`)
+        //mapa.removeChild(contorno_existente)
+      });
+
+
+
+      mapa.appendChild(botao);
+    })
+  }
+
+  render_buttons();
+
 });
 //FUNÇÕES QUE INSEREM OS BOTÕES PELO MAPA - FIM//

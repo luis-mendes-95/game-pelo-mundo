@@ -49,6 +49,7 @@ body {
   left: 0vw;
   transform: translate(-50%, -50%);
   transition: all 1s ease-out;
+  z-index: 30;
 }
 .calculoBussola {
   position: relative;
