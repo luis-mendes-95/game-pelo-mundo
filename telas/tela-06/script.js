@@ -426,6 +426,18 @@ document.addEventListener("DOMContentLoaded", function () {
       brilhoWidth: "2.13vw",
       scale: "scale(1.21)"
     },
+    {
+      name: "piramideTeotihuacan",
+      src: "./assets/botoes_lugares/piramide_de_teotihuacan/piramide_teotihuacan.png",
+      srcBrilho: "./assets/botoes_lugares/piramide_de_teotihuacan/piramide_teotihuacan_contorno.png",
+      localX: 23.3,
+      localY: 15.2,
+      brilhoX: 23.7,
+      brilhoY: 15.4,
+      width: "5vw",
+      brilhoWidth: "4.13vw",
+      scale: "scale(1.27)"
+    },
   ]
 
   const render_buttons = () => {
@@ -450,7 +462,7 @@ document.addEventListener("DOMContentLoaded", function () {
       contorno.style.transform = button.scale
       contorno.style.position = `absolute`
       contorno.style.left = `${button.brilhoX}vw`
-      contorno.style.top = `${button.brilhoY - 0.030}vw` 
+      contorno.style.top = `${button.brilhoY}vw` 
       contorno.style.zIndex = `2`
 
       botao.addEventListener("mouseenter", () => {
