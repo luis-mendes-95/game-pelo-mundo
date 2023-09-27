@@ -251,34 +251,50 @@ document.addEventListener("DOMContentLoaded", function () {
       "./assets/01_luneta/luneta_contorno.png"
     );
     if (luneta_clicked === true) {
-      mapa.style.scale = "2.5";
-      console.log(local.value);
+
       canMove = false;
 
       if (local.value === "Norte") {
-        mapa.style.marginTop = "-60vw";
+        mapa.style.scale = "2.6";
+        mapa.style.left = "2vw";
+        mapa.style.top = "21.5vw";
       } else if (local.value === "Noroeste") {
-        (mapa.style.marginLeft = "-100vw"), (mapa.style.marginTop = "-60vw");
+        mapa.style.scale = "2";
+        mapa.style.left = "50vw";
+        mapa.style.top = "15.5vw";
       } else if (local.value === "Oeste") {
-        mapa.style.marginLeft = "-100vw";
+        mapa.style.scale = "2.7";
+        mapa.style.left = "73vw";
+        mapa.style.top = "-11.5vw";
       } else if (local.value === "Sudoeste") {
-        (mapa.style.marginBottom = "-80vw"), (mapa.style.marginLeft = "-100vw");
+        mapa.style.scale = "2.7";
+        mapa.style.left = "73vw";
+        mapa.style.top = "-42.5vw";
       } else if (local.value === "Sul") {
-        mapa.style.marginBottom = "-80vw";
+        mapa.style.scale = "2.7";
+        mapa.style.left = "3vw";
+        mapa.style.top = "-47.5vw";
       } else if (local.value === "Sudeste") {
-        (mapa.style.marginRight = "-140vw", mapa.style.marginBottom = "80vw"),
-          (mapa.style.marginBottom = "-80vw");
+        mapa.style.scale = "2.3";
+        mapa.style.left = "-60vw";
+        mapa.style.top = "-38.5vw";
       } else if (local.value === "Leste") {
-        mapa.style.marginRight = "-140vw";
+        mapa.style.scale = "2.5";
+        mapa.style.left = "-67vw";
+        mapa.style.top = "-12.5vw";
       } else if (local.value === "Nordeste") {
-        (mapa.style.marginRight = "-140vw"), (mapa.style.marginTop = "-60vw");
+        mapa.style.scale = "2.1";
+        mapa.style.left = "-54vw";
+        mapa.style.top = "16.5vw";
+      } else if (local.value === "NorteMeio") {
+        mapa.style.scale = "3.4";
+        mapa.style.left = "2vw";
+        mapa.style.top = "-14.5vw"
       }
 
       let existing_bussola = document.querySelector(".bussola_fundo");
-      let existing_bussola_ponteiro =
-        document.querySelector(".bussola_ponteiro");
+      let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
       let existing_bussola_circulo = document.querySelector(".bussola_circulo");
-
       if (existing_bussola) {
         container.removeChild(existing_bussola);
         container.removeChild(existing_bussola_ponteiro);
@@ -396,11 +412,11 @@ document.addEventListener("DOMContentLoaded", function () {
       srcBrilho: "./assets/botoes_lugares/torre_eiffel/torre_eiffel_contorno.png",
       localX: 44,
       localY: 5.9,
-      brilhoX: 44.13,
-      brilhoY: 6.15,
+      brilhoX: 44.2,
+      brilhoY: 6.2,
       width: "2.3vw",
-      brilhoWidth: "2vw",
-      scale: "scale(1.21)"
+      brilhoWidth: "1.9vw",
+      scale: "scale(1.29)"
     },
     {
       name: "bigBen",
@@ -420,11 +436,11 @@ document.addEventListener("DOMContentLoaded", function () {
       srcBrilho: "./assets/botoes_lugares/estatua_liberdade/estatua_liberdade_contorno.png",
       localX: 28,
       localY: 5.5,
-      brilhoX: 28.10,
-      brilhoY: 5.9,
+      brilhoX: 28.1,
+      brilhoY: 6.1,
       width: "2.3vw",
-      brilhoWidth: "2.13vw",
-      scale: "scale(1.21)"
+      brilhoWidth: "2vw",
+      scale: "scale(1.25)"
     },
     {
       name: "piramideTeotihuacan",
@@ -522,8 +538,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       botao.addEventListener("mouseleave", function() {
-        //const contorno_existente = document.querySelector(`.${button.name}Contorno`)
-        //mapa.removeChild(contorno_existente)
+        const contorno_existente = document.querySelector(`.${button.name}Contorno`)
+        mapa.removeChild(contorno_existente)
       });
 
 

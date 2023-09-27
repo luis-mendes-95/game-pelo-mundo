@@ -49,7 +49,7 @@ body {
   left: 0vw;
   transform: translate(-50%, -50%);
   transition: all 1s ease-out;
-  z-index: 30;
+  z-index: 90;
 }
 .calculoBussola {
   position: relative;
@@ -144,7 +144,7 @@ body {
   width: 60%;
   height: 20%;
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   right: -8%;
 }
 .dashboard > img {
@@ -178,25 +178,25 @@ body {
 .luneta_brilho {
   width: 14%;
   position: absolute;
-  bottom: 9.7%;
+  bottom: 4.7%;
   left: 46.85%;
 }
 .bussola_brilho {
   width: 13%;
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   left: 59.15%;
 }
 .dicas_brilho {
   width: 17%;
   position: absolute;
-  bottom: 12.7%;
+  bottom: 7.7%;
   left: 70.5%;
 }
 .diarioDeBordo_brilho {
   width: 14%;
   position: absolute;
-  bottom: 10.7%;
+  bottom: 5.7%;
   left: 84.6%;
 }
 
@@ -218,16 +218,16 @@ body {
   right: 5%;
 }
 .bussola_ponteiro {
-  width: 200px;
-  top: 42.5%;
-  right: 5%;
+  width: 180px;
+  top: 44.8%;
+  right: 5.5%;
   transform-origin: center center;
   transition: 3s;
 }
 .bussola_circulo {
   height: 30px;
-  right: 12%;
-  top: 43%;
+  right: 13.5%;
+  top: 45%;
 }
 
 
