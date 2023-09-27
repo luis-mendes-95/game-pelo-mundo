@@ -438,6 +438,54 @@ document.addEventListener("DOMContentLoaded", function () {
       brilhoWidth: "4.13vw",
       scale: "scale(1.27)"
     },
+    {
+      name: "machu_picchu",
+      src: "./assets/botoes_lugares/machu_picchu/machu_pichu.png",
+      srcBrilho: "./assets/botoes_lugares/machu_picchu/machu_pichu_contorno.png",
+      localX: 29.9,
+      localY: 23.2,
+      brilhoX: 30.4,
+      brilhoY: 23.5,
+      width: "5vw",
+      brilhoWidth: "4.2vw",
+      scale: "scale(1.27)"
+    },
+    {
+      name: "taj_mahal",
+      src: "./assets/botoes_lugares/taj_mahal/taj_mahal.png",
+      srcBrilho: "./assets/botoes_lugares/taj_mahal/taj_mahal_contorno.png",
+      localX: 61,
+      localY: 13,
+      brilhoX: 61.6,
+      brilhoY: 13.5,
+      width: "5vw",
+      brilhoWidth: "3.9vw",
+      scale: "scale(1.3)"
+    },
+    {
+      name: "opera_sydney",
+      src: "./assets/botoes_lugares/opera_sydney/opera_de_sydney.png",
+      srcBrilho: "./assets/botoes_lugares/opera_sydney/opera_de_sydney_contorno.png",
+      localX: 74,
+      localY: 28,
+      brilhoX: 74.3,
+      brilhoY: 28,
+      width: "5vw",
+      brilhoWidth: "4.5vw",
+      scale: "scale(1.2)"
+    },
+    {
+      name: "monte_fuji",
+      src: "./assets/botoes_lugares/monte_fuji/monte_fuji.png",
+      srcBrilho: "./assets/botoes_lugares/monte_fuji/monte_fuji_contorno.png",
+      localX: 76,
+      localY: 14.1,
+      brilhoX: 76.3,
+      brilhoY: 14.2,
+      width: "5vw",
+      brilhoWidth: "4.5vw",
+      scale: "scale(1.2)"
+    },
   ]
 
   const render_buttons = () => {
