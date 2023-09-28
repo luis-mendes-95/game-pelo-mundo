@@ -98,30 +98,30 @@ document.addEventListener("DOMContentLoaded", () => {
   let [balaoX, balaoY, mapaX, mapaY] = [60, 31, -20, -20];
 
   //INCREMENTO DE "PX" A INCREMENTAR PARA GERAR O MOVIMENTO
-  const vwIncrement = 0.05; //ORIGINAL 0.05
+  const vwIncrement = 0.5; //ORIGINAL 0.05
 
   //SPRITE DO BALÃO
   balao.src = "./assets/balao/balao_direito.gif";
 
   //CAPTURA DA LOCALIZAÇÃO DO BALÃO E DEFININDO LOCAL GEOGRÁFICO
   const checkLocal = () => {
-    if (balaoY <= 17 && balaoX >= 35 && balaoX >= 35 && balaoX <= 53) {
+    if (balaoY <= 23 && balaoX >= 55 && balaoX <= 82) {
       localizacao.value = "Norte";
-    } else if (balaoX <= 53 && balaoX >= 35 && balaoY > 27) {
+    } else if (balaoX <= 82 && balaoX >= 55 && balaoY > 38) {
       localizacao.value = "Sul";
-    } else if (balaoY <= 18 && balaoX <= 35) {
+    } else if (balaoY <= 23 && balaoX <= 55) {
       localizacao.value = "Noroeste";
-    } else if (balaoX >= 53 && balaoY <= 17) {
+    } else if (balaoX >= 82 && balaoY <= 23) {
       localizacao.value = "Nordeste";
-    } else if (balaoX >= 53 && balaoY >= 17 && balaoY <= 27) {
+    } else if (balaoX >= 82 && balaoY >= 23 && balaoY <= 38) {
       localizacao.value = "Leste";
-    } else if (balaoX >= 53 && balaoY >= 27) {
+    } else if (balaoX >= 82 && balaoY >= 27) {
       localizacao.value = "Sudeste";
-    } else if (balaoY >= 27 && balaoX <= 35) {
+    } else if (balaoY >= 38 && balaoX <= 55) {
       localizacao.value = "Sudoeste";
-    } else if (balaoY <= 27 && balaoX <= 35 && balaoY >= 17) {
+    } else if (balaoY <= 38 && balaoX <= 55 && balaoY >= 17) {
       localizacao.value = "Oeste";
-    } else if (balaoY >= 17 && balaoY <= 27 && balaoX <= 53 && balaoX >= 35) {
+    } else if (balaoY >= 23 && balaoY <= 38 && balaoX <= 82 && balaoX > 55) {
       local.value = "NorteMeio";
     }
   };
@@ -184,19 +184,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const moveBalao = () => {
-    if (keyState["ArrowUp"]) {
+    if (keyState["ArrowUp"] && balaoY > 5) {
       [balaoY, mapaY] = [balaoY - vwIncrement, mapaY + vwIncrement * 5];
       balao.src = "./assets/balao/balao_costa.gif"
     }
-    if (keyState["ArrowDown"]) {
+    if (keyState["ArrowDown"] && balaoY < 48) {
       [balaoY, mapaY] = [balaoY + vwIncrement, mapaY - vwIncrement * 5];
       balao.src = "./assets/balao/balao_frente.gif"
     }
-    if (keyState["ArrowLeft"]) {
+    if (keyState["ArrowLeft"] && balaoX > 7) {
       [balaoX, mapaX] = [balaoX - vwIncrement, mapaX + vwIncrement * 5];
       balao.src = "./assets/balao/balao_esquerdo.gif"
     }
-    if (keyState["ArrowRight"]) {
+    if (keyState["ArrowRight"] && balaoX < 109) {
       [balaoX, mapaX] = [balaoX + vwIncrement, mapaX - vwIncrement * 5];
       balao.src = "./assets/balao/balao_direito.gif"
     }
@@ -598,8 +598,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       botao.addEventListener("mouseleave", function() {
-        //const contorno_existente = document.querySelector(`.${button.name}Contorno`)
-        //mapa.removeChild(contorno_existente)
+        const contorno_existente = document.querySelector(`.${button.name}Contorno`)
+        mapa.removeChild(contorno_existente)
       });
 
 
