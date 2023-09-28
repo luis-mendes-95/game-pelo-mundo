@@ -300,41 +300,41 @@ document.addEventListener("DOMContentLoaded", function () {
       canMove = false;
 
       if (local.value === "Norte") {
-        mapa.style.scale = "2.6";
-        mapa.style.left = "2vw";
-        mapa.style.top = "21.5vw";
+        mapa.style.scale = "1.7";
+        mapa.style.left = "-35vw";
+        mapa.style.top = "19.5vw";
       } else if (local.value === "Noroeste") {
         mapa.style.scale = "2";
-        mapa.style.left = "50vw";
-        mapa.style.top = "15.5vw";
+        mapa.style.left = "51vw";
+        mapa.style.top = "20.5vw";
       } else if (local.value === "Oeste") {
-        mapa.style.scale = "2.7";
-        mapa.style.left = "73vw";
+        mapa.style.scale = "2.08";
+        mapa.style.left = "53vw";
         mapa.style.top = "-11.5vw";
       } else if (local.value === "Sudoeste") {
-        mapa.style.scale = "2.7";
-        mapa.style.left = "73vw";
-        mapa.style.top = "-42.5vw";
+        mapa.style.scale = "2.01";
+        mapa.style.left = "49vw";
+        mapa.style.top = "-43.5vw";
       } else if (local.value === "Sul") {
-        mapa.style.scale = "2.7";
-        mapa.style.left = "3vw";
-        mapa.style.top = "-47.5vw";
+        mapa.style.scale = "2.4";
+        mapa.style.left = "-33vw";
+        mapa.style.top = "-53.5vw";
       } else if (local.value === "Sudeste") {
         mapa.style.scale = "2.3";
-        mapa.style.left = "-60vw";
+        mapa.style.left = "-75vw";
         mapa.style.top = "-38.5vw";
       } else if (local.value === "Leste") {
         mapa.style.scale = "2.5";
-        mapa.style.left = "-67vw";
-        mapa.style.top = "-12.5vw";
+        mapa.style.left = "-85vw";
+        mapa.style.top = "-14.5vw";
       } else if (local.value === "Nordeste") {
         mapa.style.scale = "2.1";
-        mapa.style.left = "-54vw";
-        mapa.style.top = "16.5vw";
+        mapa.style.left = "-68vw";
+        mapa.style.top = "19.5vw";
       } else if (local.value === "NorteMeio") {
-        mapa.style.scale = "3.4";
-        mapa.style.left = "2vw";
-        mapa.style.top = "-14.5vw"
+        mapa.style.scale = "2.8";
+        mapa.style.left = "-35vw";
+        mapa.style.top = "-17.5vw"
       }
 
       let existing_bussola = document.querySelector(".bussola_fundo");
