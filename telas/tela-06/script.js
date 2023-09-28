@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let [balaoX, balaoY, mapaX, mapaY] = [60, 31, -20, -20];
 
   //INCREMENTO DE "PX" A INCREMENTAR PARA GERAR O MOVIMENTO
-  const vwIncrement = 0.5; //ORIGINAL 0.05
+  const vwIncrement = 0.05; //ORIGINAL 0.05
 
   //SPRITE DO BALÃO
   balao.src = "./assets/balao/balao_direito.gif";
@@ -146,25 +146,25 @@ document.addEventListener("DOMContentLoaded", () => {
             bussola_ponteiro.style.transform = `rotate(${90}deg)`;
             break;
           case "Nordeste":
-            bussola_ponteiro.style.transform = `rotate(${135}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${50}deg)`;
             break;
           case "Leste":
-            bussola_ponteiro.style.transform = `rotate(${180}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${70}deg)`;
             break;
           case "Sudeste":
-            bussola_ponteiro.style.transform = `rotate(${225}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${75}deg)`;
             break;
           case "Sul":
-            bussola_ponteiro.style.transform = `rotate(${270}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${90}deg)`;
             break;
           case "Sudoeste":
-            bussola_ponteiro.style.transform = `rotate(${-45}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${100}deg)`;
             break;
           case "Oeste":
-            bussola_ponteiro.style.transform = `rotate(${0}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${120}deg)`;
             break;
           case "Noroeste":
-            bussola_ponteiro.style.transform = `rotate(${45}deg)`;
+            bussola_ponteiro.style.transform = `rotate(${135}deg)`;
             break;
           default:
             bussola_ponteiro.style.transform = `rotate(${90}deg)`;
@@ -177,10 +177,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const keyState = {};
 
   document.addEventListener("keydown", (e) => {
-    keyState[e.key] = true;
+    if(canMove){
+      keyState[e.key] = true;
+    }
+
   });
   document.addEventListener("keyup", (e) => {
-    keyState[e.key] = false;
+    if(canMove){
+      keyState[e.key] = false;
+    }
   });
 
   const moveBalao = () => {
@@ -364,6 +369,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bussola_brilho,
         "./assets/02_bussola/bussola_contorno.png"
       );
+      
   
       if (bussola_clicked === true) {
         const bussola_fundo = document.createElement("img");
@@ -719,6 +725,7 @@ document.addEventListener("DOMContentLoaded", function () {
         button_next.classList.add("button_next");
         button_next.src = "./assets/botoes_lugares/botao_continuar_azul.png";
         button_next.addEventListener("click", () => {
+
           monumento_card.src = monumento.cards[1];
           container.removeChild(button_next)
           const button_back = document.createElement("img");
@@ -730,29 +737,32 @@ document.addEventListener("DOMContentLoaded", function () {
             container.removeChild(button_back);
             create_next_button();
           })
+
+          const existing_button = document.querySelector(".button_close");
+
+          if(!existing_button){
+            const button_close = document.createElement("img");
+            button_close.classList.add("button_close");
+            button_close.src = "./assets/botoes_lugares/botao_fechar_azul.png"
+            button_close.addEventListener("click", () => {
+              const existing_card = document.querySelector(".monumento_card");
+              const existing_button_next = document.querySelector(".button_next");
+              if(existing_button_next) { container.removeChild(existing_button_next)};
+              const existing_button_back = document.querySelector(".button_back");
+              if(existing_button_back) { container.removeChild(existing_button_back)};
+              container.removeChild(button_close);
+              container.removeChild(existing_card);
+              set_black_background();
+            })
+            container.appendChild(button_close);
+          }
+
+
         })
         container.appendChild(button_next);
       }
 
       create_next_button();
-      
-
-      const button_close = document.createElement("img");
-      button_close.classList.add("button_close");
-      button_close.src = "./assets/botoes_lugares/botao_fechar_azul.png"
-      button_close.addEventListener("click", () => {
-        const existing_card = document.querySelector(".monumento_card");
-        const existing_button_next = document.querySelector(".button_next");
-        if(existing_button_next) { container.removeChild(existing_button_next)};
-        const existing_button_back = document.querySelector(".button_back");
-        if(existing_button_back) { container.removeChild(existing_button_back)};
-        container.removeChild(button_close);
-        container.removeChild(existing_card);
-        set_black_background();
-      })
-      container.appendChild(button_close);
-
-
 
     } else {
 
@@ -780,10 +790,12 @@ document.addEventListener("DOMContentLoaded", function () {
   monumentos.forEach((monumento) => {
 
     monumento.element.addEventListener("click", () => {
-      console.log(monumento.descoberto)
-      set_black_background();
-      set_monumento_cards(monumento);
-      monumento.descoberto = true;
+      if(canMove === true) {
+        set_black_background();
+        set_monumento_cards(monumento);
+        monumento.descoberto = true;
+      }
+
     })
   });
 
