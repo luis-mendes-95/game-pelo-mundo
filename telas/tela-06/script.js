@@ -14,7 +14,10 @@ const mapa = document.querySelector(".mapa");
 const set_black_background = (botao) => {
 
     if(botao === "dicas") {
+      console.log(blackBackground)
       if(blackBackground === false) {
+        const dicas = document.querySelector(".dicas");
+        const dicas_brilho = document.querySelector(".dicas_brilho");
         canMove = false;
         blackBackground = true;
         let black_background = document.createElement("div");
@@ -34,6 +37,8 @@ const set_black_background = (botao) => {
       } 
     } else if (botao === "diario") {
       if(blackBackground === false) {
+        let diarioDeBordo = document.querySelector(".diarioDeBordo");
+        let diarioDeBordo_brilho = document.querySelector(".diarioDeBordo_brilho");
         canMove = false;
         blackBackground = true;
         let black_background = document.createElement("div");
@@ -610,9 +615,71 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
 //FUNÇÕES QUE DESCOBREM OS MONUMENTOS - INICIO//
 document.addEventListener("DOMContentLoaded", function () {
+
+  let monumentos = [
+    {
+      name: "bigBen",
+      element: document.querySelector(".bigBen"),
+      cards: ["./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_01.png","./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_02.png"],
+      descoberto: false
+    },
+    {
+      name: "estatuaLiberdade",
+      element: document.querySelector(".estatuaLiberdade"),
+      cards: ["./assets/cards_monumentos_historicos/01_estatua_liberdade/01_estatua_liberdade.png"],
+      descoberto: false
+    },
+    {
+      name: "machu_picchu",
+      element: document.querySelector(".machu_picchu"),
+      cards: ["./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_01.png", "./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "monte_fuji",
+      element: document.querySelector(".monte_fuji"),
+      cards: ["./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_01.png", "./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_02.png"],
+      descoberto: false
+    },
+    {
+      name: "opera_sydney",
+      element: document.querySelector(".opera_sydney"),
+      cards: ["./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png", "./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "piramideTeotihuacan",
+      element: document.querySelector(".piramideTeotihuacan"),
+      cards: ["./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_01.png", "./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "piramidesGize",
+      element: document.querySelector(".piramidesGize"),
+      cards: ["./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_01.png", "./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "taj_mahal",
+      element: document.querySelector(".taj_mahal"),
+      cards: ["./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_01.png", "./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "torreEiffel",
+      element: document.querySelector(".torreEiffel"),
+      cards: ["./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_01.png", "./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_02.png" ],
+      descoberto: false
+    },
+    {
+      name: "torrePisa",
+      element: document.querySelector(".torrePisa"),
+      cards: ["./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_01.png", "./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_02.png" ],
+      descoberto: false
+    }
+  ]
 
   const set_monumento_cards = (monumento) => {
     const black_background = document.querySelector(".black_background");
@@ -685,86 +752,20 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       container.appendChild(button_close);
     }
-
-
     container.appendChild(monument);
-
-
   }
 
-  let monumentos = [
-    {
-      name: "bigBen",
-      element: document.querySelector(".bigBen"),
-      cards: ["./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_01.png","./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_02.png"],
-      descoberto: false
-    },
-    {
-      name: "estatuaLiberdade",
-      element: document.querySelector(".estatuaLiberdade"),
-      cards: ["./assets/cards_monumentos_historicos/01_estatua_liberdade/01_estatua_liberdade.png"],
-      descoberto: false
-    },
-    {
-      name: "machu_picchu",
-      element: document.querySelector(".machu_picchu"),
-      cards: ["./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_01.png", "./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_02.png" ],
-      descoberto: false
-    },
-    {
-      name: "monte_fuji",
-      element: document.querySelector(".monte_fuji"),
-      cards: ["./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_01.png", "./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_02.png"],
-      descoberto: false
-    },
-    {
-      name: "opera_sydney",
-      element: document.querySelector(".opera_sydney"),
-      cards: ["./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png", "./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_02.png" ],
-      descoberto: false
-    },
-    {
-      name: "piramideTeotihuacan",
-      element: document.querySelector(".piramideTeotihuacan"),
-      cards: ["./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_01.png", "./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_02.png" ],
-      descoberto: false
-    },
-    {
-      name: "piramidesGize",
-      element: document.querySelector(".piramidesGize"),
-      cards: ["./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_01.png", "./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_02.png" ],
-      descoberto: false
-    },
-    {
-      name: "taj_mahal",
-      element: document.querySelector(".taj_mahal"),
-      cards: ["./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_01.png", "./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_02.png" ],
-      descoberto: false
-    },
-    {
-      name: "torreEiffel",
-      element: document.querySelector(".torreEiffel"),
-      cards: ["./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_01.png", "./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_02.png" ],
-      descoberto: false
-    },
-    {
-      name: "torrePisa",
-      element: document.querySelector(".torrePisa"),
-      cards: ["./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_01.png", "./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_02.png" ],
-      descoberto: false
-    }
-  ]
+
 
   monumentos.forEach((monumento) => {
 
     monumento.element.addEventListener("click", () => {
+      console.log(monumento.descoberto)
       set_black_background();
       set_monumento_cards(monumento);
+      monumento.descoberto = true;
     })
   });
-
-
-
 
   //CAPTURA OS BOTÕES - FIM//
 
