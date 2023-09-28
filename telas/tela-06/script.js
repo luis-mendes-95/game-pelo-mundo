@@ -95,9 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const localizacao = document.getElementById("local");
 
   //DEFINE A LOCALIZAÇÃO DO BALÃO NA TELA E NO MAPA
-  let [balaoX, balaoY, mapaX, mapaY] = [42, 24, 10, -30];
+  let [balaoX, balaoY, mapaX, mapaY] = [60, 31, -20, -20];
 
-  //INCREMENTO DE "VW" A INCREMENTAR PARA GERAR O MOVIMENTO
+  //INCREMENTO DE "PX" A INCREMENTAR PARA GERAR O MOVIMENTO
   const vwIncrement = 0.05; //ORIGINAL 0.05
 
   //SPRITE DO BALÃO
@@ -184,19 +184,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const moveBalao = () => {
-    if (keyState["ArrowUp"] && balaoY >= 1) {
+    if (keyState["ArrowUp"]) {
       [balaoY, mapaY] = [balaoY - vwIncrement, mapaY + vwIncrement * 5];
       balao.src = "./assets/balao/balao_costa.gif"
     }
-    if (keyState["ArrowDown"] && balaoY <= 40) {
+    if (keyState["ArrowDown"]) {
       [balaoY, mapaY] = [balaoY + vwIncrement, mapaY - vwIncrement * 5];
       balao.src = "./assets/balao/balao_frente.gif"
     }
-    if (keyState["ArrowLeft"] && balaoX >= 1) {
+    if (keyState["ArrowLeft"]) {
       [balaoX, mapaX] = [balaoX - vwIncrement, mapaX + vwIncrement * 5];
       balao.src = "./assets/balao/balao_esquerdo.gif"
     }
-    if (keyState["ArrowRight"] && balaoX <= 90) {
+    if (keyState["ArrowRight"]) {
       [balaoX, mapaX] = [balaoX + vwIncrement, mapaX - vwIncrement * 5];
       balao.src = "./assets/balao/balao_direito.gif"
     }
@@ -446,121 +446,121 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "piramidesGize",
       src: "./assets/botoes_lugares/piramides_gize/piramides_de_gize.png",
       srcBrilho: "./assets/botoes_lugares/piramides_gize/piramides_contorno.png",
-      localX: 47,
-      localY: 16,
-      brilhoX: 47,
-      brilhoY: 16,
-      width: "5vw",
-      brilhoWidth: "5vw",
-      scale: "scale(1.1)"
+      localX: 790,
+      localY: 265,
+      brilhoX: 789,
+      brilhoY: 264,
+      width: "75px",
+      brilhoWidth: "77px",
+      scale: "scale(1)"
     },
     {
       name: "torrePisa",
       src: "./assets/botoes_lugares/torre_pisa/torre_pisa.png",
       srcBrilho: "./assets/botoes_lugares/torre_pisa/torre_pisa_contorno.png",
-      localX: 47.47,
-      localY: 7.9,
-      brilhoX: 47.46,
-      brilhoY: 7.9,
-      width: "1.30vw",
-      brilhoWidth: "1.35vw",
-      scale: "scale(1.13)"
+      localX: 780.47,
+      localY: 136.9,
+      brilhoX: 779,
+      brilhoY: 135,
+      width: "19px",
+      brilhoWidth: "21.5px",
+      scale: "scale(1)"
     },
     {
       name: "torreEiffel",
       src: "./assets/botoes_lugares/torre_eiffel/torre_eiffel.png",
       srcBrilho: "./assets/botoes_lugares/torre_eiffel/torre_eiffel_contorno.png",
-      localX: 44,
-      localY: 5.9,
-      brilhoX: 44.2,
-      brilhoY: 6.2,
-      width: "2.3vw",
-      brilhoWidth: "1.9vw",
-      scale: "scale(1.29)"
+      localX: 724,
+      localY: 88,
+      brilhoX: 723,
+      brilhoY: 86,
+      width: "41px",
+      brilhoWidth: "43px",
+      scale: "scale(1)"
     },
     {
       name: "bigBen",
       src: "./assets/botoes_lugares/big_ben/big_ben.png",
       srcBrilho: "./assets/botoes_lugares/big_ben/big_ben_contorno.png",
-      localX: 41.2,
-      localY: 2.6,
-      brilhoX: 41.33,
-      brilhoY: 2.84,
-      width: "2.3vw",
-      brilhoWidth: "2.05vw",
-      scale: "scale(1.21)"
+      localX: 684,
+      localY: 58,
+      brilhoX: 683,
+      brilhoY: 56,
+      width: "30px",
+      brilhoWidth: "32px",
+      scale: "scale(1)"
     },
     {
       name: "estatuaLiberdade",
       src: "./assets/botoes_lugares/estatua_liberdade/estatua_liberdade.png",
       srcBrilho: "./assets/botoes_lugares/estatua_liberdade/estatua_liberdade_contorno.png",
-      localX: 28,
-      localY: 5.5,
-      brilhoX: 28.1,
-      brilhoY: 6.1,
-      width: "2.3vw",
-      brilhoWidth: "2vw",
-      scale: "scale(1.25)"
+      localX: 460,
+      localY: 115,
+      brilhoX: 458.5,
+      brilhoY: 114,
+      width: "25px",
+      brilhoWidth: "27.5px",
+      scale: "scale(1)"
     },
     {
       name: "piramideTeotihuacan",
       src: "./assets/botoes_lugares/piramide_de_teotihuacan/piramide_teotihuacan.png",
       srcBrilho: "./assets/botoes_lugares/piramide_de_teotihuacan/piramide_teotihuacan_contorno.png",
-      localX: 23.3,
-      localY: 15.2,
-      brilhoX: 23.7,
-      brilhoY: 15.4,
-      width: "5vw",
-      brilhoWidth: "4.13vw",
+      localX: 382,
+      localY: 249,
+      brilhoX: 390,
+      brilhoY: 252,
+      width: "84px",
+      brilhoWidth: "70px",
       scale: "scale(1.27)"
     },
     {
       name: "machu_picchu",
       src: "./assets/botoes_lugares/machu_picchu/machu_pichu.png",
       srcBrilho: "./assets/botoes_lugares/machu_picchu/machu_pichu_contorno.png",
-      localX: 29.9,
-      localY: 23.2,
-      brilhoX: 30.4,
-      brilhoY: 23.5,
-      width: "5vw",
-      brilhoWidth: "4.2vw",
-      scale: "scale(1.27)"
+      localX: 488.9,
+      localY: 376.2,
+      brilhoX: 487.9,
+      brilhoY: 375.2,
+      width: "87px",
+      brilhoWidth: "90px",
+      scale: "scale(1)"
     },
     {
       name: "taj_mahal",
       src: "./assets/botoes_lugares/taj_mahal/taj_mahal.png",
       srcBrilho: "./assets/botoes_lugares/taj_mahal/taj_mahal_contorno.png",
-      localX: 61,
-      localY: 13,
-      brilhoX: 61.6,
-      brilhoY: 13.5,
-      width: "5vw",
-      brilhoWidth: "3.9vw",
-      scale: "scale(1.3)"
+      localX: 1003,
+      localY: 204,
+      brilhoX: 1002,
+      brilhoY: 203,
+      width: "86px",
+      brilhoWidth: "88px",
+      scale: "scale(1)"
     },
     {
       name: "opera_sydney",
       src: "./assets/botoes_lugares/opera_sydney/opera_de_sydney.png",
       srcBrilho: "./assets/botoes_lugares/opera_sydney/opera_de_sydney_contorno.png",
-      localX: 74,
-      localY: 28,
-      brilhoX: 74.3,
-      brilhoY: 28,
-      width: "5vw",
-      brilhoWidth: "4.5vw",
-      scale: "scale(1.2)"
+      localX: 1222,
+      localY: 462,
+      brilhoX: 1221,
+      brilhoY: 461,
+      width: "86px",
+      brilhoWidth: "89px",
+      scale: "scale(1)"
     },
     {
       name: "monte_fuji",
       src: "./assets/botoes_lugares/monte_fuji/monte_fuji.png",
       srcBrilho: "./assets/botoes_lugares/monte_fuji/monte_fuji_contorno.png",
-      localX: 76,
-      localY: 14.1,
-      brilhoX: 76.3,
-      brilhoY: 14.2,
-      width: "5vw",
-      brilhoWidth: "4.5vw",
-      scale: "scale(1.2)"
+      localX: 1254,
+      localY: 242,
+      brilhoX: 1252,
+      brilhoY: 241,
+      width: "60px",
+      brilhoWidth: "63px",
+      scale: "scale(1)"
     },
   ]
 
@@ -578,15 +578,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       botao.style.width = button.width
       botao.style.position = `absolute`
-      botao.style.left = `${button.localX}vw`
-      botao.style.top = `${button.localY}vw`
+      botao.style.left = `${button.localX}px`
+      botao.style.top = `${button.localY}px`
       botao.style.zIndex = `3`
 
       contorno.style.width = button.brilhoWidth
       contorno.style.transform = button.scale
       contorno.style.position = `absolute`
-      contorno.style.left = `${button.brilhoX}vw`
-      contorno.style.top = `${button.brilhoY}vw` 
+      contorno.style.left = `${button.brilhoX}px`
+      contorno.style.top = `${button.brilhoY}px` 
       contorno.style.zIndex = `2`
 
       botao.addEventListener("mouseenter", () => {
@@ -598,8 +598,8 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       botao.addEventListener("mouseleave", function() {
-        const contorno_existente = document.querySelector(`.${button.name}Contorno`)
-        mapa.removeChild(contorno_existente)
+        //const contorno_existente = document.querySelector(`.${button.name}Contorno`)
+        //mapa.removeChild(contorno_existente)
       });
 
 
@@ -620,64 +620,84 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let monumentos = [
     {
-      name: "bigBen",
-      element: document.querySelector(".bigBen"),
-      cards: ["./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_01.png","./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_02.png"],
-      descoberto: false
-    },
-    {
-      name: "estatuaLiberdade",
-      element: document.querySelector(".estatuaLiberdade"),
-      cards: ["./assets/cards_monumentos_historicos/01_estatua_liberdade/01_estatua_liberdade.png"],
-      descoberto: false
-    },
-    {
-      name: "machu_picchu",
-      element: document.querySelector(".machu_picchu"),
-      cards: ["./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_01.png", "./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_02.png" ],
-      descoberto: false
+      name: "opera_sydney",
+      element: document.querySelector(".opera_sydney"),
+      cards: ["./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png", "./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_02.png" ],
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/08_folha_opera_sydney_sombra.png",
+      dicaOn: "./assets/02_folhas_com_figuras/08_folha_opera_sydney.png"
     },
     {
       name: "monte_fuji",
       element: document.querySelector(".monte_fuji"),
       cards: ["./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_01.png", "./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_02.png"],
-      descoberto: false
-    },
-    {
-      name: "opera_sydney",
-      element: document.querySelector(".opera_sydney"),
-      cards: ["./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png", "./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_02.png" ],
-      descoberto: false
-    },
-    {
-      name: "piramideTeotihuacan",
-      element: document.querySelector(".piramideTeotihuacan"),
-      cards: ["./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_01.png", "./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_02.png" ],
-      descoberto: false
-    },
-    {
-      name: "piramidesGize",
-      element: document.querySelector(".piramidesGize"),
-      cards: ["./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_01.png", "./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_02.png" ],
-      descoberto: false
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/05_folha_monte_fuji.png",
+      dicaOn: "./assets/02_folhas_com_figuras/05_folha_monte_fuji.png"
     },
     {
       name: "taj_mahal",
       element: document.querySelector(".taj_mahal"),
       cards: ["./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_01.png", "./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_02.png" ],
-      descoberto: false
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/06_folha_taj_mahal.png",
+      dicaOn: "./assets/02_folhas_com_figuras/06_folha_taj_mahal.png"
+    },
+    {
+      name: "bigBen",
+      element: document.querySelector(".bigBen"),
+      cards: ["./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_01.png","./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_02.png"],
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/04_folha_big_ben.png",
+      dicaOn: "./assets/02_folhas_com_figuras/04_folha_big_ben.png"
     },
     {
       name: "torreEiffel",
       element: document.querySelector(".torreEiffel"),
       cards: ["./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_01.png", "./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_02.png" ],
-      descoberto: false
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/03_folha_torre_eiffel.png",
+      dicaOn: "./assets/02_folhas_com_figuras/03_folha_torre_eiffel.png"
     },
     {
       name: "torrePisa",
       element: document.querySelector(".torrePisa"),
       cards: ["./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_01.png", "./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_02.png" ],
-      descoberto: false
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/02_folha_torre_pisa.png",
+      dicaOn: "./assets/02_folhas_com_figuras/02_folha_torre_pisa.png"
+    },
+    {
+      name: "piramidesGize",
+      element: document.querySelector(".piramidesGize"),
+      cards: ["./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_01.png", "./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_02.png" ],
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/07_folha_piramide_gize.png",
+      dicaOn: "./assets/02_folhas_com_figuras/07_folha_piramide_gize.png"
+    },
+    {
+      name: "piramideTeotihuacan",
+      element: document.querySelector(".piramideTeotihuacan"),
+      cards: ["./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_01.png", "./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_02.png" ],
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/09_folha_piramide.png",
+      dicaOn: "./assets/02_folhas_com_figuras/09_folha_piramide.png"
+    },
+    {
+      name: "machu_picchu",
+      element: document.querySelector(".machu_picchu"),
+      cards: ["./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_01.png", "./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_02.png" ],
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/10_folha_machu_picchu.png",
+      dicaOn: "./assets/02_folhas_com_figuras/10_folha_machu_picchu.png"
+    },
+    {
+      name: "estatuaLiberdade",
+      element: document.querySelector(".estatuaLiberdade"),
+      cards: ["./assets/cards_monumentos_historicos/01_estatua_liberdade/01_estatua_liberdade.png"],
+      descoberto: false,
+      dicaOff: "./assets/01_folhas_sem_figuras/01_folha_estatua_liberdade.png",
+      dicaOn: "./assets/02_folhas_com_figuras/01_folha_estatua_liberdade.png"
     }
   ]
 

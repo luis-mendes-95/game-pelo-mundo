@@ -33,7 +33,7 @@ body {
 .container::before {
   content: "";
   display: block;
-  padding-top: 56.25%;
+  padding-top: 46.25%;
 }
 
 .container .content {
