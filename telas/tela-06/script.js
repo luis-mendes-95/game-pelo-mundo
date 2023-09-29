@@ -1,8 +1,101 @@
 //VARIÁVEIS GLOBAIS - INICIO//
+
 let canMove = true;
 let blackBackground = false;
 const container = document.querySelector(".container");
 const mapa = document.querySelector(".mapa");
+let monumentos_general = [
+  {
+    name: "opera_sydney",
+    element: document.querySelector(".opera_sydney"),
+    cards: ["./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png", "./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_02.png" ],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/08_folha_opera_sydney.png",
+    dicaOn: "./assets/02_folhas_com_figuras/08_folha_opera_sydney.png"
+  },
+  {
+    name: "monte_fuji",
+    element: document.querySelector(".monte_fuji"),
+    cards: ["./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_01.png", "./assets/cards_monumentos_historicos/05_monte_fuji/05_monte_fuji_02.png"],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/05_folha_monte_fuji.png",
+    dicaOn: "./assets/02_folhas_com_figuras/05_folha_monte_fuji.png"
+  },
+  {
+    name: "taj_mahal",
+    element: document.querySelector(".taj_mahal"),
+    cards: ["./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_01.png", "./assets/cards_monumentos_historicos/06_taj_mahal/06_taj_mahal_02.png" ],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/06_folha_taj_mahal.png",
+    dicaOn: "./assets/02_folhas_com_figuras/06_folha_taj_mahal.png"
+  },
+  {
+    name: "bigBen",
+    element: document.querySelector(".bigBen"),
+    cards: ["./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_01.png","./assets/cards_monumentos_historicos/04_big_ben/04_big_ben_02.png"],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/04_folha_big_ben.png",
+    dicaOn: "./assets/02_folhas_com_figuras/04_folha_big_ben.png"
+  },
+  {
+    name: "torreEiffel",
+    element: document.querySelector(".torreEiffel"),
+    cards: ["./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_01.png", "./assets/cards_monumentos_historicos/03_torre_eiffel/03_torre_eiffel_02.png" ],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/03_folha_torre_eiffel.png",
+    dicaOn: "./assets/02_folhas_com_figuras/03_folha_torre_eiffel.png"
+  },
+  {
+    name: "torrePisa",
+    element: document.querySelector(".torrePisa"),
+    cards: ["./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_01.png", "./assets/cards_monumentos_historicos/02_torre_pisa/02_torre_pisa_02.png" ],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/02_folha_torre_pisa.png",
+    dicaOn: "./assets/02_folhas_com_figuras/02_folha_torre_pisa.png"
+  },
+  {
+    name: "piramidesGize",
+    element: document.querySelector(".piramidesGize"),
+    cards: ["./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_01.png", "./assets/cards_monumentos_historicos/07_piramides/07_piramides_gize_02.png" ],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/07_folha_piramide_gize.png",
+    dicaOn: "./assets/02_folhas_com_figuras/07_folha_piramide_gize.png"
+  },
+  {
+    name: "piramideTeotihuacan",
+    element: document.querySelector(".piramideTeotihuacan"),
+    cards: ["./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_01.png", "./assets/cards_monumentos_historicos/09_piramide_de_teotihuacan/09_piramide_de_teotihuacan_02.png" ],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/09_folha_piramide.png",
+    dicaOn: "./assets/02_folhas_com_figuras/09_folha_piramide.png"
+  },
+  {
+    name: "machu_picchu",
+    element: document.querySelector(".machu_picchu"),
+    cards: ["./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_01.png", "./assets/cards_monumentos_historicos/10_machu_picchu/10_machu_picchu_02.png" ],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/10_folha_machu_picchu.png",
+    dicaOn: "./assets/02_folhas_com_figuras/10_folha_machu_picchu.png"
+  },
+  {
+    name: "estatuaLiberdade",
+    element: document.querySelector(".estatuaLiberdade"),
+    cards: ["./assets/cards_monumentos_historicos/01_estatua_liberdade/01_estatua_liberdade.png"],
+    descoberto: false,
+    dicaOff: "./assets/01_folhas_sem_figuras/01_folha_estatua_liberdade.png",
+    dicaOn: "./assets/02_folhas_com_figuras/01_folha_estatua_liberdade.png"
+  }
+]
+
+//TECLAS QUE ESTÃO SENDO APERTADAS
+const keyState = {};
+
+//ESTADO DA DICA
+let dica_opened = 0;
+
+//ESTADO DO DIARIO
+let diario_opened = 0;
+
 //VARIÁVEIS GLOBAIS - FIM//
 
 
@@ -29,7 +122,9 @@ const set_black_background = (botao) => {
         canMove = true;
         blackBackground = false;
         let existing_background = document.querySelector(".black_background");
-        if(existing_background){
+        let dicas = document.querySelector(".dicas");
+        let dicas_brilho = document.querySelector(".dicas_brilho");
+        if(existing_background && dicas && dicas_brilho){
           container.removeChild(existing_background)
           dicas.style.zIndex = "10"
           dicas_brilho.style.zIndex = "9"
@@ -80,6 +175,57 @@ const set_black_background = (botao) => {
     }
   }
 }
+
+//FUNÇÃO QUE TROCA A DICA - INICIO//
+const switch_dica = (dica_card) => {
+  switch (dica_opened) {
+    case 0:
+      if(monumentos_general[0].descoberto === true) {dica_card.src = monumentos_general[0].dicaOn;} else
+      if(monumentos_general[0].descoberto === false) {dica_card.src = monumentos_general[0].dicaOff;}
+      return dica_card
+    case 1:
+      if(monumentos_general[1].descoberto === true) {dica_card.src = monumentos_general[1].dicaOn;} else
+      if(monumentos_general[1].descoberto === false) {dica_card.src = monumentos_general[1].dicaOff;}
+      return dica_card
+    case 2:
+      if(monumentos_general[2].descoberto === true) {dica_card.src = monumentos_general[2].dicaOn;} else
+      if(monumentos_general[2].descoberto === false) {dica_card.src = monumentos_general[2].dicaOff;}
+      return dica_card
+    case 3:
+      if(monumentos_general[3].descoberto === true) {dica_card.src = monumentos_general[3].dicaOn;} else
+      if(monumentos_general[3].descoberto === false) {dica_card.src = monumentos_general[3].dicaOff;}
+      return dica_card
+    case 4:
+      if(monumentos_general[4].descoberto === true) {dica_card.src = monumentos_general[4].dicaOn;} else
+      if(monumentos_general[4].descoberto === false) {dica_card.src = monumentos_general[4].dicaOff;}
+      return dica_card
+    case 5:
+      if(monumentos_general[5].descoberto === true) {dica_card.src = monumentos_general[5].dicaOn;} else
+      if(monumentos_general[5].descoberto === false) {dica_card.src = monumentos_general[5].dicaOff;}
+      return dica_card
+    case 6:
+      if(monumentos_general[6].descoberto === true) {dica_card.src = monumentos_general[6].dicaOn;} else
+      if(monumentos_general[6].descoberto === false) {dica_card.src = monumentos_general[6].dicaOff;}
+      return dica_card
+    case 7:
+      if(monumentos_general[7].descoberto === true) {dica_card.src = monumentos_general[7].dicaOn;} else
+      if(monumentos_general[7].descoberto === false) {dica_card.src = monumentos_general[7].dicaOff;}
+      return dica_card
+    case 8:
+      if(monumentos_general[8].descoberto === true) {dica_card.src = monumentos_general[8].dicaOn;} else
+      if(monumentos_general[8].descoberto === false) {dica_card.src = monumentos_general[8].dicaOff;}
+      return dica_card
+    case 9:
+      if(monumentos_general[9].descoberto === true) {dica_card.src = monumentos_general[9].dicaOn;} else
+      if(monumentos_general[9].descoberto === false) {dica_card.src = monumentos_general[9].dicaOff;}
+      return dica_card
+    case 10:
+      if(monumentos_general[10].descoberto === true) {dica_card.src = monumentos_general[10].dicaOn;} else
+      if(monumentos_general[10].descoberto === false) {dica_card.src = monumentos_general[10].dicaOff;}
+      return dica_card 
+  }
+}
+//FUNÇÃO QUE TROCA A DICA - FIM//
 
 //FUNÇÕES GLOBAIS - FIM//
 
@@ -173,8 +319,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  //TECLAS QUE ESTÃO SENDO APERTADAS
-  const keyState = {};
+
+
 
   document.addEventListener("keydown", (e) => {
     if(canMove){
@@ -189,6 +335,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   const moveBalao = () => {
+
     if (keyState["ArrowUp"] && balaoY > 5) {
       [balaoY, mapaY] = [balaoY - vwIncrement, mapaY + vwIncrement * 5];
       balao.src = "./assets/balao/balao_costa.gif"
@@ -256,6 +403,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //FUNÇÃO QUE ALTERA ESTADO DO BRILHO DOS ITENS CLICADOS
   function toggleBrilho(clicked, brilho, brilhoSrc) {
+
+    for (const key in keyState) {
+      keyState[key] = false;
+    }
+
     if (clicked === false) {
       luneta_clicked = false;
       bussola_clicked = false;
@@ -403,20 +555,111 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //DICAS FUNCIONALIDADES DE CLIQUE
   dicas.addEventListener("click", () => {
-    dicas_clicked = toggleBrilho(
-      dicas_clicked,
-      dicas_brilho,
-      "./assets/03_dicas/dicas_contorno.png"
-    );
-    set_black_background("dicas");
-    let existing_bussola = document.querySelector(".bussola_fundo");
-    let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
-    let existing_bussola_circulo = document.querySelector(".bussola_circulo");
-    if (existing_bussola) {
-      container.removeChild(existing_bussola);
-      container.removeChild(existing_bussola_ponteiro);
-      container.removeChild(existing_bussola_circulo);
+
+    if (dicas_clicked === true) {
+
+      toggleBrilho(dicas_clicked,dicas_brilho, "./assets/03_dicas/dicas_contorno.png");
+      dicas_clicked = false;
+      set_black_background();
+
+      const dica_card = document.querySelector(".dica_card");
+      if (dica_card){container.removeChild(dica_card);}
+
+      const button_close_dica = document.querySelector(".button_close_dica");
+      if (button_close_dica){container.removeChild(button_close_dica);};
+  
+      const button_next_dica = document.querySelector(".button_next_dica");
+      if (button_next_dica){container.removeChild(button_next_dica);};
+
+      const button_previous_dica = document.querySelector(".button_previous_dica");
+      if (button_previous_dica){container.removeChild(button_previous_dica);};
+
+      dica_opened = 0;
+    } else if (dicas_clicked === false) {
+
+      dicas_clicked = toggleBrilho(dicas_clicked,dicas_brilho, "./assets/03_dicas/dicas_contorno.png");
+      set_black_background("dicas");
+
+      let existing_bussola = document.querySelector(".bussola_fundo");
+      let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
+      let existing_bussola_circulo = document.querySelector(".bussola_circulo");
+      if (existing_bussola) {
+        container.removeChild(existing_bussola);
+        container.removeChild(existing_bussola_ponteiro);
+        container.removeChild(existing_bussola_circulo);
+      }
+
+      const existing_background = document.querySelector(".black_background");
+
+      const dica_card = document.createElement("img");
+      dica_card.classList.add("dica_card");
+
+      if(monumentos_general[0].descoberto === true) {dica_card.src = monumentos_general[0].dicaOn;} else
+      if(monumentos_general[0].descoberto === false) {dica_card.src = monumentos_general[0].dicaOff;}
+
+      const button_close_dica = document.createElement("img");
+      button_close_dica.classList.add("button_close_dica");
+      button_close_dica.src = "./assets/botao_fechar.png"
+
+      const button_next_dica = document.createElement("img");
+      button_next_dica.classList.add("button_next_dica");
+      button_next_dica.src = "./assets/botao_direito.png"
+
+      container.append(dica_card, button_close_dica, button_next_dica);
+
+      button_close_dica.addEventListener("click", () => {
+        toggleBrilho(dicas_clicked,dicas_brilho, "./assets/03_dicas/dicas_contorno.png");
+        dicas_clicked = false;
+        set_black_background();
+        container.removeChild(dica_card);
+        container.removeChild(button_close_dica);
+        if(dica_opened < 9) {
+        container.removeChild(button_next_dica);
+        }
+
+
+        const button_previous_dica = document.querySelector(".button_previous_dica")
+        if(button_previous_dica){
+          container.removeChild(button_previous_dica);
+        }
+
+        dica_opened = 0;
+      })
+
+      button_next_dica.addEventListener("click", () => {
+        dica_opened += 1;
+        switch_dica(dica_card);
+        if(dica_opened >= 9) {
+          container.removeChild(button_next_dica);
+        }
+        if(dica_opened === 8){
+          if(!document.querySelector(".button_next_dica")){
+            container.appendChild(button_next_dica);
+          }
+        }
+        if(dica_opened > 0 && dica_opened < 2) {
+          const button_previous_dica = document.createElement("img");
+          button_previous_dica.classList.add("button_previous_dica");
+          button_previous_dica.src = "./assets/botao_esquerdo.png";
+
+          button_previous_dica.addEventListener("click", () => {
+            dica_opened -= 1;
+            if(dica_opened === 0) {container.removeChild(button_previous_dica)};
+            if(dica_opened === 8){
+              if(!document.querySelector(".button_next_dica")){
+                container.appendChild(button_next_dica);
+              }
+            }
+            switch_dica(dica_card);
+          })
+
+          container.appendChild(button_previous_dica);
+        }
+      })
+
+      console.log(existing_background)
     }
+
   });
 
 
@@ -524,9 +767,9 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "machu_picchu",
       src: "./assets/botoes_lugares/machu_picchu/machu_pichu.png",
       srcBrilho: "./assets/botoes_lugares/machu_picchu/machu_pichu_contorno.png",
-      localX: 488.9,
+      localX: 492.9,
       localY: 376.2,
-      brilhoX: 487.9,
+      brilhoX: 491.9,
       brilhoY: 375.2,
       width: "87px",
       brilhoWidth: "90px",
@@ -536,9 +779,9 @@ document.addEventListener("DOMContentLoaded", function () {
       name: "taj_mahal",
       src: "./assets/botoes_lugares/taj_mahal/taj_mahal.png",
       srcBrilho: "./assets/botoes_lugares/taj_mahal/taj_mahal_contorno.png",
-      localX: 1003,
+      localX: 1015,
       localY: 204,
-      brilhoX: 1002,
+      brilhoX: 1014,
       brilhoY: 203,
       width: "86px",
       brilhoWidth: "88px",
@@ -621,6 +864,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
 //FUNÇÕES QUE DESCOBREM OS MONUMENTOS - INICIO//
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -630,7 +874,7 @@ document.addEventListener("DOMContentLoaded", function () {
       element: document.querySelector(".opera_sydney"),
       cards: ["./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_01.png", "./assets/cards_monumentos_historicos/08_opera_de_sydney/08_opera_de_sydney_02.png" ],
       descoberto: false,
-      dicaOff: "./assets/01_folhas_sem_figuras/08_folha_opera_sydney_sombra.png",
+      dicaOff: "./assets/01_folhas_sem_figuras/08_folha_opera_sydney.png",
       dicaOn: "./assets/02_folhas_com_figuras/08_folha_opera_sydney.png"
     },
     {
@@ -708,6 +952,7 @@ document.addEventListener("DOMContentLoaded", function () {
   ]
 
   const set_monumento_cards = (monumento) => {
+
     const black_background = document.querySelector(".black_background");
 
     let monument
@@ -744,19 +989,36 @@ document.addEventListener("DOMContentLoaded", function () {
             const button_close = document.createElement("img");
             button_close.classList.add("button_close");
             button_close.src = "./assets/botoes_lugares/botao_fechar_azul.png"
+
             button_close.addEventListener("click", () => {
-              const existing_card = document.querySelector(".monumento_card");
-              const existing_button_next = document.querySelector(".button_next");
-              if(existing_button_next) { container.removeChild(existing_button_next)};
-              const existing_button_back = document.querySelector(".button_back");
-              if(existing_button_back) { container.removeChild(existing_button_back)};
-              container.removeChild(button_close);
-              container.removeChild(existing_card);
-              set_black_background();
+          
+              if (monumento.descoberto === false) {
+                monumento_card.src = "./assets/mensagem_lucas_novo_adesivo/mensagem_lucas_novos_adesivos.png"
+                monumento_card.style.width = "50%";
+                monumento_card.style.left = "235px";
+                monumento.descoberto = true;
+                const existing_button_next = document.querySelector(".button_next");
+                if(existing_button_next) { container.removeChild(existing_button_next)};
+                const existing_button_back = document.querySelector(".button_back");
+                if(existing_button_back) { container.removeChild(existing_button_back)};
+              } else if (monumento.descoberto === true) {
+                const existing_card = document.querySelector(".monumento_card");
+                const existing_button_next = document.querySelector(".button_next");
+                if(existing_button_next) { container.removeChild(existing_button_next)};
+                const existing_button_back = document.querySelector(".button_back");
+                if(existing_button_back) { container.removeChild(existing_button_back)};
+                container.removeChild(button_close);
+                container.removeChild(existing_card);
+                set_black_background();
+                const indexMonumento = monumentos_general.indexOf(monumento);
+                const move_to_end_of_array = monumentos_general[indexMonumento];
+                monumentos_general.splice(indexMonumento, 1);
+                monumentos_general.push(move_to_end_of_array);
+              }       
+
             })
             container.appendChild(button_close);
           }
-
 
         })
         container.appendChild(button_next);
@@ -775,28 +1037,48 @@ document.addEventListener("DOMContentLoaded", function () {
       button_close.classList.add("button_close");
       button_close.src = "./assets/botoes_lugares/botao_fechar_azul.png"
       button_close.addEventListener("click", () => {
-        const existing_card = document.querySelector(".monumento_card");
-        container.removeChild(button_close);
-        container.removeChild(existing_card);
-        set_black_background();
+          
+        if (monumento.descoberto === false) {
+          monumento_card.src = "./assets/mensagem_lucas_novo_adesivo/mensagem_lucas_novos_adesivos.png"
+          monumento_card.style.width = "50%"
+          monumento.descoberto = true;
+          const existing_button_next = document.querySelector(".button_next");
+          if(existing_button_next) { container.removeChild(existing_button_next)};
+        } else if (monumento.descoberto === true) {
+          const existing_card = document.querySelector(".monumento_card");
+          const existing_button_next = document.querySelector(".button_next");
+          if(existing_button_next) { container.removeChild(existing_button_next)};
+          const existing_button_back = document.querySelector(".button_back");
+          if(existing_button_back) { container.removeChild(existing_button_back)};
+          container.removeChild(button_close);
+          container.removeChild(existing_card);
+          set_black_background();
+          const indexMonumento = monumentos_general.indexOf(monumento);
+          const move_to_end_of_array = monumentos_general[indexMonumento];
+          monumentos_general.splice(indexMonumento, 1);
+          monumentos_general.push(move_to_end_of_array);
+        }       
+
       })
       container.appendChild(button_close);
     }
     container.appendChild(monument);
   }
 
-
-
   monumentos.forEach((monumento) => {
 
     monumento.element.addEventListener("click", () => {
+      for (const key in keyState) {
+        keyState[key] = false;
+      }
       if(canMove === true) {
         set_black_background();
         set_monumento_cards(monumento);
-        monumento.descoberto = true;
       }
 
     })
+
+    monumentos_general = monumentos
   });
 
   //CAPTURA OS BOTÕES - FIM//
