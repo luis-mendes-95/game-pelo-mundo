@@ -317,10 +317,20 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-.button_close:hover, .button_next:hover{
+.finnishButton{
+  width: 60px;
+  position: absolute;
+  z-index: 31;
+  top: 60%;
+  right: 5vw;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button_close:hover, .button_next:hover, .finnishButton:hover{
   transform: scale(1.1);
   transition: 0.3s;
 }
+
 
 
 

@@ -277,7 +277,6 @@ const switch_diario = () => {
       monumentos_general.forEach((monumento) => {
         let src;
         if (monumento.sequenceDiario === diario_opened) {
-          console.log("essa é a certa:" + monumento.name);
           if (monumento.descoberto) {
             src = monumento.diarioOn;
           } else {
@@ -294,9 +293,29 @@ const switch_diario = () => {
 };
 // FUNÇÃO QUE TROCA A PÁGINA DO DIÁRIO - FIM//
 
+//FUNÇÃO QUE RENDERIZA BOTÃO DE FINALIZAR - INICIO//
+const renderFinnishButton = () => {
+  const finnishButton = document.createElement("img");
+  finnishButton.classList.add("finnishButton");
+  finnishButton.src = "./assets/cards_monumentos_historicos/botoes/botao_continuar.png"
+  finnishButton.addEventListener("click", () => {
+    window.location.href = "/telas/tela-07";
+  });  
+  container.appendChild(finnishButton);
+}
+//FUNÇÃO QUE RENDERIZA BOTÃO DE FINALIZAR - FIM//
+
 // FUNÇÃO QUE CHECA SE TODOS OS LUGARES FORAM DESCOBERTOS - INICIO//
 const checkComplete = (monumentos) => {
-  console.log("terminô fio ?")
+  let foundPlaces = 0
+  monumentos.forEach((monumento)=>{
+    if(monumento.descoberto === true){
+      foundPlaces += 1
+    }
+  })
+  if(foundPlaces === 10){
+    renderFinnishButton();
+  }
 }
 
 
@@ -1212,6 +1231,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const move_to_end_of_array = monumentos_general[indexMonumento];
                 monumentos_general.splice(indexMonumento, 1);
                 monumentos_general.push(move_to_end_of_array);
+                checkComplete(monumentos_general); 
               }       
 
             })
@@ -1255,12 +1275,14 @@ document.addEventListener("DOMContentLoaded", function () {
           const move_to_end_of_array = monumentos_general[indexMonumento];
           monumentos_general.splice(indexMonumento, 1);
           monumentos_general.push(move_to_end_of_array);
-        }       
+        }      
+        checkComplete(monumentos_general); 
 
       })
       container.appendChild(button_close);
     }
     container.appendChild(monument);
+
 
   }
 
