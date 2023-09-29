@@ -290,12 +290,21 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-.button_next, .button_back{
+.button_back{
   width: 9vw;
   position: absolute;
   z-index: 31;
   bottom: 13vw;
   right: 2vw;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.button_next{
+  width: 60px;
+  position: absolute;
+  z-index: 31;
+  top: 30%;
+  right: 5vw;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -325,16 +334,16 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-.button_next_dica{
+.button_next_diario{
   width: 60px;
   position: absolute;
-  right: 5%;
-  top: 30%;
+  right: 107px;
+  bottom: 365px;
   z-index: 30;
   cursor: pointer;
   transition: 0.3s;
 }
-.button_previous_dica{
+.button_previous{
   width: 60px;
   position: absolute;
   left: 5%;
@@ -343,7 +352,19 @@ body {
   cursor: pointer;
   transition: 0.3s;
 }
-.button_close_dica:hover, .button_previous_dica:hover, .button_next_dica:hover{
+.button_close_dica:hover, .button_previous:hover, .button_next_diario:hover{
   transform: scale(1.1);
   transition: 0.3s;
+}
+
+
+
+
+
+.diario_de_bordo{
+  position: absolute;
+  left: 20%;
+  width: 60%;
+  top: 1%;
+  z-index: 30;
 }
