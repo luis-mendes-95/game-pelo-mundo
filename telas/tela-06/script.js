@@ -67,7 +67,7 @@ let monumentos_general = [
     descoberto: false,
     dicaOff: "./assets/01_folhas_sem_figuras/02_folha_torre_pisa.png",
     dicaOn: "./assets/02_folhas_com_figuras/02_folha_torre_pisa.png",
-    diarioOff: "./assets/01_diario_sem_adesivos/02_folha_torre_pisa_sombra.png",
+    diarioOff: "./assets/01_diario_sem_adesivos/02_folha_torre_pisa_sombra.jpg",
     diarioOn: "./assets/02_diario_com_adesivos/02_folha_torre_pisa_adesivos.png",
     sequenceDiario: 3
   },
@@ -264,49 +264,36 @@ const switch_dica = (dica_card) => {
 }
 //FUNÇÃO QUE TROCA A DICA - FIM//
 
-//FUNÇÃO QUE TROCA A PÁGINA DO DIÁRIO - INICIO//
+// FUNÇÃO QUE TROCA A PÁGINA DO DIÁRIO - INICIO//
 const switch_diario = () => {
-
-  console.log(monumentos_general)
+  let returnThisSrc;
 
   switch (diario_opened) {
     case 0:
-      return "./assets/01_diario_sem_adesivos/capa_diario.png"
+      return "./assets/01_diario_sem_adesivos/capa_diario.png";
     case 1:
-      return "./assets/01_diario_sem_adesivos/guarda_diario.png"
-    case 2:
-
-    case 3:
-
-    case 4:
-      if(monumentos_general[4].descoberto === true) {return monumentos_general[4].diarioOn} else
-      if(monumentos_general[4].descoberto === false) {return monumentos_general[4].diarioOff}
-    case 5:
-      if(monumentos_general[3].descoberto === true) {return monumentos_general[3].diarioOn} else
-      if(monumentos_general[3].descoberto === false) {return monumentos_general[3].diarioOff}
-    case 6:
-      if(monumentos_general[1].descoberto === true) {return monumentos_general[1].diarioOn} else
-      if(monumentos_general[1].descoberto === false) {return monumentos_general[1].diarioOff}
-    case 7:
-      if(monumentos_general[2].descoberto === true) {return monumentos_general[2].diarioOn} else
-      if(monumentos_general[2].descoberto === false) {return monumentos_general[2].diarioOff}
-    case 8:
-      if(monumentos_general[6].descoberto === true) {return monumentos_general[6].diarioOn} else
-      if(monumentos_general[6].descoberto === false) {return monumentos_general[6].diarioOff}
-    case 9:
-      if(monumentos_general[0].descoberto === true) {return monumentos_general[0].diarioOn} else
-      if(monumentos_general[0].descoberto === false) {return monumentos_general[0].diarioOff}
-    case 10:
-      if(monumentos_general[7].descoberto === true) {return monumentos_general[7].diarioOn} else
-      if(monumentos_general[7].descoberto === false) {return monumentos_general[7].diarioOff}
-    case 11:
-      if(monumentos_general[8].descoberto === true) {return monumentos_general[8].diarioOn} else
-      if(monumentos_general[8].descoberto === false) {return monumentos_general[8].diarioOff}
-    case 12:
-      return "./assets/01_diario_sem_adesivos/quarta_capa_diario.png"
+      return "./assets/01_diario_sem_adesivos/guarda_diario.png";
+    default:
+      monumentos_general.forEach((monumento) => {
+        let src;
+        if (monumento.sequenceDiario === diario_opened) {
+          console.log("essa é a certa:" + monumento.name);
+          if (monumento.descoberto) {
+            src = monumento.diarioOn;
+          } else {
+            src = monumento.diarioOff;
+          }
+          returnThisSrc = src;
+        }
+      });
+      if (returnThisSrc) {
+        return returnThisSrc;
+      }
+      return "./assets/01_diario_sem_adesivos/quarta_capa_diario.png";
   }
-}
-//FUNÇÃO QUE TROCA A PÁGINA DO DIÁRIO - FIM//
+};
+// FUNÇÃO QUE TROCA A PÁGINA DO DIÁRIO - FIM//
+
 
 //FUNÇÕES GLOBAIS - FIM//***********************************************************************************************************
 
@@ -637,6 +624,7 @@ document.addEventListener("DOMContentLoaded", function () {
   //DICAS FUNCIONALIDADES DE CLIQUE
   dicas.addEventListener("click", () => {
 
+  if(luneta_clicked === false) {
     if (dicas_clicked === true) {
 
       toggleBrilho(dicas_clicked,dicas_brilho, "./assets/03_dicas/dicas_contorno.png");
@@ -648,8 +636,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const button_close_dica = document.querySelector(".button_close_dica");
       if (button_close_dica){container.removeChild(button_close_dica);};
-  
-      const button_next = document.querySelector(".button_next");
+
+      const button_next = document.querySelector(".button_next_dica");
       if (button_next){container.removeChild(button_next);};
 
       const button_previous = document.querySelector(".button_previous");
@@ -683,7 +671,7 @@ document.addEventListener("DOMContentLoaded", function () {
       button_close_dica.src = "./assets/botao_fechar.png"
 
       const button_next = document.createElement("img");
-      button_next.classList.add("button_next");
+      button_next.classList.add("button_next_dica");
       button_next.src = "./assets/botao_direito.png"
 
       container.append(dica_card, button_close_dica, button_next);
@@ -694,19 +682,19 @@ document.addEventListener("DOMContentLoaded", function () {
         toggleBrilho(dicas_clicked,dicas_brilho, "./assets/03_dicas/dicas_contorno.png");
         dicas_clicked = false;
         set_black_background();
-  
+
         const dica_card = document.querySelector(".dica_card");
         if (dica_card){container.removeChild(dica_card);}
-  
+
         const button_close_dica = document.querySelector(".button_close_dica");
         if (button_close_dica){container.removeChild(button_close_dica);};
     
-        const button_next = document.querySelector(".button_next");
+        const button_next = document.querySelector(".button_next_dica");
         if (button_next){container.removeChild(button_next);};
-  
+
         const button_previous = document.querySelector(".button_previous");
         if (button_previous){container.removeChild(button_previous);};
-  
+
         dica_opened = 0;
       })
 
@@ -725,7 +713,6 @@ document.addEventListener("DOMContentLoaded", function () {
           const button_previous = document.createElement("img");
           button_previous.classList.add("button_previous");
           button_previous.src = "./assets/botao_esquerdo.png";
-
           button_previous.addEventListener("click", () => {
             dica_opened -= 1;
             if(dica_opened === 0) {container.removeChild(button_previous)};
@@ -736,13 +723,12 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             switch_dica(dica_card);
           })
-
           container.appendChild(button_previous);
         }
       })
-
-      console.log(existing_background)
     }
+  }
+
 
   });
 
@@ -750,8 +736,56 @@ document.addEventListener("DOMContentLoaded", function () {
   //DIARIO FUNCIONALIDADES DE CLIQUE
   diarioDeBordo.addEventListener("click", () => {
 
-    if (diarioDeBordo_clicked === true) {
+if(luneta_clicked === false){
+  if (diarioDeBordo_clicked === true) {
 
+    toggleBrilho(diarioDeBordo_clicked, diarioDeBordo_brilho, "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png");
+    diarioDeBordo_clicked = false;
+    set_black_background("diario");
+    let diario_de_bordo = document.querySelector(".diario_de_bordo");
+    let button_close_diario = document.querySelector(".button_close_diario");
+    let button_previous = document.querySelector(".button_previous");
+    diario_opened = 0
+    let button_next_diario = document.querySelector(".button_next_diario");
+    if(diario_de_bordo){
+      container.removeChild(diario_de_bordo);
+    }
+    if(button_close_diario){
+      container.removeChild(button_close_diario);
+    }
+    if(button_previous){
+      container.removeChild(button_previous);
+    }
+    if(button_next_diario){
+      container.removeChild(button_next_diario);
+    }
+
+  } else {
+    dicas.style.zIndex = "10";
+
+    diarioDeBordo_clicked = toggleBrilho(diarioDeBordo_clicked, diarioDeBordo_brilho, "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png");
+
+    set_black_background("diario");
+
+    let existing_bussola = document.querySelector(".bussola_fundo");
+    let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
+    let existing_bussola_circulo = document.querySelector(".bussola_circulo");
+    if (existing_bussola) {
+      container.removeChild(existing_bussola);
+      container.removeChild(existing_bussola_ponteiro);
+      container.removeChild(existing_bussola_circulo);
+    }
+
+    const diario_de_bordo = document.createElement("img");
+    diario_de_bordo.src = switch_diario();
+
+    diario_de_bordo.classList.add("diario_de_bordo");
+
+    const button_close_diario = document.createElement("img");
+    button_close_diario.classList.add("button_close_diario");
+    button_close_diario.src = "./assets/botao_fechar.png"
+
+    button_close_diario.addEventListener("click", () => {
       toggleBrilho(diarioDeBordo_clicked, diarioDeBordo_brilho, "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png");
       diarioDeBordo_clicked = false;
       set_black_background("diario");
@@ -772,83 +806,37 @@ document.addEventListener("DOMContentLoaded", function () {
       if(button_next_diario){
         container.removeChild(button_next_diario);
       }
+    })
 
-    } else {
-      dicas.style.zIndex = "10";
+    const button_next = document.createElement("img");
+    button_next.src = "./assets/botao_direito.png"
+    button_next.classList.add("button_next_diario")
 
-      diarioDeBordo_clicked = toggleBrilho(diarioDeBordo_clicked, diarioDeBordo_brilho, "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png");
-  
-      set_black_background("diario");
-  
-      let existing_bussola = document.querySelector(".bussola_fundo");
-      let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
-      let existing_bussola_circulo = document.querySelector(".bussola_circulo");
-      if (existing_bussola) {
-        container.removeChild(existing_bussola);
-        container.removeChild(existing_bussola_ponteiro);
-        container.removeChild(existing_bussola_circulo);
-      }
-  
-      const diario_de_bordo = document.createElement("img");
+    button_next.addEventListener("click", () => {
+      diario_opened += 1;
       diario_de_bordo.src = switch_diario();
-  
-      diario_de_bordo.classList.add("diario_de_bordo");
-  
-      const button_close_diario = document.createElement("img");
-      button_close_diario.classList.add("button_close_diario");
-      button_close_diario.src = "./assets/botao_fechar.png"
-  
-      button_close_diario.addEventListener("click", () => {
-        toggleBrilho(diarioDeBordo_clicked, diarioDeBordo_brilho, "./assets/04_diario_de_bordo/diario_de_bordo_contorno.png");
-        diarioDeBordo_clicked = false;
-        set_black_background("diario");
-        let diario_de_bordo = document.querySelector(".diario_de_bordo");
-        let button_close_diario = document.querySelector(".button_close_diario");
-        let button_previous = document.querySelector(".button_previous");
-        diario_opened = 0
-        let button_next_diario = document.querySelector(".button_next_diario");
-        if(diario_de_bordo){
-          container.removeChild(diario_de_bordo);
+      if(diario_opened === 12) { container.removeChild(button_next)};
+      if(diario_opened === 1) {
+        const existing_button = document.querySelector(".button_previous");
+        if(!existing_button){
+          const button_previous = document.createElement("img");
+          button_previous.src = "./assets/botao_esquerdo.png";
+          button_previous.classList.add("button_previous");
+          container.appendChild(button_previous);
+
+          button_previous.addEventListener("click", () => {
+            diario_opened -= 1;
+            diario_de_bordo.src = switch_diario();
+            if(diario_opened < 1) {container.removeChild(button_previous)};
+          })
         }
-        if(button_close_diario){
-          container.removeChild(button_close_diario);
-        }
-        if(button_previous){
-          container.removeChild(button_previous);
-        }
-        if(button_next_diario){
-          container.removeChild(button_next_diario);
-        }
-      })
-  
-      const button_next = document.createElement("img");
-      button_next.src = "./assets/botao_direito.png"
-      button_next.classList.add("button_next_diario")
-  
-      button_next.addEventListener("click", () => {
-        diario_opened += 1;
-        diario_de_bordo.src = switch_diario();
-        if(diario_opened === 12) { container.removeChild(button_next)};
-        if(diario_opened === 1) {
-          const existing_button = document.querySelector(".button_previous");
-          if(!existing_button){
-            const button_previous = document.createElement("img");
-            button_previous.src = "./assets/botao_esquerdo.png";
-            button_previous.classList.add("button_previous");
-            container.appendChild(button_previous);
-  
-            button_previous.addEventListener("click", () => {
-              diario_opened -= 1;
-              diario_de_bordo.src = switch_diario();
-              if(diario_opened < 1) {container.removeChild(button_previous)};
-            })
-          }
-  
-        }
-      })
-  
-      container.append(diario_de_bordo, button_next, button_close_diario);
-    }
+
+      }
+    })
+
+    container.append(diario_de_bordo, button_next, button_close_diario);
+  }
+}
 
 
   });
@@ -1050,6 +1038,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/08_folha_opera_sydney.png",
       diarioOff: "./assets/01_diario_sem_adesivos/08_folha_opera_sydney_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/08_folha_opera_sydney_adesivos.png",
+      sequenceDiario: 9
     },
     {
       name: "monte_fuji",
@@ -1060,6 +1049,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/05_folha_monte_fuji.png",
       diarioOff: "./assets/01_diario_sem_adesivos/05_folha_monte_fuji_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/05_folha_monte_fuji_adesivos.png",
+      sequenceDiario: 6
     },
     {
       name: "taj_mahal",
@@ -1070,6 +1060,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/06_folha_taj_mahal.png",
       diarioOff: "./assets/01_diario_sem_adesivos/06_folha_taji_mahal_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/06_folha_taji_mahal_adesivos.png",
+      sequenceDiario: 7
     },
     {
       name: "bigBen",
@@ -1080,6 +1071,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/04_folha_big_ben.png",
       diarioOff: "./assets/01_diario_sem_adesivos/04_folha_big_ben_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/04_folha_big_ben_adesivos.png",
+      sequenceDiario: 5
     },
     {
       name: "torreEiffel",
@@ -1090,6 +1082,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/03_folha_torre_eiffel.png",
       diarioOff: "./assets/01_diario_sem_adesivos/03_folha_torre_eiffel_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/03_folha_torre_eiffel_adesivos.png",
+      sequenceDiario: 4
     },
     {
       name: "torrePisa",
@@ -1099,7 +1092,8 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOff: "./assets/01_folhas_sem_figuras/02_folha_torre_pisa.png",
       dicaOn: "./assets/02_folhas_com_figuras/02_folha_torre_pisa.png",
       diarioOff: "./assets/01_diario_sem_adesivos/02_folha_torre_pisa_sombra.png",
-      diarioOn: "./assets/02_diario_com_adesivos/02_folha_torre_pisa_adesivos.png",
+      diarioOn: "./assets/02_diario_com_adesivos/02_folha_torre_pisa_adesivos.jpg",
+      sequenceDiario: 3
     },
     {
       name: "piramidesGize",
@@ -1110,6 +1104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/07_folha_piramide_gize.png",
       diarioOff: "./assets/01_diario_sem_adesivos/07_folha_piramides_gize_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/07_folha_piramides_gize_adesivos.png",
+      sequenceDiario: 8
     },
     {
       name: "piramideTeotihuacan",
@@ -1120,6 +1115,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/09_folha_piramide.png",
       diarioOff: "./assets/01_diario_sem_adesivos/09_folha_piramide_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/09_folha_piramide_adesivos.png",
+      sequenceDiario: 10
     },
     {
       name: "machu_picchu",
@@ -1130,6 +1126,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/10_folha_machu_picchu.png",
       diarioOff: "./assets/01_diario_sem_adesivos/10_folha_machu_micchu_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/10_folha_machu_micchu_adesivos.png",
+      sequenceDiario: 11
     },
     {
       name: "estatuaLiberdade",
@@ -1140,6 +1137,7 @@ document.addEventListener("DOMContentLoaded", function () {
       dicaOn: "./assets/02_folhas_com_figuras/01_folha_estatua_liberdade.png",
       diarioOff: "./assets/01_diario_sem_adesivos/01_folha_estatua_liberdade_sombra.png",
       diarioOn: "./assets/02_diario_com_adesivos/01_folha_estatua_liberdade_adesivos.png",
+      sequenceDiario: 2
     }
   ]
 
