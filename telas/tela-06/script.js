@@ -294,6 +294,11 @@ const switch_diario = () => {
 };
 // FUNÇÃO QUE TROCA A PÁGINA DO DIÁRIO - FIM//
 
+// FUNÇÃO QUE CHECA SE TODOS OS LUGARES FORAM DESCOBERTOS - INICIO//
+const checkComplete = (monumentos) => {
+  console.log("terminô fio ?")
+}
+
 
 //FUNÇÕES GLOBAIS - FIM//***********************************************************************************************************
 
@@ -1143,6 +1148,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const set_monumento_cards = (monumento) => {
 
+    const dicas = document.querySelector(".dicas");
+    dicas.style.zIndex = "10";
+
     const black_background = document.querySelector(".black_background");
 
     let monument
@@ -1253,6 +1261,7 @@ document.addEventListener("DOMContentLoaded", function () {
       container.appendChild(button_close);
     }
     container.appendChild(monument);
+
   }
 
   monumentos.forEach((monumento) => {
