@@ -77,7 +77,7 @@ const add_info_seta_num = () => {
 
 const sub_info_seta_num = () => {
   if (informacao_num <= 1) {
-    window.location.href = "../tela-04/";
+    window.location.href = "../tela-04/?param=3";
   }
 
   if (informacao_num > 1) {

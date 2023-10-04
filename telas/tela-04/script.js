@@ -8,7 +8,13 @@ let balao_fala_num = 1
 
 avatar.src = choosenAvatar
 
+
 const mudar_balao_fala = () => {
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const parametroValor = urlParams.get('parametro');
+    console.log(parametroValor)
 
     if (balao_fala_num === 1) {
         balao_fala.src = "./assets/baloes_fala/balao_fala_01.png"
@@ -62,7 +68,14 @@ botao_voltar.addEventListener("click", () => {
 
 
 
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const parametroValor = urlParams.get('param');
 
+if (parametroValor !== null) {
+  balao_fala_num = parseInt(parametroValor);
+  console.log(parametroValor)
+}
 
 
 

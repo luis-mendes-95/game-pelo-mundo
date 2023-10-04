@@ -55,14 +55,7 @@ body {
   transition: 0.3s;
 }
 
-.botao_avancar_troca {
-  position: absolute;
-  width: 10%;
-  object-fit: contain;
-  right: 5%;
-  top: 35%;
-  transition: 0.3s;
-}
+
 
 .botao_voltar:hover {
   transform: scale(1.1);
@@ -91,7 +84,14 @@ body {
   z-index: 1;
 }
 
-
+.botao_avancar_troca {
+  position: absolute;
+  width: 8.2%;
+  object-fit: contain;
+  right: 5%;
+  top: 36.4%;
+  transition: 0.3s;
+}
 
 .botao_voltar_troca {
   position: absolute;

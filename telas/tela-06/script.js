@@ -333,7 +333,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const localizacao = document.getElementById("local");
 
   //DEFINE A LOCALIZAÇÃO DO BALÃO NA TELA E NO MAPA
-  let [balaoX, balaoY, mapaX, mapaY] = [60, 31, -20, -20];
+  let [balaoX, balaoY, mapaX, mapaY] = [730, 330, -20, -20];
 
   //INCREMENTO DE "PX" A INCREMENTAR PARA GERAR O MOVIMENTO
   const vwIncrement = 0.05; //ORIGINAL 0.05
@@ -343,23 +343,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   //CAPTURA DA LOCALIZAÇÃO DO BALÃO E DEFININDO LOCAL GEOGRÁFICO
   const checkLocal = () => {
-    if (balaoY <= 23 && balaoX >= 55 && balaoX <= 82) {
+    if (balaoY <= 290 && balaoX >= 640 && balaoX <= 960) {
       localizacao.value = "Norte";
-    } else if (balaoX <= 82 && balaoX >= 55 && balaoY > 38) {
+    } else if (balaoX <= 960 && balaoX >= 640 && balaoY > 450) {
       localizacao.value = "Sul";
-    } else if (balaoY <= 23 && balaoX <= 55) {
+    } else if (balaoY <= 285 && balaoX <= 635) {
       localizacao.value = "Noroeste";
-    } else if (balaoX >= 82 && balaoY <= 23) {
+    } else if (balaoX >= 960 && balaoY <= 284) {
       localizacao.value = "Nordeste";
-    } else if (balaoX >= 82 && balaoY >= 23 && balaoY <= 38) {
+    } else if (balaoX >= 960 && balaoY >= 287 && balaoY <= 455) {
       localizacao.value = "Leste";
-    } else if (balaoX >= 82 && balaoY >= 27) {
+    } else if (balaoX >= 960 && balaoY >= 460) {
       localizacao.value = "Sudeste";
-    } else if (balaoY >= 38 && balaoX <= 55) {
+    } else if (balaoY >= 460 && balaoX <= 640) {
       localizacao.value = "Sudoeste";
-    } else if (balaoY <= 38 && balaoX <= 55 && balaoY >= 17) {
+    } else if (balaoY <= 455 && balaoX <= 640 && balaoY >= 290) {
       localizacao.value = "Oeste";
-    } else if (balaoY >= 23 && balaoY <= 38 && balaoX <= 82 && balaoX > 55) {
+    } else if (balaoY >= 290 && balaoY <= 455 && balaoX <= 960 && balaoX > 640) {
       local.value = "NorteMeio";
     }
   };
@@ -367,13 +367,15 @@ document.addEventListener("DOMContentLoaded", () => {
   //ATUALIZA A POSIÇÃO DO BALÃO NA TELA
   const updateBalaoPosition = () => {
     if (canMove) {
-      [balao.style.left, balao.style.top] = [`${balaoX}vw`, `${balaoY}vw`];
-      [mapa.style.left, mapa.style.top] = [`${mapaX}vw`, `${mapaY}vw`];
+      [balao.style.left, balao.style.top] = [`${balaoX}px`, `${balaoY}px`];
+      [mapa.style.left, mapa.style.top] = [`${mapaX}px`, `${mapaY}px`];
       ["balaoX", "balaoY"].forEach(
         (el, idx) => (document.getElementById(el).value = [balaoX, balaoY][idx])
       );
       checkLocal();
       const bussola_ponteiro = document.querySelector(".bussola_ponteiro");
+
+      /* BÚSSOLA APONTANDO SEMPRE PARA O NORTE
       if (bussola_ponteiro) {
         const pontoCardeal = local.value;
         switch (pontoCardeal) {
@@ -407,12 +409,48 @@ document.addEventListener("DOMContentLoaded", () => {
           default:
             bussola_ponteiro.style.transform = `rotate(${90}deg)`;
         }
+      }*/
+
+
+      /* BÚSSOLA APONTANDO SEMPRE PARA O PONTO CARDEAL ONDE O BALÃO SE ENCONTRA*/
+      if (bussola_ponteiro) {
+        const pontoCardeal = local.value;
+        switch (pontoCardeal) {
+          case "NorteMeio":
+            bussola_ponteiro.style.transform = `rotate(${90}deg)`;
+            break;
+          case "Norte":
+            bussola_ponteiro.style.transform = `rotate(${90}deg)`;
+            break;
+          case "Nordeste":
+            bussola_ponteiro.style.transform = `rotate(${135}deg)`;
+            break;
+          case "Leste":
+            bussola_ponteiro.style.transform = `rotate(${180}deg)`;
+            break;
+          case "Sudeste":
+            bussola_ponteiro.style.transform = `rotate(${225}deg)`;
+            break;
+          case "Sul":
+            bussola_ponteiro.style.transform = `rotate(${-90}deg)`;
+            break;
+          case "Sudoeste":
+            bussola_ponteiro.style.transform = `rotate(${-45}deg)`;
+            break;
+          case "Oeste":
+            bussola_ponteiro.style.transform = `rotate(${0}deg)`;
+            break;
+          case "Noroeste":
+            bussola_ponteiro.style.transform = `rotate(${45}deg)`;
+            break;
+          default:
+            bussola_ponteiro.style.transform = `rotate(${90}deg)`;
+        }
       }
+
+
     }
   };
-
-
-
 
   document.addEventListener("keydown", (e) => {
     if(canMove){
@@ -428,20 +466,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const moveBalao = () => {
 
-    if (keyState["ArrowUp"] && balaoY > 5) {
-      [balaoY, mapaY] = [balaoY - vwIncrement, mapaY + vwIncrement * 5];
+    if (keyState["ArrowUp"] && balaoY > 60) {
+      [balaoY, mapaY] = [balaoY - vwIncrement * 10, mapaY + vwIncrement * 50];
       balao.src = "./assets/balao/balao_costa.gif"
     }
-    if (keyState["ArrowDown"] && balaoY < 48) {
-      [balaoY, mapaY] = [balaoY + vwIncrement, mapaY - vwIncrement * 5];
+    if (keyState["ArrowDown"] && balaoY < 540) {
+      [balaoY, mapaY] = [balaoY + vwIncrement * 10, mapaY - vwIncrement * 50];
       balao.src = "./assets/balao/balao_frente.gif"
     }
-    if (keyState["ArrowLeft"] && balaoX > 7) {
-      [balaoX, mapaX] = [balaoX - vwIncrement, mapaX + vwIncrement * 5];
+    if (keyState["ArrowLeft"] && balaoX > 90) {
+      [balaoX, mapaX] = [balaoX - vwIncrement * 10, mapaX + vwIncrement * 50];
       balao.src = "./assets/balao/balao_esquerdo.gif"
     }
-    if (keyState["ArrowRight"] && balaoX < 109) {
-      [balaoX, mapaX] = [balaoX + vwIncrement, mapaX - vwIncrement * 5];
+    if (keyState["ArrowRight"] && balaoX < 1300) {
+      [balaoX, mapaX] = [balaoX + vwIncrement * 10, mapaX - vwIncrement * 50];
       balao.src = "./assets/balao/balao_direito.gif"
     }
 
@@ -549,9 +587,9 @@ document.addEventListener("DOMContentLoaded", function () {
       canMove = false;
 
       if (local.value === "Norte") {
-        mapa.style.scale = "1.7";
-        mapa.style.left = "-35vw";
-        mapa.style.top = "19.5vw";
+        mapa.style.scale = "210%";
+        mapa.style.left = "-21%";
+        mapa.style.top = "44%";
       } else if (local.value === "Noroeste") {
         mapa.style.scale = "2";
         mapa.style.left = "51vw";
@@ -577,9 +615,9 @@ document.addEventListener("DOMContentLoaded", function () {
         mapa.style.left = "-85vw";
         mapa.style.top = "-14.5vw";
       } else if (local.value === "Nordeste") {
-        mapa.style.scale = "2.1";
-        mapa.style.left = "-68vw";
-        mapa.style.top = "19.5vw";
+        mapa.style.scale = "178%";
+        mapa.style.left = "-81%";
+        mapa.style.top = "39%";
       } else if (local.value === "NorteMeio") {
         mapa.style.scale = "2.8";
         mapa.style.left = "-35vw";
@@ -852,6 +890,11 @@ if(luneta_clicked === false){
             diario_opened -= 1;
             diario_de_bordo.src = switch_diario();
             if(diario_opened < 1) {container.removeChild(button_previous)};
+            if(diario_opened === 11) {
+              if(!document.querySelector(".button_next_diario")){
+                container.appendChild(button_next);
+              }
+            };
           })
         }
 
@@ -861,8 +904,6 @@ if(luneta_clicked === false){
     container.append(diario_de_bordo, button_next, button_close_diario);
   }
 }
-
-
   });
 
 });

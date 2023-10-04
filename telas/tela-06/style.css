@@ -25,9 +25,8 @@ body {
   align-items: center;
 }
 .mapa {
-  width: 125vw;
-  max-width: 1600px;
-  height: 100vh;
+  width: 1600px;
+  height: 675px;
   position: absolute;
   background-image: url("./assets/mapa_mundi/mapa_mundi.png");
   /*background-image: url("./assets/mapa_mundi/mapa_mundi.png");*/
@@ -38,11 +37,7 @@ body {
   align-items: center;*/
   scale: 5; /*ORIGINAL É 5*/
 }
-.container::before {
-  content: "";
-  display: block;
-  padding-top: 46.25%;
-}
+
 
 .container {
   position: absolute;
@@ -86,15 +81,15 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  width: 140vw;
+  width: 1600px;
   height: 100%;
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
 }
 .noroeste {
-  width: 40%;
-  height: 45%;
+  width: 650px;
+  height: 305px;
   background-color: green;
   color: white;
   font-weight: bolder;
@@ -102,7 +97,7 @@ body {
 }
 .norte {
   width: 20%;
-  height: 45%;
+  height: 305px;
   background-color: white;
   display: none;
 }
@@ -113,15 +108,15 @@ body {
   display: none;
 }
 .nordeste {
-  width: 40%;
-  height: 45%;
+  width: 630px;
+  height: 305px;
   background-color: orange;
   color: white;
   font-weight: bolder;
   display: none;
 }
 .oeste {
-  width: 40%;
+  width: 650px;
   height: 25%;
   color: white;
   font-weight: bolder;
@@ -129,7 +124,7 @@ body {
   display: none;
 }
 .sudoeste {
-  width: 40%;
+  width: 650px;
   height: 30%;
   background-color: yellowgreen;
   color: white;
@@ -137,7 +132,7 @@ body {
   display: none;
 }
 .leste {
-  width: 40%;
+  width: 630px;
   height: 25%;
   background-color: yellowgreen;
   color: white;
@@ -145,7 +140,7 @@ body {
   display: none;
 }
 .sudeste {
-  width: 40%;
+  width: 630px;
   height: 30%;
   background-color: blue;
   color: white;
@@ -186,47 +181,62 @@ body {
   transition: 0.3s;
 }
 .dashboard > .dicas {
-  width: 20%;
-  margin: 0 2% 2%;
+  width: 100px;
+  position: fixed;
+  bottom: 50px;
+  right: 220px;
   z-index: 10;
+
 }
 .dashboard > .luneta {
-  width: 15%;
-  margin: 0 2%;
+  width: 100px;
+  position: fixed;
+  bottom: 30px;
+  right: 600px;
   z-index: 10;
 }
 .dashboard > .bussolaDash {
-  width: 15%;
-  margin: 0 2%;
+  width: 100px;
+  position: fixed;
+  bottom: 30px;
+  right: 400px;
   z-index: 10;
 }
 .dashboard > .diarioDeBordo {
-  width: 17%;
+  width: 100px;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
   z-index: 10;
 }
 .luneta_brilho {
-  width: 14%;
-  position: absolute;
-  bottom: 4.7%;
-  left: 46.85%;
+  width: 147px;
+  position: fixed;
+  bottom: 10px;
+  right: 575px;
+  z-index: 9;
 }
 .bussola_brilho {
-  width: 13%;
-  position: absolute;
-  bottom: 5%;
-  left: 59.15%;
+  width: 130px;
+  position: fixed;
+  bottom: 15px;
+  right: 384px;
+  z-index: 9;
 }
 .dicas_brilho {
-  width: 17%;
-  position: absolute;
-  bottom: 7.7%;
-  left: 70.5%;
+  width: 126px;
+  position: fixed;
+  bottom: 41px;
+  right: 206px;
+  z-index: 9;
+
 }
 .diarioDeBordo_brilho {
-  width: 14%;
-  position: absolute;
-  bottom: 5.7%;
-  left: 84.6%;
+  width: 120px;
+  position: fixed;
+  bottom: 41px;
+  right: 39px;
+  z-index: 9;
 }
 
 
@@ -291,36 +301,35 @@ body {
   transition: 0.3s;
 }
 .button_back{
-  width: 9vw;
   position: absolute;
-  z-index: 31;
-  bottom: 13vw;
-  right: 2vw;
+  z-index: 30;
+  top: 36vw;
+  right: 3vw;
+  width: 8vw;
   cursor: pointer;
-  transition: 0.3s;
 }
 .button_next{
-  width: 9vw;
   position: absolute;
-  z-index: 31;
-  bottom: 13vw;
-  right: 2vw;
+  z-index: 30;
+  top: 36vw;
+  right: 3vw;
+  width: 8vw;
   cursor: pointer;
   transition: 0.3s;
 }
 .button_next_dica{
-  width: 60px;
+  width: 6%;
   position: absolute;
   z-index: 31;
-  top: 30%;
-  right: 5vw;
+  top: 35%;
+  right: 5%;
   cursor: pointer;
   transition: 0.3s;
 }
 .finnishButton{
   width: 60px;
   position: absolute;
-  z-index: 31;
+  z-index: 0;
   top: 60%;
   right: 5vw;
   cursor: pointer;
@@ -342,31 +351,33 @@ body {
   position: absolute;
   left: 10;
   width: 65%;
-  top: 9%;
+  top: 15%;
   z-index: 30;
 }
 .button_close_dica{
   position: absolute;
   right: 15%;
-  top: 5%;
+  width: 5%;
+  top: 14%;
   z-index: 30;
   cursor: pointer;
   transition: 0.3s;
 }
 .button_next_diario{
-  width: 60px;
+  width: 6%;
   position: absolute;
-  right: 107px;
+  right: 25px;
   bottom: 365px;
   z-index: 30;
+  top: 35%;
   cursor: pointer;
   transition: 0.3s;
 }
 .button_previous{
-  width: 60px;
+  width: 6%;
   position: absolute;
-  left: 5%;
-  top: 30%;
+  left: 25px;
+  top: 35%;
   z-index: 30;
   cursor: pointer;
   transition: 0.3s;
@@ -382,16 +393,15 @@ body {
 
 .diario_de_bordo{
   position: absolute;
-  left: 20%;
-  width: 60%;
-  top: 4%;
+  width: 55%;
+  top: 10%;
   z-index: 30;
 }
 .button_close_diario{
   width: 60px;
   position: absolute;
-  right: 220px;
-  top: 10px;
+  right: 20%;
+  top: 7%;
   z-index: 30;
   cursor: pointer;
   transition: 0.3s;
