@@ -588,40 +588,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (local.value === "Norte") {
         mapa.style.scale = "210%";
-        mapa.style.left = "-21%";
-        mapa.style.top = "44%";
+        mapa.style.left = "-210px";
+        mapa.style.top = "363px";
       } else if (local.value === "Noroeste") {
         mapa.style.scale = "2";
-        mapa.style.left = "51vw";
-        mapa.style.top = "20.5vw";
+        mapa.style.left = "621px";
+        mapa.style.top = "331px";
       } else if (local.value === "Oeste") {
         mapa.style.scale = "2.08";
-        mapa.style.left = "53vw";
-        mapa.style.top = "-11.5vw";
+        mapa.style.left = "680px";
+        mapa.style.top = "-115px";
       } else if (local.value === "Sudoeste") {
         mapa.style.scale = "2.01";
-        mapa.style.left = "49vw";
-        mapa.style.top = "-43.5vw";
+        mapa.style.left = "756px";
+        mapa.style.top = "-240px";
       } else if (local.value === "Sul") {
         mapa.style.scale = "2.4";
-        mapa.style.left = "-33vw";
-        mapa.style.top = "-53.5vw";
+        mapa.style.left = "-180px";
+        mapa.style.top = "-324px";
       } else if (local.value === "Sudeste") {
         mapa.style.scale = "2.3";
-        mapa.style.left = "-75vw";
-        mapa.style.top = "-38.5vw";
+        mapa.style.left = "-824px";
+        mapa.style.top = "-311px";
       } else if (local.value === "Leste") {
         mapa.style.scale = "2.5";
-        mapa.style.left = "-85vw";
-        mapa.style.top = "-14.5vw";
+        mapa.style.left = "-850px";
+        mapa.style.top = "-145px";
       } else if (local.value === "Nordeste") {
         mapa.style.scale = "178%";
-        mapa.style.left = "-81%";
-        mapa.style.top = "39%";
+        mapa.style.left = "-496px";
+        mapa.style.top = "185px";
       } else if (local.value === "NorteMeio") {
         mapa.style.scale = "2.8";
-        mapa.style.left = "-35vw";
-        mapa.style.top = "-17.5vw"
+        mapa.style.left = "-205px";
+        mapa.style.top = "-130px"
       }
 
       let existing_bussola = document.querySelector(".bussola_fundo");
