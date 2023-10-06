@@ -38,7 +38,7 @@ body {
 
 .setas_informacoes {
   position: absolute;
-  width: 25%;
+  height: 25%;
   object-fit: contain;
   left: 20%;
   top: 14%;

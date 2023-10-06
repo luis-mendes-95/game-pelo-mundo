@@ -28,8 +28,8 @@ const mudar_seta_info = () => {
   if (informacao_num === 3) {
     content.removeChild(setas_informacoes)
     setas_informacoes.src = "./assets/setas_informacoes/informacao_03.png";
-    setas_informacoes.style.top = "40%";
-    setas_informacoes.style.left = "28%";
+    setas_informacoes.style.top = "55%";
+    setas_informacoes.style.left = "31%";
     setTimeout(() => {
       content.appendChild(setas_informacoes)
     }, 300);
@@ -37,8 +37,8 @@ const mudar_seta_info = () => {
   if (informacao_num === 4) {
     content.removeChild(setas_informacoes)
     setas_informacoes.src = "./assets/setas_informacoes/informacao_04.png";
-    setas_informacoes.style.top = "48%";
-    setas_informacoes.style.left = "39%";
+    setas_informacoes.style.top = "52%";
+    setas_informacoes.style.left = "41%";
     setTimeout(() => {
       content.appendChild(setas_informacoes)
     }, 300);
@@ -46,8 +46,8 @@ const mudar_seta_info = () => {
   if (informacao_num === 5) {
     content.removeChild(setas_informacoes)
     setas_informacoes.src = "./assets/setas_informacoes/informacao_05.png";
-    setas_informacoes.style.top = "42%";
-    setas_informacoes.style.left = "52%";
+    setas_informacoes.style.top = "55%";
+    setas_informacoes.style.left = "57%";
     setTimeout(() => {
       content.appendChild(setas_informacoes)
     }, 300);
