@@ -494,11 +494,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-//FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - INICIO //
+//FUNÇÕES DE EFEITOS DE BOTÕES DA container - INICIO //
 document.addEventListener("DOMContentLoaded", function () {
 
   //CAPTURA DE ELEMENTOS
-  const dashboard = document.querySelector(".dashboard");
+  const container = document.querySelector(".container");
 
 
   const local = document.getElementById("local");
@@ -506,28 +506,28 @@ document.addEventListener("DOMContentLoaded", function () {
   //LUNETA
   const luneta_brilho = document.createElement("img");
   luneta_brilho.classList.add("luneta_brilho");
-  const luneta = dashboard.querySelector(".luneta");
+  const luneta = container.querySelector(".luneta");
   let luneta_clicked = false;
   luneta_brilho.src = "";
 
   //BÚSSOLA
   const bussola_brilho = document.createElement("img");
   bussola_brilho.classList.add("bussola_brilho");
-  const bussola = dashboard.querySelector(".bussolaDash");
+  const bussola = container.querySelector(".bussolaDash");
   let bussola_clicked = false;
   bussola_brilho.src = "";
 
   //DICAS
   const dicas_brilho = document.createElement("img");
   dicas_brilho.classList.add("dicas_brilho");
-  const dicas = dashboard.querySelector(".dicas");
+  const dicas = container.querySelector(".dicas");
   let dicas_clicked = false;
   dicas_brilho.src = "";
 
   //DIARIO DE BORDO
   const diarioDeBordo_brilho = document.createElement("img");
   diarioDeBordo_brilho.classList.add("diarioDeBordo_brilho");
-  const diarioDeBordo = dashboard.querySelector(".diarioDeBordo");
+  const diarioDeBordo = container.querySelector(".diarioDeBordo");
   let diarioDeBordo_clicked = false;
   diarioDeBordo_brilho.src = "";
 
@@ -907,7 +907,7 @@ if(luneta_clicked === false){
   });
 
 });
-//FUNÇÕES DE EFEITOS DE BOTÕES DA DASHBOARD - FIM //
+//FUNÇÕES DE EFEITOS DE BOTÕES DA container - FIM //
 
 
 
