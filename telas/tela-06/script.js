@@ -336,7 +336,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let [balaoX, balaoY, mapaX, mapaY] = [730, 330, -20, -20];
 
   //INCREMENTO DE "PX" A INCREMENTAR PARA GERAR O MOVIMENTO
-  const vwIncrement = 0.5; //ORIGINAL 0.1
+  const vwIncrement = 0.1; //ORIGINAL 0.1
 
   //SPRITE DO BALÃO
   balao.src = "./assets/balao/balao_direito.gif";
