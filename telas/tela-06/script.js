@@ -614,70 +614,145 @@ document.addEventListener("DOMContentLoaded", function () {
 
   //LUNETA FUNCIONALIDADES DE CLIQUE
   luneta.addEventListener("click", () => {
+
     console.log(window.innerWidth)
-    luneta_clicked = toggleBrilho(
-      luneta_clicked,
-      luneta_brilho,
-      "./assets/01_luneta/luneta_contorno.png"
-    );
-    if (luneta_clicked === true) {
+    console.log(window.innerHeight)
 
-      canMove = false;
-
-      if (local.value === "Norte") {
-        mapa.style.scale = "1.2";
-        mapa.style.left = "-264px";
-        mapa.style.top = "236px";
-      } else if (local.value === "Noroeste") {
-        mapa.style.scale = "1.26";
-        mapa.style.left = "197px";
-        mapa.style.top = "236px";
-      } else if (local.value === "Oeste") {
-        mapa.style.scale = "2.08";
-        mapa.style.left = "680px";
-        mapa.style.top = "-115px";
-      } else if (local.value === "Sudoeste") {
-        mapa.style.scale = "1.84";
-        mapa.style.left = "676px";
-        mapa.style.top = "-375px";
-      } else if (local.value === "Sul") {
-        mapa.style.scale = "2.4";
-        mapa.style.left = "-180px";
-        mapa.style.top = "-457px";
-      } else if (local.value === "Sudeste") {
-        mapa.style.scale = "2.3";
-        mapa.style.left = "-1012px";
-        mapa.style.top = "-464px";
-      } else if (local.value === "Leste") {
-        mapa.style.scale = "2.5";
-        mapa.style.left = "-1062px";
-        mapa.style.top = "-145px";
-      } else if (local.value === "Nordeste") {
-        mapa.style.scale = "131%";
-        mapa.style.left = "-645px";
-        mapa.style.top = "260px";
-      } else if (local.value === "NorteMeio") {
-        mapa.style.scale = "2.8";
-        mapa.style.left = "-205px";
-        mapa.style.top = "-187px"
+    if(window.innerWidth <= 1200) {
+      console.log("até 1200")
+      luneta_clicked = toggleBrilho(
+        luneta_clicked,
+        luneta_brilho,
+        "./assets/01_luneta/luneta_contorno.png"
+      );
+      if (luneta_clicked === true) {
+  
+        canMove = false;
+  
+        if (local.value === "Norte") {
+          mapa.style.scale = "1.2";
+          mapa.style.left = "-264px";
+          mapa.style.top = "236px";
+        } else if (local.value === "Noroeste") {
+          mapa.style.scale = "1.26";
+          mapa.style.left = "197px";
+          mapa.style.top = "236px";
+        } else if (local.value === "Oeste") {
+          mapa.style.scale = "2.08";
+          mapa.style.left = "680px";
+          mapa.style.top = "-115px";
+        } else if (local.value === "Sudoeste") {
+          mapa.style.scale = "1.84";
+          mapa.style.left = "676px";
+          mapa.style.top = "-375px";
+        } else if (local.value === "Sul") {
+          mapa.style.scale = "2.4";
+          mapa.style.left = "-180px";
+          mapa.style.top = "-457px";
+        } else if (local.value === "Sudeste") {
+          mapa.style.scale = "2.3";
+          mapa.style.left = "-1012px";
+          mapa.style.top = "-464px";
+        } else if (local.value === "Leste") {
+          mapa.style.scale = "2.5";
+          mapa.style.left = "-1062px";
+          mapa.style.top = "-145px";
+        } else if (local.value === "Nordeste") {
+          mapa.style.scale = "131%";
+          mapa.style.left = "-645px";
+          mapa.style.top = "260px";
+        } else if (local.value === "NorteMeio") {
+          mapa.style.scale = "2.8";
+          mapa.style.left = "-205px";
+          mapa.style.top = "-187px"
+        }
+  
+        let existing_bussola = document.querySelector(".bussola_fundo");
+        let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
+        let existing_bussola_circulo = document.querySelector(".bussola_circulo");
+        if (existing_bussola) {
+          container.removeChild(existing_bussola);
+          container.removeChild(existing_bussola_ponteiro);
+          container.removeChild(existing_bussola_circulo);
+        }
+      } else if (luneta_clicked === false) {
+        canMove = true;
+        mapa.style.scale = "5";
+        mapa.style.marginTop = "0";
+        mapa.style.marginLeft = "0";
+        mapa.style.marginRight = "0";
+        mapa.style.marginBottom = "0";
       }
-
-      let existing_bussola = document.querySelector(".bussola_fundo");
-      let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
-      let existing_bussola_circulo = document.querySelector(".bussola_circulo");
-      if (existing_bussola) {
-        container.removeChild(existing_bussola);
-        container.removeChild(existing_bussola_ponteiro);
-        container.removeChild(existing_bussola_circulo);
+    } else if (window.innerWidth > 1200 && window.innerWidth <= 1360) {
+      console.log("até 1360")
+      luneta_clicked = toggleBrilho(
+        luneta_clicked,
+        luneta_brilho,
+        "./assets/01_luneta/luneta_contorno.png"
+      );
+      if (luneta_clicked === true) {
+  
+        canMove = false;
+  
+        if (local.value === "Norte") {
+          mapa.style.scale = "1.47";
+          mapa.style.left = "-162px";
+          mapa.style.top = "347px";
+        } else if (local.value === "Noroeste") {
+          mapa.style.scale = "1.48";
+          mapa.style.left = "226px";
+          mapa.style.top = "348px";
+        } else if (local.value === "Oeste") {
+          mapa.style.scale = "2.43";
+          mapa.style.left = "916px";
+          mapa.style.top = "-115px";
+        } else if (local.value === "Sudoeste") {
+          mapa.style.scale = "2.26";
+          mapa.style.left = "825px";
+          mapa.style.top = "-359px";
+        } else if (local.value === "Sul") {
+          mapa.style.scale = "2.77";
+          mapa.style.left = "-135px";
+          mapa.style.top = "-665px";
+        } else if (local.value === "Sudeste") {
+          mapa.style.scale = "2.86";
+          mapa.style.left = "-1236px";
+          mapa.style.top = "-671px";
+        } else if (local.value === "Leste") {
+          mapa.style.scale = "3.27";
+          mapa.style.left = "-1333px";
+          mapa.style.top = "-145px";
+        } else if (local.value === "Nordeste") {
+          mapa.style.scale = "1.51";
+          mapa.style.left = "-653px";
+          mapa.style.top = "354px";
+        } else if (local.value === "NorteMeio") {
+          mapa.style.scale = "2.8";
+          mapa.style.left = "-205px";
+          mapa.style.top = "-187px"
+        }
+  
+        let existing_bussola = document.querySelector(".bussola_fundo");
+        let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
+        let existing_bussola_circulo = document.querySelector(".bussola_circulo");
+        if (existing_bussola) {
+          container.removeChild(existing_bussola);
+          container.removeChild(existing_bussola_ponteiro);
+          container.removeChild(existing_bussola_circulo);
+        }
+      } else if (luneta_clicked === false) {
+        canMove = true;
+        mapa.style.scale = "5";
+        mapa.style.marginTop = "0";
+        mapa.style.marginLeft = "0";
+        mapa.style.marginRight = "0";
+        mapa.style.marginBottom = "0";
       }
-    } else if (luneta_clicked === false) {
-      canMove = true;
-      mapa.style.scale = "5";
-      mapa.style.marginTop = "0";
-      mapa.style.marginLeft = "0";
-      mapa.style.marginRight = "0";
-      mapa.style.marginBottom = "0";
     }
+
+
+
+
   });
 
 
