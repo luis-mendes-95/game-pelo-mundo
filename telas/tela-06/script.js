@@ -615,11 +615,8 @@ document.addEventListener("DOMContentLoaded", function () {
   //LUNETA FUNCIONALIDADES DE CLIQUE
   luneta.addEventListener("click", () => {
 
-    console.log(window.innerWidth)
-    console.log(window.innerHeight)
 
     if(window.innerWidth <= 1200) {
-      console.log("até 1200")
       luneta_clicked = toggleBrilho(
         luneta_clicked,
         luneta_brilho,
@@ -684,7 +681,7 @@ document.addEventListener("DOMContentLoaded", function () {
         mapa.style.marginBottom = "0";
       }
     } else if (window.innerWidth > 1200 && window.innerWidth <= 1360) {
-      console.log("até 1360")
+
       luneta_clicked = toggleBrilho(
         luneta_clicked,
         luneta_brilho,
@@ -730,6 +727,71 @@ document.addEventListener("DOMContentLoaded", function () {
           mapa.style.scale = "2.8";
           mapa.style.left = "-205px";
           mapa.style.top = "-187px"
+        }
+  
+        let existing_bussola = document.querySelector(".bussola_fundo");
+        let existing_bussola_ponteiro = document.querySelector(".bussola_ponteiro");
+        let existing_bussola_circulo = document.querySelector(".bussola_circulo");
+        if (existing_bussola) {
+          container.removeChild(existing_bussola);
+          container.removeChild(existing_bussola_ponteiro);
+          container.removeChild(existing_bussola_circulo);
+        }
+      } else if (luneta_clicked === false) {
+        canMove = true;
+        mapa.style.scale = "5";
+        mapa.style.marginTop = "0";
+        mapa.style.marginLeft = "0";
+        mapa.style.marginRight = "0";
+        mapa.style.marginBottom = "0";
+      }
+    } else if (window.innerWidth > 1360 && window.innerWidth <= 1920) {
+
+      luneta_clicked = toggleBrilho(
+        luneta_clicked,
+        luneta_brilho,
+        "./assets/01_luneta/luneta_contorno.png"
+      );
+      if (luneta_clicked === true) {
+  
+        canMove = false;
+  
+        if (local.value === "Norte") {
+          mapa.style.scale = "2.18";
+          mapa.style.left = "156px";
+          mapa.style.top = "682px";
+        } else if (local.value === "Noroeste") {
+          mapa.style.scale = "2.2";
+          mapa.style.left = "960px";
+          mapa.style.top = "682px";
+        } else if (local.value === "Oeste") {
+          mapa.style.scale = "3.5";
+          mapa.style.left = "1652px";
+          mapa.style.top = "-115px";
+        } else if (local.value === "Sudoeste") {
+          mapa.style.scale = "3.46";
+          mapa.style.left = "1652px";
+          mapa.style.top = "-402px";
+        } else if (local.value === "Sul") {
+          mapa.style.scale = "3.46";
+          mapa.style.left = "160px";
+          mapa.style.top = "-402px";
+        } else if (local.value === "Sudeste") {
+          mapa.style.scale = "4.05";
+          mapa.style.left = "-1251px";
+          mapa.style.top = "-556px";
+        } else if (local.value === "Leste") {
+          mapa.style.scale = "3.27";
+          mapa.style.left = "-970px";
+          mapa.style.top = "5px";
+        } else if (local.value === "Nordeste") {
+          mapa.style.scale = "1.84";
+          mapa.style.left = "-348px";
+          mapa.style.top = "512px";
+        } else if (local.value === "NorteMeio") {
+          mapa.style.scale = "2.8";
+          mapa.style.left = "140px";
+          mapa.style.top = "67px"
         }
   
         let existing_bussola = document.querySelector(".bussola_fundo");

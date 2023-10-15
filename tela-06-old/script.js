@@ -737,7 +737,6 @@ bussola.addEventListener("click", () => {
     } else if (bussola_clicked === true) {
       bussola_brilho.src = "";
       bussola_clicked = false;
-      console.log(bussola_clicked);
       bussola_grande.src = "";
       bussola_ponteiro.src = "";
       bussola_circulo.src = "";
@@ -999,7 +998,6 @@ const handleDiarioPages = () => {
     diario_grande.src = folhas_diario[12];
   }
 
-  console.log(folhas_diario);
 };
 
 const handleDicasPages = () => {
@@ -1043,7 +1041,6 @@ const handleDicasPages = () => {
     dica_seta_avanca.src = "";
     dica.src = folhas_dicas[9];
   }
-  console.log(choosen_dica);
 };
 
 dicas.addEventListener("click", () => {
@@ -1101,7 +1098,6 @@ dica_seta_avanca.addEventListener("click", () => {
 });
 
 diario_seta_avanca.addEventListener("click", () => {
-  console.log(choosen_diario);
   if (choosen_diario >= 13) {
     return;
   }
@@ -1110,7 +1106,6 @@ diario_seta_avanca.addEventListener("click", () => {
     choosen_diario += 1;
     handleDiarioPages();
   }
-  console.log(choosen_diario);
 });
 
 diario_seta_volta.addEventListener("click", () => {
@@ -1159,7 +1154,6 @@ diario.addEventListener("click", () => {
     diario.style.zIndex = "2";
     diario_brilho.src = "";
     diario_clicked = false;
-    console.log(diario_clicked);
     diario_grande.src = "";
     diario_fechar.src = "";
     diario_seta_avanca.src = "";

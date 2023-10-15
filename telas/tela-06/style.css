@@ -50,7 +50,7 @@ body {
   top: 0;
   left: 50;
   z-index: 99;
-
+  display: none;
 }
 
 
@@ -99,7 +99,6 @@ body {
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
-  opacity: 0.8;
 
 }
 .noroeste {
@@ -108,19 +107,19 @@ body {
   background-color: green;
   color: white;
   font-weight: bolder;
-
+  display: none;
 }
 .norte {
   width: 20%;
   height: 305px;
   background-color: white;
-
+  display: none;
 }
 .nortemeio {
   width: 20%;
   height: 25%;
   background-color: white;
-
+  display: none;
 }
 .nordeste {
   width: 630px;
@@ -128,7 +127,7 @@ body {
   background-color: orange;
   color: white;
   font-weight: bolder;
-
+  display: none;
 }
 .oeste {
   width: 650px;
@@ -136,7 +135,7 @@ body {
   color: white;
   font-weight: bolder;
   background-color: red;
-
+  display: none;
 }
 .sudoeste {
   width: 650px;
@@ -144,7 +143,7 @@ body {
   background-color: yellowgreen;
   color: white;
   font-weight: bolder;
-
+  display: none;
 }
 .leste {
   width: 630px;
@@ -152,7 +151,7 @@ body {
   background-color: yellowgreen;
   color: white;
   font-weight: bolder;
-
+  display: none;
 }
 .sudeste {
   width: 630px;
@@ -160,7 +159,7 @@ body {
   background-color: blue;
   color: white;
   font-weight: bolder;
-
+  display: none;
 }
 .sul {
   width: 20%;
@@ -168,7 +167,7 @@ body {
   background-color: cyan;
   color: white;
   font-weight: bolder;
-
+  display: none;
 }
 
 
