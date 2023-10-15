@@ -680,7 +680,7 @@ document.addEventListener("DOMContentLoaded", function () {
         mapa.style.marginRight = "0";
         mapa.style.marginBottom = "0";
       }
-    } else if (window.innerWidth > 1200 && window.innerWidth <= 1360) {
+    } else if (window.innerWidth > 1200 && window.innerWidth <= 1370) {
 
       luneta_clicked = toggleBrilho(
         luneta_clicked,
