@@ -6,7 +6,7 @@ let baloon_number_talk = 1;
 
 const previous_baloon_talk = () => {
   if (baloon_number_talk <= 1) {
-    window.location.href = "/";
+    window.location.href = "/index.html";
   }
 
   if (baloon_number_talk >= 2) {
@@ -16,7 +16,7 @@ const previous_baloon_talk = () => {
 
 const next_baloon_talk = () => {
   if (baloon_number_talk >= 4) {
-    window.location.href = "../tela-03/";
+    window.location.href = "../tela-03/index.html";
   }
 
   if (baloon_number_talk < 4) {

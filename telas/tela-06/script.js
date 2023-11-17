@@ -593,7 +593,7 @@ monumento_seta_volta.addEventListener("click", () => {
 });
 
 final_seta_avanca.addEventListener("click", () => {
-  window.location.href = "../tela-07/";
+  window.location.href = "../tela-07/index.html";
 });
 
 const pressedKeys = {};

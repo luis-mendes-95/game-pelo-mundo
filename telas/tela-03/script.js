@@ -81,7 +81,7 @@ botao_voltar_troca.addEventListener("click", () => {
 });
 
 botao_voltar.addEventListener("click", () => {
-  window.location.href = "../tela-02/?param=4";
+  window.location.href = "../tela-02/index.html?param=4";
 });
 
 avatar.addEventListener("mouseenter", () => {
@@ -110,7 +110,7 @@ avatar.addEventListener("mouseleave", () => {
 });
 
 avatar.addEventListener("click", () => {
-  window.location.href = "../tela-04/";
+  window.location.href = "../tela-04/index.html";
 });
 
 changeAvatar();

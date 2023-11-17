@@ -26,7 +26,7 @@ const mudar_balao_fala = () => {
 
 const add_balao_num = () => {
     if (balao_fala_num >= 3) {
-        window.location.href = "../tela-05/";
+        window.location.href = "../tela-05/index.html";
     }
 
     if (balao_fala_num < 3) {
@@ -38,7 +38,7 @@ const add_balao_num = () => {
 
 const sub_balao_num = () => {
     if (balao_fala_num <= 1) {
-        window.location.href = "../tela-03/";
+        window.location.href = "../tela-03/index.html";
     }
 
     if (balao_fala_num > 1) {

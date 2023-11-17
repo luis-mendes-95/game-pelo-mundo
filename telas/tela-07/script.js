@@ -58,7 +58,7 @@ const add_balao_num = () => {
    
 
     botao_reiniciar.addEventListener("click", () => {
-      window.location.href = "/"
+      window.location.href = "/index.html"
     })
 
     botao_voltar.src = "";
@@ -76,7 +76,7 @@ const add_balao_num = () => {
 
 const sub_balao_num = () => {
   if (balao_fala_num <= 1) {
-    window.location.href = "../tela-03/";
+    window.location.href = "../tela-03/index.html";
   }
 
   if (balao_fala_num > 1) {

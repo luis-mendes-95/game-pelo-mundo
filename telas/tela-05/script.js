@@ -52,7 +52,7 @@ const mudar_seta_info = () => {
 
 const add_info_seta_num = () => {
   if (informacao_num >= 6) {
-    window.location.href = "../tela-06/";
+    window.location.href = "../tela-06/index.html";
   }
 
   if (informacao_num < 6) {
@@ -64,7 +64,7 @@ const add_info_seta_num = () => {
 
 const sub_info_seta_num = () => {
   if (informacao_num <= 1) {
-    window.location.href = "../tela-04/";
+    window.location.href = "../tela-04/index.html";
   }
 
   if (informacao_num > 1) {
